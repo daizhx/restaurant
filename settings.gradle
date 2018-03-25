@@ -1,0 +1,6 @@
+rootProject.name = 'restaurant'
+include 'server'
+include 'entities'
+include 'casher'
+include 'gui'
+
