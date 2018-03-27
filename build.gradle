@@ -8,7 +8,6 @@ version '1.0-SNAPSHOT'
 //    into ('build/libs/lib')
 //}
 
-
 //把JAR复制到目标目录
 task release(type: Copy,dependsOn: ['server:build','casher:build','entities:build','gui:build']) {
     from 'server/build/libs','casher/build/libs','entities/build/libs','gui/build/libs'
