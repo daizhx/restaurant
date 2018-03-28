@@ -27,7 +27,6 @@ dependencies {
     compile("org.springframework.boot:spring-boot-starter-web")
     compile("org.springframework.boot:spring-boot-starter-data-jpa")
     compile("org.xerial:sqlite-jdbc")
-    compile('org.springframework:spring-jdbc')
-    compile(':entities')
+    compile project(':entities')
 }
 

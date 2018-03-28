@@ -12,7 +12,6 @@ version '1.0-SNAPSHOT'
 task release(type: Copy,dependsOn: ['server:build','casher:build','entities:build','gui:build']) {
     from 'server/build/libs','casher/build/libs','entities/build/libs','gui/build/libs'
     into ('dist')
-    println "hello,world"
 }
 
 //print.dependsOn 'server:build'
