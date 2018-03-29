@@ -1,22 +1,25 @@
 package com.smtech.restaurant.server;
 
-import com.smtech.restaurant.entities.Table;
+import com.smtech.restaurant.entities.Food;
+import com.smtech.restaurant.server.dao.FoodRepository;
 import org.springframework.boot.*;
 import org.springframework.boot.autoconfigure.*;
-import org.springframework.stereotype.*;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.web.bind.annotation.*;
 
-@Controller
-@EnableAutoConfiguration
+@SpringBootApplication
+@EntityScan({"com.smtech.restaurant.entities"})
 public class ServiceController {
 
+    FoodRepository foodRepository;
 
     @RequestMapping("/")
     @ResponseBody
     String home() {
-        Table t = new Table();
-        t.setZuoTaiName("tai1");
-        return t.getZuoTaiName();
+//        Food f = new Food();
+//        f.setName("kele");
+//        foodRepository.save(f);
+        return "hello";
     }
 
 

@@ -1,15 +1,18 @@
 package com.smtech.restaurant.entities;
 
+import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
 
-public class Order {
+@Entity
+public class FoodOrder {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
     private Date time;
 
-    private List<Food> foods;
 
 
     public int getId() {
@@ -28,11 +31,4 @@ public class Order {
         this.time = time;
     }
 
-    public List<Food> getFoods() {
-        return foods;
-    }
-
-    public void setFoods(List<Food> foods) {
-        this.foods = foods;
-    }
 }
