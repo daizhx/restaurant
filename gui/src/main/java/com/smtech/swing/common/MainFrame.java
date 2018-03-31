@@ -1,4 +1,4 @@
-package com.smtech.restaurant.common.gui;
+package com.smtech.swing.common;
 
 import javax.swing.*;
 import java.awt.*;

@@ -1,6 +1,6 @@
 package com.smtech.restaurant.casher;
 
-import com.smtech.restaurant.common.gui.MainFrame;
+import com.smtech.swing.common.MainFrame;
 
 import javax.swing.*;
 import java.awt.*;
@@ -12,6 +12,7 @@ import java.io.*;
 public class Main {
     public static void main(String[] args){
 
+        System.out.println(System.getProperty("user.dir"));//系统的classpaht路径
         //启动服务进程
         try {
             Process process = Runtime.getRuntime().exec("java -jar server-1.0-SNAPSHOT.jar");
