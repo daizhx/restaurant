@@ -49,11 +49,9 @@ public class Main {
             BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
 
             String line;
-            System.out.println("-------------->start");
             while ((line = reader.readLine()) != null) {
                 out.println(line);
             }
-            System.out.println("-------------->end");
 
         } catch (IOException e) {
             e.printStackTrace();
