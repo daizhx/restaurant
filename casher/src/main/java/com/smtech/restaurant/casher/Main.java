@@ -1,5 +1,7 @@
 package com.smtech.restaurant.casher;
 
+import com.smtech.restaurant.casher.dlg.DlgWelcome;
+import com.smtech.swing.common.DlgManager;
 import com.smtech.swing.common.MainFrame;
 
 import javax.swing.*;
@@ -10,23 +12,34 @@ import java.io.*;
  * Created by daizhx on 2018/3/25.
  */
 public class Main {
-    public static void main(String[] args){
+    public static void main(String[] args) {
 
         System.out.println(System.getProperty("user.dir"));//系统的classpaht路径
         //启动服务进程
-        try {
-            Process process = Runtime.getRuntime().exec("java -jar server-1.0-SNAPSHOT.jar");
-            // 打印程序输出
-            readProcessOutput(process);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        //启动主界面
+//        try {
+//            Process process = Runtime.getRuntime().exec("java -jar server-1.0-SNAPSHOT.jar");
+//            // 打印程序输出
+//            readProcessOutput(process);
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+
+        javax.swing.SwingUtilities.invokeLater(new Runnable() {
+            public void run() {
+                createAndShowGUI();
+            }
+        });
+    }
+
+    private static void createAndShowGUI() {
+        //打开窗口
         MainFrame frame = MainFrame.getInstance();
         frame.setContentPane(new JPanel());
         frame.setUndecorated(true);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setPreferredSize(Toolkit.getDefaultToolkit().getScreenSize());
+
+        //Display the window.
         frame.pack();
         frame.setVisible(true);
     }
