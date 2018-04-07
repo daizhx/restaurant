@@ -34,7 +34,7 @@ public class Main {
     private static void createAndShowGUI() {
         //打开窗口
         MainFrame frame = MainFrame.getInstance();
-        frame.setContentPane(new JPanel());
+        frame.setContentPane(crtContent());
         frame.setUndecorated(true);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setPreferredSize(Toolkit.getDefaultToolkit().getScreenSize());
@@ -42,6 +42,16 @@ public class Main {
         //Display the window.
         frame.pack();
         frame.setVisible(true);
+    }
+
+    private static Container crtContent() {
+
+        JPanel p = new JPanel(new BorderLayout());
+
+        JLabel label = new JLabel("welcome!");
+        p.add(label,BorderLayout.CENTER);
+
+        return p;
     }
 
 
