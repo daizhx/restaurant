@@ -3,4 +3,5 @@ include 'server'
 include 'entities'
 include 'casher'
 include 'gui'
+include 'util'
 

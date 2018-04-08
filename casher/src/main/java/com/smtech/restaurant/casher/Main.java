@@ -6,6 +6,8 @@ import com.smtech.swing.common.MainFrame;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.io.*;
 
 /**
@@ -26,9 +28,25 @@ public class Main {
 
         javax.swing.SwingUtilities.invokeLater(new Runnable() {
             public void run() {
-                createAndShowGUI();
+//                createAndShowGUI();
+                DlgWelcome dlg = (DlgWelcome) DlgManager.getInstance().getDlg(DlgWelcome.class);
+                dlg.setVisible(true);
             }
         });
+    }
+
+    private static void test(){
+        //Create and set up the window.
+        JFrame frame = new JFrame("HelloWorldSwing");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        //Add the ubiquitous "Hello World" label.
+        JLabel label = new JLabel("Hello World");
+        frame.getContentPane().add(label);
+
+        //Display the window.
+        frame.pack();
+        frame.setVisible(true);
     }
 
     private static void createAndShowGUI() {
@@ -49,8 +67,17 @@ public class Main {
         JPanel p = new JPanel(new BorderLayout());
 
         JLabel label = new JLabel("welcome!");
+        label.setHorizontalAlignment(SwingConstants.CENTER);
+        label.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                System.out.println("-------------->");
+                DlgWelcome dlg = (DlgWelcome) DlgManager.getInstance().getDlg(DlgWelcome.class);
+                dlg.setVisible(true);
+//                JOptionPane.showMessageDialog(MainFrame.getInstance(), "Eggs are not supposed to be green.");
+            }
+        });
         p.add(label,BorderLayout.CENTER);
-
         return p;
     }
 

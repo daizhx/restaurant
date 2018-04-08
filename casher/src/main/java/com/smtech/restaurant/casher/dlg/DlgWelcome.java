@@ -12,7 +12,10 @@ public class DlgWelcome extends DlgBase{
     }
 
     @Override
-    protected Container crtContnt() {
-        return new JLabel("WELCOME");
+    protected JPanel crtContnt() {
+        JPanel p = new JPanel();
+        p.setBackground(Color.RED);
+
+        return p;
     }
 }
