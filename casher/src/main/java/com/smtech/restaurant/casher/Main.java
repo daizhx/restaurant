@@ -35,53 +35,6 @@ public class Main {
         });
     }
 
-    private static void test(){
-        //Create and set up the window.
-        JFrame frame = new JFrame("HelloWorldSwing");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-        //Add the ubiquitous "Hello World" label.
-        JLabel label = new JLabel("Hello World");
-        frame.getContentPane().add(label);
-
-        //Display the window.
-        frame.pack();
-        frame.setVisible(true);
-    }
-
-    private static void createAndShowGUI() {
-        //打开窗口
-        MainFrame frame = MainFrame.getInstance();
-        frame.setContentPane(crtContent());
-        frame.setUndecorated(true);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setPreferredSize(Toolkit.getDefaultToolkit().getScreenSize());
-
-        //Display the window.
-        frame.pack();
-        frame.setVisible(true);
-    }
-
-    private static Container crtContent() {
-
-        JPanel p = new JPanel(new BorderLayout());
-
-        JLabel label = new JLabel("welcome!");
-        label.setHorizontalAlignment(SwingConstants.CENTER);
-        label.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                System.out.println("-------------->");
-                DlgWelcome dlg = (DlgWelcome) DlgManager.getInstance().getDlg(DlgWelcome.class);
-                dlg.setVisible(true);
-//                JOptionPane.showMessageDialog(MainFrame.getInstance(), "Eggs are not supposed to be green.");
-            }
-        });
-        p.add(label,BorderLayout.CENTER);
-        return p;
-    }
-
-
     /**
      * 打印进程输出
      *
