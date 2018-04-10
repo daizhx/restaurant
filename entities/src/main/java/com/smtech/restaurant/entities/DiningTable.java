@@ -38,4 +38,13 @@ public class DiningTable {
     public void setArea(DiningTableArea area) {
         this.area = area;
     }
+
+    @Override
+    public String toString() {
+        return "DiningTable{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", area=" + area +
+                '}';
+    }
 }
