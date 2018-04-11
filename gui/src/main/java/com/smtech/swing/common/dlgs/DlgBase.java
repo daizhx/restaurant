@@ -8,10 +8,6 @@ import java.awt.*;
  */
 public abstract class DlgBase extends JDialog{
 
-    public DlgBase() {
-        this(null);
-    }
-
     public DlgBase(Window owner) {
         super(owner);
         setUndecorated(true);

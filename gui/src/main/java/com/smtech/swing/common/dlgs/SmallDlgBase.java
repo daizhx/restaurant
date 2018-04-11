@@ -32,10 +32,6 @@ import com.sun.awt.AWTUtilities;
 public abstract class SmallDlgBase extends DlgBase {
 	
 	ButtonWrapper btnClose;
-	
-	public SmallDlgBase() {
-		super();
-	}
 
 	public SmallDlgBase(Window owner) {
 		super(owner);
