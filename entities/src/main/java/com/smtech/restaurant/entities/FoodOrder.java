@@ -13,8 +13,6 @@ public class FoodOrder {
 
     private Date time;
 
-
-
     public int getId() {
         return id;
     }
