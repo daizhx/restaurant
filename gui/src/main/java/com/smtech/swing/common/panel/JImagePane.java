@@ -5,16 +5,8 @@ import com.smtech.swing.common.ImageManager;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.Image;
-import java.awt.Rectangle;
-import java.awt.RenderingHints;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-
-import javax.swing.JPanel;
+import javax.swing.*;
+import java.awt.*;
 
 /**
  *
