@@ -2,7 +2,6 @@ package com.smtech.restaurant.entities;
 
 import javax.persistence.*;
 import java.util.Date;
-import java.util.List;
 
 @Entity
 public class FoodOrder {
@@ -11,7 +10,21 @@ public class FoodOrder {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
-    private Date time;
+    // 生成时间
+    private Date createTime;
+
+    // 结账时间
+    private Date checkTime;
+
+    //应收
+    private float sum;
+
+    //实收
+    private float income;
+
+    // 付款情况
+    @OneToMany
+    private Payment payment;
 
     public int getId() {
         return id;
@@ -21,12 +34,5 @@ public class FoodOrder {
         this.id = id;
     }
 
-    public Date getTime() {
-        return time;
-    }
-
-    public void setTime(Date time) {
-        this.time = time;
-    }
 
 }
