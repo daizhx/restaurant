@@ -17,4 +17,37 @@ public class Payment {
     private PaymentType type;
 
     private float amount;
+
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public FoodOrder getOrder() {
+        return order;
+    }
+
+    public void setOrder(FoodOrder order) {
+        this.order = order;
+    }
+
+    public PaymentType getType() {
+        return type;
+    }
+
+    public void setType(PaymentType type) {
+        this.type = type;
+    }
+
+    public float getAmount() {
+        return amount;
+    }
+
+    public void setAmount(float amount) {
+        this.amount = amount;
+    }
 }
