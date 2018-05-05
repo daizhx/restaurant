@@ -26,6 +26,10 @@ public class FoodOrder {
     @OneToMany
     private Payment payment;
 
+    //来源
+    private String createSource;
+
+
     public int getId() {
         return id;
     }

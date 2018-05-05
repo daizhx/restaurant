@@ -20,6 +20,7 @@ public final class PieChart {
 
 	public PieChart(PieDataModel data) {
 		DefaultPieDataset dataset = new DefaultPieDataset();
+		dataset.getKeys();
 		for (int i=0;i<data.key.length;i++) {
 			dataset.setValue(data.key[i], data.value[i]);
 		}
