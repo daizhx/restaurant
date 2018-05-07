@@ -5,4 +5,5 @@ include 'casher'
 include 'gui'
 include 'util'
 include 'order'
+include 'common'
 

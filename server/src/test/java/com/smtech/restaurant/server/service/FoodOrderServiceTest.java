@@ -16,14 +16,10 @@ public class FoodOrderServiceTest {
     FoodOrderService foodOrderService;
 
     @Test
-    public void generateFoodOrderTest() {
+    public void generateFoodOrder() {
         FoodOrder fo = foodOrderService.generateFoodOrder();
         int id = fo.getId();
         System.out.println("----------->"+id);
-    }
-
-    @Test
-    public void generateFoodOrder() {
     }
 
     @Test
