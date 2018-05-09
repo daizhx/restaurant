@@ -30,6 +30,5 @@ dependencies {
     compile("org.xerial:sqlite-jdbc")
     compile project(':entities')
     compile project(':common')
-    compile 'com.alibaba:fastjson:1.2.46'
 }
 

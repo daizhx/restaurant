@@ -1,6 +1,6 @@
 package com.smtech.swing.common;
 
-import java.awt.Color;
+import java.awt.*;
 
 public class Res {
     // 透明颜色
@@ -22,14 +22,14 @@ public class Res {
     // 字体
     public static final String FONT = "Noto Sans S Chinese Regular";
     public static final String FONT_BOLD = "Noto Sans S Chinese Bold";
-    public static final String FONT_DLG_TITLE = FONT_BOLD;
-    public static final String FONT_MSG = FONT_BOLD;
-    public static final String FONT_BTN = FONT_BOLD;
-
     // 字体大小
     public static final int FONT_SIZE_TEXT = 20;
     public static final int FONT_SIZE_IN_CHECKBOX = FONT_SIZE_TEXT;
     public static final int FONT_SIZE_BTN = 18;
     public static final int FONT_SIZE_MSG = FONT_SIZE_TEXT;
     public static final int FONT_SIZE_TITLE = 30;
+    //按钮字体
+    public static final Font footBtn = new Font(Res.FONT, Font.PLAIN, Res.FONT_SIZE_BTN);
+
+
 }

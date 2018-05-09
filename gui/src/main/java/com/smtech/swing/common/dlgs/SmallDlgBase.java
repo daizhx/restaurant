@@ -38,7 +38,7 @@ public abstract class SmallDlgBase extends DlgBase {
 	}
 
 	public void reflash() {
-		
+
 	}
 	
 	public void initComponents() {

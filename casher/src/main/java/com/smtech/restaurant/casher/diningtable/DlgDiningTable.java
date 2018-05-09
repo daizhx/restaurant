@@ -12,7 +12,7 @@ public class DlgDiningTable extends DlgBase{
     }
 
     @Override
-    protected JPanel crtContnt() {
+    protected JPanel onCrtContntView() {
         return null;
     }
 }

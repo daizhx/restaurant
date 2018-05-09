@@ -16,7 +16,7 @@ public class DlgWelcome extends DlgBase{
     }
 
     @Override
-    protected JPanel crtContnt() {
+    protected JPanel onCrtContntView() {
         ActionListener a;
         JPanel p = new JPanel(new GridLayout());
         p.setBorder(BorderFactory.createEmptyBorder(200,400,200,400));

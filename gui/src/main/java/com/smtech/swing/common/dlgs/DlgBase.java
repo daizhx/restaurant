@@ -13,7 +13,7 @@ public abstract class DlgBase extends JDialog{
         setUndecorated(true);
         setDefaultCloseOperation(JDialog.DO_NOTHING_ON_CLOSE);
 
-        JPanel content = crtContnt();
+        JPanel content = onCrtContntView();
         content.setOpaque(true);
         setContentPane(content);
 
@@ -25,5 +25,5 @@ public abstract class DlgBase extends JDialog{
         pack();
     }
 
-    protected abstract JPanel crtContnt();
+    protected abstract JPanel onCrtContntView();
 }

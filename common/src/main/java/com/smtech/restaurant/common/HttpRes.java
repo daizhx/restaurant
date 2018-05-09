@@ -1,6 +1,7 @@
 package com.smtech.restaurant.common;
 
 import com.alibaba.fastjson.JSONObject;
+import okhttp3.OkHttpClient;
 
 public class HttpRes {
 
@@ -14,6 +15,10 @@ public class HttpRes {
         jsonObject.put("detail","");
         jsonObject.put("result",result);
         return jsonObject.toJSONString();
+    }
+
+    public void test(){
+        OkHttpClient client = new OkHttpClient();
     }
 
 }
