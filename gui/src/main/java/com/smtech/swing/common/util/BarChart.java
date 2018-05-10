@@ -8,6 +8,7 @@ import org.jfree.chart.axis.CategoryAxis;
 import org.jfree.chart.axis.ValueAxis;
 import org.jfree.chart.plot.CategoryPlot;
 import org.jfree.chart.plot.PlotOrientation;
+import org.jfree.chart.renderer.category.StandardBarPainter;
 import org.jfree.data.category.CategoryDataset;
 import org.jfree.data.category.DefaultCategoryDataset;
 
@@ -30,6 +31,7 @@ public final class BarChart {
 				false // 是否生成URL链接
 				);
 
+		new StandardBarPainter();
 		// 从这里开始
 		CategoryPlot plot = chart.getCategoryPlot();// 获取图表区域对象
 		CategoryAxis domainAxis = plot.getDomainAxis(); // 水平底部列表
