@@ -224,17 +224,14 @@ public class JImagePane extends JPanel {
 	}
 
 	/**
-	 * ����
 	 */
 	public static final String CENTRE = "Centre";
 
 	/**
-	 * ƽ��
 	 */
 	public static final String TILED = "Tiled";
 
 	/**
-	 * ����
 	 */
 	public static final String SCALED = "Scaled";
 
@@ -247,12 +244,10 @@ public class JImagePane extends JPanel {
 	public static final String CENTER_INSIDE = "CENTER_INSIDE";
 
 	/**
-	 * ����ͼƬ
 	 */
 	private Image backgroundImage;
 
 	/**
-	 * ����ͼƬ��ʾģʽ
 	 */
 	private String imageDisplayMode;
 

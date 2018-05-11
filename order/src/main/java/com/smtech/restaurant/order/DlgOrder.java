@@ -2,7 +2,7 @@ package com.smtech.restaurant.order;
 
 import com.smtech.swing.common.dlgs.DlgBase;
 import com.smtech.swing.common.layout.GridBagLayoutAdp;
-import com.smtech.swing.common.panel.ListView;
+import com.smtech.swing.common.panel.PagerView;
 import com.smtech.swing.common.panel.TransparentPanel;
 
 import javax.swing.*;
@@ -39,10 +39,19 @@ public class DlgOrder extends DlgBase {
     }
 
     private Component crtOrderView() {
-        ListView listView = new ListView(3);
+        PagerView pv = new PagerView(20,3);
 
-        java.util.List<String> testData = new ArrayList<String>();
-//        listView.setData(testData);
-        return listView;
+        java.util.List<Object[]> testData = new ArrayList<Object[]>();
+
+        for (int i=0; i<30; i++){
+            Object[] it = new Object[3];
+            it[0] = "aaa";
+            it[1] = 1;
+            it[2] = "100";
+            testData.add(it);
+        }
+        pv.setData(testData);
+
+        return pv;
     }
 }

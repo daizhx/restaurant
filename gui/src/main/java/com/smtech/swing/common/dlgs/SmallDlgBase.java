@@ -1,37 +1,20 @@
 package com.smtech.swing.common.dlgs;
 
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Font;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.Toolkit;
-import java.awt.Window;
-import java.awt.event.ActionEvent;
-
-import javax.swing.AbstractAction;
-import javax.swing.BorderFactory;
-import javax.swing.Box;
-import javax.swing.JComponent;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.SwingConstants;
-
 import com.smtech.swing.common.Res;
-import com.smtech.swing.common.btns.ButtonWrapper;
 import com.smtech.swing.common.panel.RoundRectPanel;
 import com.smtech.swing.common.panel.TranslucenceJPanel;
 import com.smtech.swing.common.panel.TransparentPanel;
 import com.smtech.swing.common.util.PanelBuilder;
-import com.sun.awt.AWTUtilities;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
 
 /**
  *
  */
 public abstract class SmallDlgBase extends DlgBase {
-	
-	ButtonWrapper btnClose;
+
 
 	public SmallDlgBase(Window owner) {
 		super(owner);
@@ -149,10 +132,7 @@ public abstract class SmallDlgBase extends DlgBase {
 		pTop.add(Box.createHorizontalStrut(60), BorderLayout.WEST);
 		pTop.add(labTitle, BorderLayout.CENTER);
 		if(!isHideBtnClose()) {
-//			btnClose = new ButtonWrapper(new AcOnCancel());
-//			btnClose.setIcon(getSaasImgPath("KaiTaiDlg/btnClose.png"));
-//			btnClose.setPreferredSize(new Dimension(60, 0));
-//			pTop.add(btnClose, BorderLayout.EAST);
+
 		}
 		
 		TransparentPanel pTmp = new TransparentPanel(new BorderLayout());

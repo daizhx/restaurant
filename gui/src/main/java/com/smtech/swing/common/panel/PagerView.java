@@ -10,41 +10,37 @@ import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 import java.util.List;
 
+public class PagerView extends TransparentPanel {
 
+    private JComponent header;
 
-// 用swing组件模拟android的listview控件
-public class ListView {
+    private JTable contentTable;
 
+    private JPanel sumPanel;
 
-    JPanel view;
+    private JPanel pagerPanel;
 
-    JTable table;
+    private MyTableModel dataModel;
 
-    JScrollPane scrollPane;
+    private JTable table;
 
-    JPanel listContent;
+    // 一页显示的行数
+    private int rowNum;
 
-    ListViewModel dataModel;
+    private int colNum;
 
-    JPanel sum;
-
-    public ListView(int colNum) {
-        view = new TransparentPanel(new BorderLayout());
-        view.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
-
-        dataModel = new ListViewModel(colNum);
+    public PagerView(int rowNum,int colNum) {
+        this.rowNum = rowNum;
+        this.colNum = colNum;
+        setLayout(new BorderLayout());
+        dataModel = new MyTableModel(colNum);
         table = new JTable(dataModel);
-        scrollPane = new JScrollPane(table);
-        // scrollPane.getViewport().setOpaque(false);
-        // scrollPane.setOpaque(false);
-        scrollPane.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
 
         // table.getTableHeader().setVisible(false);
 //        table.setTableHeader(null);
         table.setFillsViewportHeight(true);
         table.setShowVerticalLines(false);
-
-        table.setRowHeight(50);
+//        table.setRowHeight(70);
         DefaultTableCellRenderer renderer = (DefaultTableCellRenderer) table
                 .getDefaultRenderer(Object.class);
         renderer.setHorizontalAlignment(SwingConstants.CENTER);
@@ -57,11 +53,15 @@ public class ListView {
             table.removeMouseMotionListener(ml);
         }
 
-        listContent = new TransparentPanel(new BorderLayout());
-        listContent.add(scrollPane, BorderLayout.CENTER);
 
-        view.add(table.getTableHeader(),BorderLayout.NORTH);
-        view.add(table, BorderLayout.CENTER);
+        add(table.getTableHeader(),BorderLayout.NORTH);
+        add(table, BorderLayout.CENTER);
+
+
+        pagerPanel = new TransparentPanel();
+
+
+        add(pagerPanel,BorderLayout.SOUTH);
     }
 
     public void setData(List<Object[]> l) {
@@ -69,28 +69,28 @@ public class ListView {
         dataModel.fireTableDataChanged();
     }
 
-
-    // 更新内容
-    public void update() {
-        dataModel.fireTableDataChanged();
+    @Override
+    public void doLayout() {
+        super.doLayout();
+        int th = table.getHeight();
+        System.out.println("------------->"+th);
+        int t = th%rowNum;
+        int rh = th/rowNum;
+        if(t > (rowNum - 5)){
+            //只差5个像素值，满足它
+            rh += 1;
+        }
+        table.setRowHeight(rh);
     }
 
-    public JPanel getView() {
-        return view;
-    }
 
-    // 添加列表合计，添加到列表头部
-
-
-
-
-    public static class ListViewModel extends AbstractTableModel {
+    public static class MyTableModel extends AbstractTableModel {
 
         List<Object[]> data;
 
         int colNum;
 
-        public ListViewModel(int colNum) {
+        public MyTableModel(int colNum) {
             this.colNum = colNum;
         }
 
@@ -123,8 +123,9 @@ public class ListView {
 
         @Override
         public String getColumnName(int column) {
-            String[] title = new String[]{"菜名","数量","金额"};
+            String[] title = new String[]{"菜名", "数量", "金额"};
             return title[column];
         }
     }
+
 }
