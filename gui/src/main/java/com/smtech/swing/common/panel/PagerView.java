@@ -58,7 +58,9 @@ public class PagerView extends TransparentPanel {
         add(table, BorderLayout.CENTER);
 
 
-        pagerPanel = new TransparentPanel();
+        pagerPanel = new JPanel();
+        pagerPanel.setBackground(Color.red);
+        pagerPanel.setPreferredSize(new Dimension(0,40));
 
 
         add(pagerPanel,BorderLayout.SOUTH);
@@ -73,7 +75,6 @@ public class PagerView extends TransparentPanel {
     public void doLayout() {
         super.doLayout();
         int th = table.getHeight();
-        System.out.println("------------->"+th);
         int t = th%rowNum;
         int rh = th/rowNum;
         if(t > (rowNum - 5)){

@@ -1,7 +1,7 @@
 package com.smtech.restaurant.casher.dlg;
 
 import com.smtech.swing.common.dlgs.DlgBase;
-import com.smtech.swing.common.panel.JImagePane;
+import com.smtech.swing.common.panel.View;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -22,7 +22,7 @@ public class DlgWelcome extends DlgBase{
         p.setBorder(BorderFactory.createEmptyBorder(200,400,200,400));
         try {
             Image img = ImageIO.read(getClass().getResource("/images/zffs_bg.png"));
-            JImagePane jp = new JImagePane(img,JImagePane.SCALED);
+            View jp = new View(img, View.SCALED);
             jp.setPreferredSize(new Dimension(100,100));
             p.add(jp,BorderLayout.NORTH);
         } catch (IOException e) {

@@ -12,10 +12,14 @@ import java.awt.*;
  *
  * @author 003
  */
-public class JImagePane extends JPanel {
+public class View extends JPanel {
+
+    public static final int HORIZONTAL = SwingConstants.HORIZONTAL;
+    public static final int VERTICAL = SwingConstants.VERTICAL;
+
 	private boolean isDotNinePNG = false;
 
-	public JImagePane(String imagePath) {
+	public View(String imagePath) {
 		setBackgroundImage(imagePath, TILED);
 		setOpaque(false);
 	}
@@ -25,19 +29,19 @@ public class JImagePane extends JPanel {
 	 * @param image
 	 * @param modeName
 	 */
-	public JImagePane(Image image, String modeName) {
+	public View(Image image, String modeName) {
 		super();
 		setBackgroundImage(image);
 		setImageDisplayMode(modeName);
 		setOpaque(false);
 	}
 	
-	public JImagePane(String imagePath,String modeName) {
+	public View(String imagePath, String modeName) {
 		setBackgroundImage(imagePath, modeName);
 		setOpaque(false);
 	}
 
-	public JImagePane() {
+	public View() {
 		setOpaque(false);
 	}
 
@@ -100,8 +104,9 @@ public class JImagePane extends JPanel {
 	 */
 	@Override
 	protected void paintComponent(Graphics g) {
-		super.paintComponent(g);
+
 		if (backgroundImage == null) {
+			super.paintComponent(g);
 			return;
 		}
 		
@@ -131,6 +136,7 @@ public class JImagePane extends JPanel {
 		} else if (CENTER_INSIDE.equalsIgnoreCase(imageDisplayMode)) {
 			paintComponentCENTER_INSIDE(g);
 		}
+		super.paintComponent(g);
 	}
 
 	/**
@@ -253,6 +259,6 @@ public class JImagePane extends JPanel {
 
 	private String bgPath;
 	
-	private static Logger logger = LoggerFactory.getLogger(JImagePane.class);
+	private static Logger logger = LoggerFactory.getLogger(View.class);
 
 }
