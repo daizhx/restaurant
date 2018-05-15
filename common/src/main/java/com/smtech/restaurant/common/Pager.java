@@ -40,9 +40,9 @@ public class Pager<T> {
         }
         curPageIndex++;
         curPageStartIndex += pageSize;
-        int t = curPageEndIndex + pageSize;
+        curPageEndIndex = curPageEndIndex + pageSize;
 
-        if(t > data.size() - 1){
+        if(curPageEndIndex > data.size() - 1){
             curPageEndIndex = data.size() - 1;
         }
 
@@ -62,8 +62,15 @@ public class Pager<T> {
         return curPageStartIndex;
     }
 
+    public List<T> getCurPageData(){
+        return data.subList(curPageStartIndex,curPageEndIndex+1);
+    }
+
     @Override
     public String toString() {
-        return "第 " + curPageIndex + "/" + totalPages + " 页";
+        if(totalPages > 0 ){
+            return "第 " + (curPageIndex+1) + "/" + totalPages + " 页";
+        }
+        return "第 0/0 页";
     }
 }

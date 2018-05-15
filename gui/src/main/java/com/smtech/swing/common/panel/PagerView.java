@@ -1,46 +1,50 @@
 package com.smtech.swing.common.panel;
 
+import com.smtech.restaurant.common.Pager;
 import com.smtech.swing.common.Res;
+import com.smtech.swing.common.btns.Button;
+import com.smtech.swing.common.layout.LinearLayout;
 
 import javax.swing.*;
 import javax.swing.table.AbstractTableModel;
 import javax.swing.table.DefaultTableCellRenderer;
 import java.awt.*;
+import java.awt.event.ActionEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 import java.util.List;
 
-public class PagerView extends TransparentPanel {
+public class PagerView extends JPanel {
 
     private JComponent header;
 
-    private JTable contentTable;
+    private LinearLayout sumPanel;
 
-    private JPanel sumPanel;
-
-    private JPanel pagerPanel;
+    private LinearLayout pagerPanel;
 
     private MyTableModel dataModel;
 
     private JTable table;
 
     // 一页显示的行数
-    private int rowNum;
+    private int rowNum = 1;
 
-    private int colNum;
+    private Pager pager;
 
-    public PagerView(int rowNum,int colNum) {
-        this.rowNum = rowNum;
-        this.colNum = colNum;
+    private TextView tvPageInd;
+
+    public PagerView() {
         setLayout(new BorderLayout());
-        dataModel = new MyTableModel(colNum);
+
+
+        dataModel = new MyTableModel();
         table = new JTable(dataModel);
 
         // table.getTableHeader().setVisible(false);
 //        table.setTableHeader(null);
         table.setFillsViewportHeight(true);
         table.setShowVerticalLines(false);
-//        table.setRowHeight(70);
+//        table.setRowHeight(30);
         DefaultTableCellRenderer renderer = (DefaultTableCellRenderer) table
                 .getDefaultRenderer(Object.class);
         renderer.setHorizontalAlignment(SwingConstants.CENTER);
@@ -54,21 +58,66 @@ public class PagerView extends TransparentPanel {
         }
 
 
-        add(table.getTableHeader(),BorderLayout.NORTH);
-        add(table, BorderLayout.CENTER);
-
-
-        pagerPanel = new JPanel();
-        pagerPanel.setBackground(Color.red);
-        pagerPanel.setPreferredSize(new Dimension(0,40));
-
-
-        add(pagerPanel,BorderLayout.SOUTH);
+//        add(table.getTableHeader(),BorderLayout.NORTH);
+        add(table,BorderLayout.CENTER);
+        crtPagerOprView();
+//        add(crtPagerOprView(),BorderLayout.SOUTH);
     }
 
-    public void setData(List<Object[]> l) {
-        dataModel.setData(l);
-        dataModel.fireTableDataChanged();
+    public void setPager(Pager pager) {
+        this.pager = pager;
+        rowNum = pager.getPageSize();
+        dataModel.setData(pager.getCurPageData());
+        tvPageInd.setText(pager.toString());
+    }
+
+    private JComponent crtPagerOprView() {
+        pagerPanel = new LinearLayout();
+        pagerPanel.setOrientation(View.HORIZONTAL);
+
+        pagerPanel.addHorizontalGlue();
+
+        Button preBtn = new Button();
+        tvPageInd = new TextView("第 0/0 页");
+        Button nextBtn = new Button();
+
+        preBtn.setAction(new AbstractAction("上一页") {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if(pager != null){
+                    pager.prePage();
+                    dataModel.setData(pager.getCurPageData());
+                    dataModel.fireTableDataChanged();
+                    tvPageInd.setText(pager.toString());
+                }
+            }
+        });
+
+        nextBtn.setAction(new AbstractAction("下一页") {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                pager.nextPage();
+                dataModel.setData(pager.getCurPageData());
+                dataModel.fireTableDataChanged();
+                tvPageInd.setText(pager.toString());
+            }
+        });
+
+        pagerPanel.add(preBtn);
+        pagerPanel.add(tvPageInd);
+        pagerPanel.add(nextBtn);
+        pagerPanel.addHorizontalGlue();
+        pagerPanel.setPadding(10,10,10,10);
+        return pagerPanel;
+    }
+
+    private JComponent crtSumView() {
+        return null;
+    }
+
+    // 获取翻页按钮操作视图
+    public View getPagerBtnsView(){
+        return pagerPanel;
     }
 
     @Override
@@ -89,10 +138,9 @@ public class PagerView extends TransparentPanel {
 
         List<Object[]> data;
 
-        int colNum;
+        int colNum = 3;
 
-        public MyTableModel(int colNum) {
-            this.colNum = colNum;
+        public MyTableModel() {
         }
 
         @Override
