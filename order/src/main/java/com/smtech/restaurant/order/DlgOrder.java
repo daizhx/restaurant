@@ -75,11 +75,7 @@ public class DlgOrder extends DlgBase {
         ll.add(title);
         ll.add(pv);
         ll.add(pv.getPagerBtnsView());
-        JLabel end = new JLabel("尾巴栏");
-        ll.add(end);
 
-        JButton button = new JButton("按钮。。。");
-        ll.add(button);
         return ll;
     }
 }

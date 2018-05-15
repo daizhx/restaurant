@@ -2,8 +2,6 @@ package com.smtech.swing.common.panel;
 
 import com.smtech.restaurant.util.StringUtil;
 import com.smtech.swing.common.ImageManager;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import javax.swing.*;
 import java.awt.*;
@@ -229,6 +227,10 @@ public class View extends JPanel {
 		g2d.drawImage(backgroundImage, 0, 0, width, height, x1, y1, x2, y2, this);
 	}
 
+	public void setPadding(int left,int top ,int right,int bottom){
+		setBorder(BorderFactory.createEmptyBorder(top,left,bottom,right));
+	}
+
 	/**
 	 */
 	public static final String CENTRE = "Centre";
@@ -258,7 +260,6 @@ public class View extends JPanel {
 	private String imageDisplayMode;
 
 	private String bgPath;
-	
-	private static Logger logger = LoggerFactory.getLogger(View.class);
+
 
 }

@@ -25,4 +25,9 @@ public class TextView extends JLabel {
 
     public TextView() {
     }
+
+    public void setPadding(int left,int top ,int right,int bottom){
+        setBorder(BorderFactory.createEmptyBorder(top,left,bottom,right));
+    }
+
 }

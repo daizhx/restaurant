@@ -58,7 +58,7 @@ public class PagerView extends JPanel {
         }
 
 
-//        add(table.getTableHeader(),BorderLayout.NORTH);
+        add(table.getTableHeader(),BorderLayout.NORTH);
         add(table,BorderLayout.CENTER);
         crtPagerOprView();
 //        add(crtPagerOprView(),BorderLayout.SOUTH);
@@ -79,6 +79,7 @@ public class PagerView extends JPanel {
 
         Button preBtn = new Button();
         tvPageInd = new TextView("第 0/0 页");
+        tvPageInd.setPadding(10,0,10,0);
         Button nextBtn = new Button();
 
         preBtn.setAction(new AbstractAction("上一页") {

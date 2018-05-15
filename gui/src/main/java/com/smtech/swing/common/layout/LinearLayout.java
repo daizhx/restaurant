@@ -33,7 +33,5 @@ public class LinearLayout extends View {
         add(Box.createHorizontalGlue());
     }
 
-    public void setPadding(int left,int top ,int right,int bottom){
-        setBorder(BorderFactory.createEmptyBorder(top,left,bottom,right));
-    }
+
 }
