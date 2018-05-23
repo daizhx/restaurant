@@ -29,7 +29,6 @@ public class Res {
     public static final int FONT_SIZE_MSG = FONT_SIZE_TEXT;
     public static final int FONT_SIZE_TITLE = 30;
     //按钮字体
-    public static final Font footBtn = new Font(Res.FONT, Font.PLAIN, Res.FONT_SIZE_BTN);
 
 
 }
