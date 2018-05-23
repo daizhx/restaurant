@@ -4,7 +4,7 @@ import com.smtech.restaurant.common.Pager;
 import com.smtech.swing.common.dlgs.DlgBase;
 import com.smtech.swing.common.layout.GridBagLayoutAdp;
 import com.smtech.swing.common.layout.LinearLayout;
-import com.smtech.swing.common.panel.PagerView;
+import com.smtech.swing.common.panel.PagerListView;
 import com.smtech.swing.common.panel.TransparentPanel;
 import com.smtech.swing.common.panel.View;
 
@@ -43,7 +43,7 @@ public class DlgOrder extends DlgBase {
 
     private Component crtOrderView() {
 
-        PagerView pv = new PagerView();
+        PagerListView pv = new PagerListView();
 
         java.util.List<Object[]> testData = new ArrayList<Object[]>();
 

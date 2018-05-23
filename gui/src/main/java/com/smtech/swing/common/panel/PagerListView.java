@@ -14,7 +14,7 @@ import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 import java.util.List;
 
-public class PagerView extends JPanel {
+public class PagerListView extends JPanel {
 
     private JComponent header;
 
@@ -33,7 +33,7 @@ public class PagerView extends JPanel {
 
     private TextView tvPageInd;
 
-    public PagerView() {
+    public PagerListView() {
         setLayout(new BorderLayout());
 
 
