@@ -1,20 +1,20 @@
 package com.smtech.swing.common.layout;
 
-import com.smtech.swing.common.panel.View;
+import com.smtech.swing.common.panel.ViewGroup;
 
 import javax.swing.*;
 import java.awt.*;
 
-public class LinearLayout extends View {
+public class LinearLayout extends ViewGroup {
 
-    private int oritation = View.VERTICAL;
+    private int oritation = ViewGroup.VERTICAL;
 
     public LinearLayout() {
     }
 
     public void setOrientation(int oritation){
         this.oritation = oritation;
-        if(oritation == View.HORIZONTAL){
+        if(oritation == ViewGroup.HORIZONTAL){
             setLayout(new BoxLayout(this,BoxLayout.X_AXIS));
         }else{
             setLayout(new BoxLayout(this,BoxLayout.Y_AXIS));
@@ -22,7 +22,7 @@ public class LinearLayout extends View {
     }
 
     public Component add(JComponent comp) {
-        if(oritation == View.VERTICAL){
+        if(oritation == ViewGroup.VERTICAL){
             comp.setAlignmentX(Component.LEFT_ALIGNMENT);
         }
         return super.add(comp);

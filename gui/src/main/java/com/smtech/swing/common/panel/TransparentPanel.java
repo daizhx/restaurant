@@ -20,7 +20,7 @@ public class TransparentPanel extends JPanel {
 		setOpaque(false);
 	}
 	
-	public void setEmptyBorder(int top,int left,int bottom,int right){
+	public void setPadding(int top,int left,int bottom,int right){
 		setBorder(BorderFactory.createEmptyBorder(top, left, bottom, right));
 	}
 }

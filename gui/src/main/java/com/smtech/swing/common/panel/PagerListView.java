@@ -73,7 +73,7 @@ public class PagerListView extends JPanel {
 
     private JComponent crtPagerOprView() {
         pagerPanel = new LinearLayout();
-        pagerPanel.setOrientation(View.HORIZONTAL);
+        pagerPanel.setOrientation(ViewGroup.HORIZONTAL);
 
         pagerPanel.addHorizontalGlue();
 
@@ -117,7 +117,7 @@ public class PagerListView extends JPanel {
     }
 
     // 获取翻页按钮操作视图
-    public View getPagerBtnsView(){
+    public ViewGroup getPagerBtnsView(){
         return pagerPanel;
     }
 

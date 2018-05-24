@@ -1,25 +1,26 @@
 package com.smtech.restaurant.order;
 
 import com.smtech.restaurant.entities.Food;
-import com.smtech.restaurant.entities.FoodType;
-import com.smtech.swing.common.panel.View;
+import com.smtech.swing.common.panel.TransparentPanel;
+import com.smtech.swing.common.panel.ViewGroup;
 
 import java.awt.*;
-import java.util.*;
-import java.util.List;
 
 /**
  * Created by daizhx on 2018/5/22.
  *
  */
-public class FoodMenu extends View{
+public class FoodMenu extends ViewGroup {
 
     public interface OrderFoodListener{
         void onFoodOrdered(Food f);
     }
 
     private OrderFoodListener orderFoodListener;
-    
+
+
+
+
     public OrderFoodListener getOrderFoodListener() {
         return orderFoodListener;
     }
@@ -29,6 +30,8 @@ public class FoodMenu extends View{
     }
 
     public FoodMenu() {
+        super();
+
         setLayout(new BorderLayout());
         add(crtTypeView(),BorderLayout.NORTH);
         add(crtFoodListView(),BorderLayout.CENTER);
@@ -41,11 +44,13 @@ public class FoodMenu extends View{
     }
 
     private Component crtFoodListView() {
-        return null;
+        ViewGroup v = new ViewGroup();
+        return v;
     }
 
     private Component crtTypeView() {
-        return null;
+        ViewGroup v = new ViewGroup();
+        return v;
     }
 
 

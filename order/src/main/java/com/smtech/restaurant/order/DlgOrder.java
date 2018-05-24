@@ -6,7 +6,7 @@ import com.smtech.swing.common.layout.GridBagLayoutAdp;
 import com.smtech.swing.common.layout.LinearLayout;
 import com.smtech.swing.common.panel.PagerListView;
 import com.smtech.swing.common.panel.TransparentPanel;
-import com.smtech.swing.common.panel.View;
+import com.smtech.swing.common.panel.ViewGroup;
 
 import javax.swing.*;
 import java.awt.*;
@@ -32,9 +32,9 @@ public class DlgOrder extends DlgBase {
     }
 
     private Component crtRightPane() {
-        JPanel p = new JPanel();
-        p.setBackground(Color.WHITE);
-        return p;
+        FoodMenu fm = new FoodMenu();
+        fm.setBackground(Color.red);
+        return fm;
     }
 
     private Component crtFuncBtns() {
@@ -66,7 +66,7 @@ public class DlgOrder extends DlgBase {
         pv.setPager(pager);
 
         LinearLayout ll = new LinearLayout();
-        ll.setOrientation(View.VERTICAL);
+        ll.setOrientation(ViewGroup.VERTICAL);
 
         JPanel title = new JPanel();
         title.setBackground(Color.GREEN);

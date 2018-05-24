@@ -6,9 +6,9 @@ import java.awt.*;
 /**
  * 控件包装器，用于为控件添加背景图片
  */
-public class ComponentWrapper extends View {
+public class ComponentWrapper extends ViewGroup {
 	public ComponentWrapper(JComponent componet, String imagePath) {
-		this(componet, imagePath, View.SCALED);
+		this(componet, imagePath, ViewGroup.SCALED);
 	}
 	
 	public ComponentWrapper(JComponent componet, String imagePath, String jImagePane) {

@@ -10,37 +10,22 @@ import java.awt.*;
  *
  * @author 003
  */
-public class View extends JPanel {
+public class ViewGroup extends JPanel {
 
     public static final int HORIZONTAL = SwingConstants.HORIZONTAL;
     public static final int VERTICAL = SwingConstants.VERTICAL;
 
 	private boolean isDotNinePNG = false;
 
-	public View(String imagePath) {
-		setBackgroundImage(imagePath, TILED);
-		setOpaque(false);
-	}
-	
-	/**
-	 *
-	 * @param image
-	 * @param modeName
-	 */
-	public View(Image image, String modeName) {
-		super();
-		setBackgroundImage(image);
-		setImageDisplayMode(modeName);
-		setOpaque(false);
-	}
-	
-	public View(String imagePath, String modeName) {
-		setBackgroundImage(imagePath, modeName);
-		setOpaque(false);
-	}
+    public ViewGroup() {
+        super();
+        setOpaque(false);
+    }
 
-	public View() {
-		setOpaque(false);
+	@Override
+	public void setBackground(Color bg) {
+		super.setBackground(bg);
+		setOpaque(true);
 	}
 
 	public void setBackgroundImage(String imagePath, String modeName) {
