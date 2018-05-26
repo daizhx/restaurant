@@ -6,7 +6,6 @@ import javax.swing.*;
 import javax.swing.table.AbstractTableModel;
 import javax.swing.table.DefaultTableCellRenderer;
 import java.awt.*;
-import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 import java.util.List;
 
@@ -50,9 +49,9 @@ public class ListView {
         renderer.setHorizontalAlignment(SwingConstants.CENTER);
         Font font = new Font(Res.FONT, Font.PLAIN, 15);
         table.setFont(font);
-        for (MouseListener ml : table.getMouseListeners()) {
-            table.removeMouseListener(ml);
-        }
+//        for (MouseListener ml : table.getMouseListeners()) {
+//            table.removeMouseListener(ml);
+//        }
         for (MouseMotionListener ml : table.getMouseMotionListeners()) {
             table.removeMouseMotionListener(ml);
         }

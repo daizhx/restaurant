@@ -38,4 +38,10 @@ public class XButton extends JButton {
         btn.setTextSize(Res.FONT_SIZE_BTN);
         return btn;
     }
+
+    @Override
+    public void setSize(int width,int height) {
+        setPreferredSize(new Dimension(width,height));
+        super.setSize(width,height);
+    }
 }

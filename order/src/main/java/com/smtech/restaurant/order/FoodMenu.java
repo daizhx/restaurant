@@ -56,6 +56,7 @@ public class FoodMenu extends ViewGroup {
 
         for(int i=0;i<20;i++) {
             XButton btn = new XButton();
+            btn.setSize(0,80);
             btn.setText("按钮" + i);
             v.add(btn);
         }
