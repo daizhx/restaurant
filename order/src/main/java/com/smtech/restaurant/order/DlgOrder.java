@@ -33,7 +33,7 @@ public class DlgOrder extends DlgBase {
 
     private Component crtRightPane() {
         FoodMenu fm = new FoodMenu();
-        fm.setBackground(Color.red);
+        fm.setBackground(Color.WHITE);
         return fm;
     }
 
@@ -68,11 +68,6 @@ public class DlgOrder extends DlgBase {
         LinearLayout ll = new LinearLayout();
         ll.setOrientation(ViewGroup.VERTICAL);
 
-        JPanel title = new JPanel();
-        title.setBackground(Color.GREEN);
-        title.setPreferredSize(new Dimension(40,10));
-
-        ll.add(title);
         ll.add(pv);
         ll.add(pv.getPagerBtnsView());
 

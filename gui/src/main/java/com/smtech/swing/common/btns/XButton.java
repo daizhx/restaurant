@@ -6,25 +6,26 @@ import javax.swing.*;
 import java.awt.*;
 
 /**
+ * 基本的按钮控件
  */
-public class Button extends JButton {
+public class XButton extends JButton {
 
-    public Button() {
+    public XButton() {
     }
 
-    public Button(Icon icon) {
+    public XButton(Icon icon) {
         super(icon);
     }
 
-    public Button(String text) {
+    public XButton(String text) {
         super(text);
     }
 
-    public Button(Action a) {
+    public XButton(Action a) {
         super(a);
     }
 
-    public Button(String text, Icon icon) {
+    public XButton(String text, Icon icon) {
         super(text, icon);
     }
 
@@ -32,8 +33,8 @@ public class Button extends JButton {
         setFont(new Font(Res.FONT, Font.PLAIN,size));
     }
 
-    public static Button crtNormalBtn(){
-        Button btn = new Button();
+    public static XButton crtNormalBtn(){
+        XButton btn = new XButton();
         btn.setTextSize(Res.FONT_SIZE_BTN);
         return btn;
     }

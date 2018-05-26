@@ -2,7 +2,7 @@ package com.smtech.swing.common.panel;
 
 import com.smtech.restaurant.common.Pager;
 import com.smtech.swing.common.Res;
-import com.smtech.swing.common.btns.Button;
+import com.smtech.swing.common.btns.XButton;
 import com.smtech.swing.common.layout.LinearLayout;
 
 import javax.swing.*;
@@ -77,10 +77,10 @@ public class PagerListView extends JPanel {
 
         pagerPanel.addHorizontalGlue();
 
-        Button preBtn = new Button();
+        XButton preBtn = new XButton();
         tvPageInd = new TextView("第 0/0 页");
         tvPageInd.setPadding(10,0,10,0);
-        Button nextBtn = new Button();
+        XButton nextBtn = new XButton();
 
         preBtn.setAction(new AbstractAction("上一页") {
             @Override
