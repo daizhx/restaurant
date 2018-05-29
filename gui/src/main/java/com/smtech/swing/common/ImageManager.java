@@ -1,15 +1,13 @@
 package com.smtech.swing.common;
 
-import java.awt.Image;
-import java.io.File;
-import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
-import javax.imageio.ImageIO;
-import javax.swing.ImageIcon;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import javax.swing.*;
+import java.awt.*;
+import java.io.File;
+import java.util.HashMap;
+import java.util.Map;
 
 
 /**
@@ -25,13 +23,7 @@ public class ImageManager {
 		}
 		if (!images.containsKey(fileName)) {
 			try {
-				// byte[] data = getDecData(fileName);
-				Image img = getXMSJBg(imageName);
-				if (img != null) {
-					images.put(imageName, img);
-				} else {
-					images.put(imageName, new ImageIcon(fileName).getImage());
-				}
+				images.put(imageName, new ImageIcon(fileName).getImage());
 			} catch (Exception e) {
 				return null;
 			}
@@ -42,32 +34,6 @@ public class ImageManager {
 
 	private static Map<String, String> imagesPhotoPath = new HashMap<String, String>();
 
-
-	/**
-	 * ��ȡ�������ض�����
-	 * 
-	 * @return
-	 */
-	public static Image getXMSJBg(String imageName) {
-		if (true) {
-			return null;
-		}
-		if (imageName == null
-				|| !(imageName.endsWith("default.gif")
-						|| imageName.endsWith("default.png")
-						|| imageName.endsWith("standy.gif") || imageName
-						.endsWith("standy.png"))) {
-			return null;
-		}
-		Image img = null;
-		try {
-			img = ImageIO.read(ImageManager.class
-					.getResourceAsStream("standy.gif"));
-		} catch (IOException e) {
-
-		}
-		return img;
-	}
 
 	synchronized public static ImageIcon getImgIcon(String fileName) {
 		fileName = getAbsolutePath(fileName);
@@ -107,6 +73,6 @@ public class ImageManager {
 	}
 
 	private static Map<String, Image> images = new HashMap<String, Image>();
-	private final static String RES_PATH = "../resources/"; // ��Դ�ļ���Ŀ¼
+	private final static String RES_PATH = "../images/";
 	private final static String KEY = "32E41F3611D818C0";
 }

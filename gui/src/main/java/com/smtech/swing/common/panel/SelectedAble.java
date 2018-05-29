@@ -4,5 +4,6 @@ package com.smtech.swing.common.panel;
 public interface SelectedAble {
 	
 	void setSelected(boolean b);
-	
+
+	boolean isSelected();
 }

@@ -25,6 +25,18 @@ public class FoodOrder {
     @Column(nullable = true)
     private float income;
 
+    //服务费
+    private float serviceCharge;
+
+    //外卖送餐地址
+    private String deliveryAddr;
+
+    // 地税
+    private float tax;
+
+    //国税
+    private float stateTax;
+
     // 付款情况
     @OneToMany
     private List<Payment> paymentList;

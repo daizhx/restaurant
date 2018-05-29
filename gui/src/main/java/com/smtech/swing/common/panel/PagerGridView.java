@@ -16,15 +16,18 @@ public class PagerGridView extends ViewGroup{
     private XButton nextBtn;
     private List<Component> componentList;
     //当前要显示控件的起始索引
-    private int startIndex = 0;
-    private int endIndex = 0;
-
+    private int startIndex;
+    private int endIndex;
 
     public PagerGridView() {
-        setLayout(new GridLayoutEx(1,8,10,0));
+        this(1,8);
+    }
+
+    public PagerGridView(int row,int col) {
+        setLayout(new GridLayoutEx(row,col,10,0));
         startIndex = 0;
-        endIndex = 6;
-        maxNum = 8;
+        endIndex = -1;
+        maxNum = row*col;
         componentList = new ArrayList<Component>();
     }
 
@@ -32,7 +35,10 @@ public class PagerGridView extends ViewGroup{
     @Override
     public Component add(Component comp) {
         componentList.add(comp);
-        if(componentList.size() == maxNum){
+        if(componentList.size() <= maxNum){
+            endIndex++;
+        }
+        if(componentList.size() == (maxNum + 1)){
             preBtn = new XButton();
             preBtn.setPreferredSize(new Dimension(40,0));
             preBtn.setAction(new AbstractAction() {
@@ -85,7 +91,13 @@ public class PagerGridView extends ViewGroup{
                                 PagerGridView.super.add(componentList.get(i));
                             }
 
-                        }else{
+                        }else if((endIndex + 1) == (componentList.size() - 1)){
+                            endIndex += 1;
+                            for(int i = startIndex;i<=endIndex;i++){
+                                PagerGridView.super.add(componentList.get(i));
+                            }
+
+                        } else{
 
                             for(int i = startIndex;i<=endIndex;i++){
                                 PagerGridView.super.add(componentList.get(i));
@@ -99,30 +111,10 @@ public class PagerGridView extends ViewGroup{
             });
             nextBtn.setText("下一页");
 
-            super.add(nextBtn,7);
-
+            super.add(nextBtn,maxNum-1);
+            endIndex--;
         }
         return super.add(comp);
     }
 
-    @Override
-    protected void addImpl(Component comp, Object constraints, int index) {
-        int c = getComponentCount();
-        super.addImpl(comp, constraints, index);
-    }
-
-    @Override
-    protected void paintComponent(Graphics g) {
-        Dimension size = getSize();
-        System.out.println("size : " + size.width + "x" + size.height);
-
-        Component[] childs = getComponents();
-
-
-        for(Component c : childs){
-            Dimension cSize = c.getSize();
-            System.out.println("child size : " + cSize.width + "x" + cSize.height);
-        }
-        super.paintComponent(g);
-    }
 }
