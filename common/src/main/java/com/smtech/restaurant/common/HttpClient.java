@@ -1,6 +1,6 @@
 package com.smtech.restaurant.common;
 
-import okhttp3.Callback;
+import com.alibaba.fastjson.JSONObject;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
@@ -40,11 +40,11 @@ public class HttpClient {
     }
 
     //在swing环境中使用的异步接口
-    public void load(String url, Callback callback){
+    public void get(String url, HttpRequestResult result){
         new SwingWorker<String,Void>(){
 
             @Override
-            protected String doInBackground() throws Exception {
+            protected String doInBackground(){
                 Request request = new Request.Builder()
                         .url(url)
                         .build();
@@ -64,6 +64,8 @@ public class HttpClient {
             protected void done() {
                 try {
                     String ret = get();
+                    JSONObject data = JSONObject.parseObject(ret);
+                    result.onSuccess(data);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 } catch (ExecutionException e) {
@@ -71,5 +73,11 @@ public class HttpClient {
                 }
             }
         }.execute();
+    }
+
+
+    public interface HttpRequestResult{
+        void onSuccess(JSONObject data);
+        void onFail(String msg);
     }
 }

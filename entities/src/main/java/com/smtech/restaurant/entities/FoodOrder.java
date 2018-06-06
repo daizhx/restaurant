@@ -26,15 +26,18 @@ public class FoodOrder {
     private float income;
 
     //服务费
+    @Column(nullable = true)
     private float serviceCharge;
 
     //外卖送餐地址
     private String deliveryAddr;
 
     // 地税
+    @Column(nullable = true)
     private float tax;
 
     //国税
+    @Column(nullable = true)
     private float stateTax;
 
     // 付款情况
@@ -103,6 +106,37 @@ public class FoodOrder {
         this.paymentList = paymentList;
     }
 
+    public float getServiceCharge() {
+        return serviceCharge;
+    }
+
+    public void setServiceCharge(float serviceCharge) {
+        this.serviceCharge = serviceCharge;
+    }
+
+    public String getDeliveryAddr() {
+        return deliveryAddr;
+    }
+
+    public void setDeliveryAddr(String deliveryAddr) {
+        this.deliveryAddr = deliveryAddr;
+    }
+
+    public float getTax() {
+        return tax;
+    }
+
+    public void setTax(float tax) {
+        this.tax = tax;
+    }
+
+    public float getStateTax() {
+        return stateTax;
+    }
+
+    public void setStateTax(float stateTax) {
+        this.stateTax = stateTax;
+    }
 
     @Override
     public String toString() {
