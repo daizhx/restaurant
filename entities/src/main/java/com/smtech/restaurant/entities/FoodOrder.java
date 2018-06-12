@@ -47,6 +47,10 @@ public class FoodOrder {
     //来源
     private String createSource;
 
+    // 消费详情
+    @OneToMany
+    private List<Food> foodList;
+
 
     public int getId() {
         return id;
@@ -138,16 +142,11 @@ public class FoodOrder {
         this.stateTax = stateTax;
     }
 
-    @Override
-    public String toString() {
-        return "FoodOrder{" +
-                "id=" + id +
-                ", createTime=" + createTime +
-                ", checkTime=" + checkTime +
-                ", sum=" + sum +
-                ", income=" + income +
-                ", paymentList=" + paymentList +
-                ", createSource='" + createSource + '\'' +
-                '}';
+    public List<Food> getFoodList() {
+        return foodList;
+    }
+
+    public void setFoodList(List<Food> foodList) {
+        this.foodList = foodList;
     }
 }

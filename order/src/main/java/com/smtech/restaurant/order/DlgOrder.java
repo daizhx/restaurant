@@ -14,8 +14,9 @@ import java.awt.*;
 import java.util.ArrayList;
 
 public class DlgOrder extends DlgBase {
-
+    // 消费单
     private FoodOrder foodOrder;
+
 
     public DlgOrder(Window owner) {
         super(owner);
@@ -52,21 +53,6 @@ public class DlgOrder extends DlgBase {
         PagerListView pv = new PagerListView();
 
         java.util.List<Object[]> testData = new ArrayList<Object[]>();
-
-        for (int i=0; i<20; i++){
-            Object[] it = new Object[3];
-            it[0] = "aaa";
-            it[1] = 1;
-            it[2] = "100";
-            testData.add(it);
-        }
-        for (int i=0; i<20; i++){
-            Object[] it = new Object[3];
-            it[0] = "bbb";
-            it[1] = 2;
-            it[2] = "10";
-            testData.add(it);
-        }
 
         Pager<Object[]> pager = new Pager<>(testData,20);
         pv.setPager(pager);

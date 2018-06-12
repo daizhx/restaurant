@@ -1,9 +1,7 @@
 package com.smtech.restaurant.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 public class Food {
@@ -15,6 +13,11 @@ public class Food {
     private String name;
 
     private float price;
+
+    // 附加的菜品
+    @OneToMany(targetEntity = ComboFoodItem.class)
+    @JoinColumn(name = "mainFoodId")
+    private Set items;
 
     public int getId() {
         return id;

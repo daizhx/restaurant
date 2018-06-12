@@ -1,4 +1,4 @@
-package com.smtech.restaurant.casher.diningtable;
+package com.smtech.restaurant.tables;
 
 import com.smtech.swing.common.dlgs.DlgBase;
 
