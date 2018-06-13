@@ -22,4 +22,7 @@ public class Order {
     public void setServerIp(String serverIp) {
         this.serverIp = serverIp;
     }
+
+
+
 }

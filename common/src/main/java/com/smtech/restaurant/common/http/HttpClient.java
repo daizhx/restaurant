@@ -1,4 +1,4 @@
-package com.smtech.restaurant.common;
+package com.smtech.restaurant.common.http;
 
 import com.alibaba.fastjson.JSONObject;
 import okhttp3.OkHttpClient;

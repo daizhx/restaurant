@@ -1,7 +1,7 @@
 package com.smtech.restaurant.server.controller;
 
 import com.alibaba.fastjson.JSONObject;
-import com.smtech.restaurant.common.HttpRes;
+import com.smtech.restaurant.common.http.HttpRes;
 import com.smtech.restaurant.entities.FoodOrder;
 import com.smtech.restaurant.server.service.FoodOrderService;
 import org.springframework.beans.factory.annotation.Autowired;

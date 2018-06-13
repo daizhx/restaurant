@@ -1,6 +1,6 @@
 package com.smtech.restaurant.server.controller;
 
-import com.smtech.restaurant.common.HttpRes;
+import com.smtech.restaurant.common.http.HttpRes;
 import com.smtech.restaurant.entities.Food;
 import com.smtech.restaurant.entities.FoodType;
 import com.smtech.restaurant.server.service.FoodManageService;

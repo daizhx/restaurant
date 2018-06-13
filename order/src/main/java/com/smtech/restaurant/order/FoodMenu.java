@@ -1,6 +1,6 @@
 package com.smtech.restaurant.order;
 
-import com.smtech.restaurant.common.HttpClient;
+import com.smtech.restaurant.common.http.HttpClient;
 import com.smtech.restaurant.entities.Food;
 import com.smtech.restaurant.entities.FoodType;
 import com.smtech.swing.common.btns.BtnByDraw;

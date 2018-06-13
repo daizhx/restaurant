@@ -1,11 +1,11 @@
-package com.smtech.restaurant.tables;
+package com.smtech.restaurant.common.dlg;
 
 import com.smtech.swing.common.dlgs.DlgBase;
 
 import javax.swing.*;
 import java.awt.*;
 
-public class DlgDiningTable extends DlgBase{
+public class DlgDiningTable extends DlgBase {
 
     public DlgDiningTable(Window owner) {
         super(owner);
