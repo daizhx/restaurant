@@ -10,6 +10,7 @@ public class RestaurantServer {
 
     public static void main(String[] args) throws Exception {
         System.out.println(System.getProperty("java.class.path"));//系统的classpaht路径
+        //启动
         SpringApplication.run(RestaurantServer.class, args);
     }
 }
