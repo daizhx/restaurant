@@ -12,5 +12,6 @@ public class RestaurantServer {
         System.out.println(System.getProperty("java.class.path"));//系统的classpaht路径
         //启动
         SpringApplication.run(RestaurantServer.class, args);
+        new ReceiveUDP().start();
     }
 }

@@ -1,6 +1,4 @@
-package com.smtech.restaurant.common.dlg;
-
-import com.smtech.swing.common.dlgs.DlgBase;
+package com.smtech.swing.common.dlgs;
 
 import javax.swing.*;
 import java.awt.*;
