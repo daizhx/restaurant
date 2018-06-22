@@ -9,7 +9,7 @@ public class ServerDiscover {
     private volatile String serverIP;
     //尝试次数
     private AtomicInteger detectTimes = new AtomicInteger(0);
-
+    private final int threshold = 3;
     private DatagramSocket detectSocket;
 
     private Thread tReceive = new Thread(){
@@ -62,7 +62,7 @@ public class ServerDiscover {
         // Send packet to hostAddress:9999, server that listen
         // 9999 would reply this packet
         DatagramPacket out = new DatagramPacket(buf, buf.length, hostAddress, packetPort);
-        while (detectTimes.intValue() < 3) {
+        while (detectTimes.intValue() < threshold) {
             try {
                 System.out.println("Send " + outMessage + " to " + hostAddress);
                 detectSocket.send(out);

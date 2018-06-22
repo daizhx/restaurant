@@ -14,6 +14,9 @@ public class HttpClient {
 
     private static final HttpClient instance = new HttpClient();
     private OkHttpClient client;
+    //local server ip
+    private String localServerIP;
+    private final static int localServerPort = 9000;
 
     private HttpClient(){
         client = new OkHttpClient();

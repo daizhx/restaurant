@@ -30,5 +30,5 @@ public class Res {
     public static final int FONT_SIZE_TITLE = 30;
     //按钮字体
 
-
+    public static final Font FONT_TEXT = new Font(FONT, Font.PLAIN, FONT_SIZE_TEXT);// 文本框中的字体
 }

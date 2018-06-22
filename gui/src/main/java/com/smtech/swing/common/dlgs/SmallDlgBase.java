@@ -71,7 +71,6 @@ public abstract class SmallDlgBase extends DlgBase {
 	}
 
 	/**
-	 * ��������
 	 * 
 	 * @return
 	 */

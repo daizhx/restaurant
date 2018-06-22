@@ -1,28 +1,19 @@
 package com.smtech.restaurant.order;
 
+import com.smtech.swing.common.DlgManager;
+
 //点菜模块
 public class Order {
-    // server的地址
-    private String serverIp;
 
     // 模块启动方法
     public void startUp(){
         //TODO inquire serverIp
 
-        if(null != serverIp){
-            // 启动点单主界面
-
-        }
     }
 
-    public String getServerIp() {
-        return serverIp;
+    public static void main(String[] args) {
+        DlgStart dlg = (DlgStart) DlgManager.getInstance().getDlg(DlgStart.class);
+        dlg.setSize(500,500);
+        dlg.setVisible(true);
     }
-
-    public void setServerIp(String serverIp) {
-        this.serverIp = serverIp;
-    }
-
-
-
 }

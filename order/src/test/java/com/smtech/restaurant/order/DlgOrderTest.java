@@ -11,4 +11,11 @@ public class DlgOrderTest {
         DlgBase dlg = DlgManager.getInstance().getDlg(DlgOrder.class);
         dlg.setVisible(true);
     }
+
+    @Test
+    public void testStartOrder(){
+        DlgStart dlg = (DlgStart) DlgManager.getInstance().getDlg(DlgStart.class);
+        dlg.setSize(500,500);
+        dlg.setVisible(true);
+    }
 }
