@@ -39,6 +39,8 @@ public class DlgStart extends DlgBase {
                     DlgStart.this.showMessageDialog("启动失败，找不到服务程序！");
                 }
                 DlgStart.this.close();
+                //退出程序
+                System.exit(0);
             }
         }.execute();
         return p;

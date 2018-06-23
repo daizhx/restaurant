@@ -11,6 +11,6 @@ public class DlgDiningTable extends DlgBase {
 
     @Override
     protected JPanel onCrtContntView() {
-        return null;
+        return super.onCrtContntView();
     }
 }

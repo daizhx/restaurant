@@ -23,6 +23,7 @@ public class ServerDiscover {
                 detectSocket.setSoTimeout(10*1000);
                 detectSocket.receive(packet);
             } catch (SocketTimeoutException e){
+                System.out.println("Receive thread timeout stop");
                 return;
             } catch (IOException e) {
                 e.printStackTrace();
@@ -45,6 +46,7 @@ public class ServerDiscover {
             e.printStackTrace();
             return;
         }
+        tReceive.setName("UDP RECEIVER THREAD");
         tReceive.start();
         // Send packet thread
         System.out.println("Send thread started.");
