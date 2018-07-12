@@ -8,7 +8,10 @@ import com.smtech.swing.common.layout.BorderLayoutEx;
 import javax.swing.*;
 import java.awt.*;
 
-//启动窗口
+/**
+ * 启动窗口
+ * 1,搜索局域网内服务器的IP地址
+ */
 public class DlgStart extends DlgBase {
 
     public DlgStart(Window owner) {
@@ -33,16 +36,28 @@ public class DlgStart extends DlgBase {
             @Override
             protected void done() {
                 if(serverDiscover.getServerIP() != null){
-                    DlgOrder dlg = (DlgOrder) DlgManager.getInstance().getDlg(DlgOrder.class);
-                    dlg.setVisible(true);
+                    onStartSuccess(serverDiscover.getServerIP());
                 }else{
                     DlgStart.this.showMessageDialog("启动失败，找不到服务程序！");
+                    DlgStart.this.close();
+                    //退出程序
+                    System.exit(0);
                 }
-                DlgStart.this.close();
-                //退出程序
-                System.exit(0);
+
             }
         }.execute();
         return p;
+    }
+
+    protected void onStartSuccess(String ip){
+        DlgOrder dlg = (DlgOrder) DlgManager.getInstance().getDlg(DlgOrder.class);
+        dlg.setVisible(true);
+
+        DlgStart.this.close();
+    }
+
+    @Override
+    public void setVisible(boolean b) {
+        super.setVisible(b);
     }
 }
