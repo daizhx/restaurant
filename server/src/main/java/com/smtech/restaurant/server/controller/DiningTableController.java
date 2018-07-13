@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.List;
+
 @Controller
 public class DiningTableController {
 
@@ -20,6 +22,12 @@ public class DiningTableController {
     DiningTable addDiningTable(@RequestBody DiningTable t){
         DiningTable ret = diningTableRepository.save(t);
         return ret;
+    }
+
+    @RequestMapping(value = "/dining_table/all",method = RequestMethod.GET)
+    @ResponseBody
+    public List<DiningTable> getAllDiningTable(){
+        return diningTableRepository.findAll();
     }
 
 }

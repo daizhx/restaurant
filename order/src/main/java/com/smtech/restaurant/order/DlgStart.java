@@ -3,6 +3,7 @@ package com.smtech.restaurant.order;
 import com.smtech.restaurant.common.ServerDiscover;
 import com.smtech.swing.common.DlgManager;
 import com.smtech.swing.common.dlgs.DlgBase;
+import com.smtech.swing.common.dlgs.DlgDiningTable;
 import com.smtech.swing.common.layout.BorderLayoutEx;
 
 import javax.swing.*;
@@ -14,43 +15,46 @@ import java.awt.*;
  */
 public class DlgStart extends DlgBase {
 
+    // 异步任务
+    private class ServerFinder extends SwingWorker<Void,Void>{
+        ServerDiscover serverDiscover;
+        @Override
+        protected Void doInBackground() throws Exception {
+            serverDiscover = new ServerDiscover();
+            serverDiscover.execute(9876);
+            return null;
+        }
+
+        @Override
+        protected void done() {
+            if(serverDiscover.getServerIP() != null){
+                onStartSuccess(serverDiscover.getServerIP());
+            }else{
+                DlgStart.this.showMessageDialog("启动失败，找不到服务程序！");
+                DlgStart.this.close();
+                //退出程序
+                System.exit(0);
+            }
+        }
+    }
     public DlgStart(Window owner) {
         super(owner);
     }
 
     @Override
-    protected JPanel onCrtContntView() {
+    protected void onCrtContntView(JPanel content) {
         JLabel hint = new JLabel("启动中。。。");
-        JPanel p = new JPanel(new BorderLayoutEx());
-        p.setBackground(Color.WHITE);
-        p.add(hint,BorderLayout.CENTER);
-        new SwingWorker<Void,Void>(){
-            ServerDiscover serverDiscover;
-            @Override
-            protected Void doInBackground() throws Exception {
-                serverDiscover = new ServerDiscover();
-                serverDiscover.execute(9876);
-                return null;
-            }
+        content.setLayout(new BorderLayoutEx());
+        content.setBackground(Color.WHITE);
+        content.add(hint,BorderLayout.CENTER);
 
-            @Override
-            protected void done() {
-                if(serverDiscover.getServerIP() != null){
-                    onStartSuccess(serverDiscover.getServerIP());
-                }else{
-                    DlgStart.this.showMessageDialog("启动失败，找不到服务程序！");
-                    DlgStart.this.close();
-                    //退出程序
-                    System.exit(0);
-                }
-
-            }
-        }.execute();
-        return p;
+        new ServerFinder().execute();
     }
 
     protected void onStartSuccess(String ip){
-        DlgOrder dlg = (DlgOrder) DlgManager.getInstance().getDlg(DlgOrder.class);
+        DlgDiningTable dlg = (DlgDiningTable) DlgManager.getInstance().getDlg(DlgDiningTable.class);
+        dlg.setIp(ip);
+        dlg.reflash();
         dlg.setVisible(true);
 
         DlgStart.this.close();

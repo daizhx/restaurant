@@ -15,4 +15,5 @@ dependencies {
     compile fileTree(dir: 'lib')
     compile project(':util')
     compile project(':common')
+    compile project(':entities')
 }

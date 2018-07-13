@@ -28,14 +28,12 @@ public class DlgOrder extends DlgBase {
     }
 
     @Override
-    protected JPanel onCrtContntView() {
-        TransparentPanel content = new TransparentPanel();
+    protected void onCrtContntView(JPanel content) {
         GridBagLayoutAdp gla = GridBagLayoutAdp.getInstance();
         gla.add(crtOrderView(),1);
         gla.addWithFixSize(crtFuncBtns(),60);
         gla.add(crtRightPane(),2);
         gla.doLayout(content);
-        return content;
     }
 
     private Component crtRightPane() {

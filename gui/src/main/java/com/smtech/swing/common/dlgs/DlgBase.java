@@ -31,7 +31,9 @@ public class DlgBase extends JDialog{
         setUndecorated(true);
         setDefaultCloseOperation(JDialog.DO_NOTHING_ON_CLOSE);
 
-        JPanel content = onCrtContntView();
+        JPanel content =  new TransparentPanel();
+        content.setBackground(Color.WHITE);
+        onCrtContntView(content);
         setContentPane(content);
 
         // 设置对话框属性
@@ -44,11 +46,9 @@ public class DlgBase extends JDialog{
 
 
     //子类重写构建界面内容,默认黑板
-    protected JPanel onCrtContntView(){
-        JPanel p =  new JPanel();
-        p.setBackground(Color.BLACK);
-        return p;
-    };
+    protected void onCrtContntView(JPanel content){
+
+    }
 
     //默认是全屏显示，设置大小，居中显示
     public void setSize(int width,int height){
