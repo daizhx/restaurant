@@ -86,9 +86,7 @@ public class HttpClient {
             protected void done() {
                 try {
                     String ret = get();
-                    System.out.print("--------------------------->"+ret);
-                    JSONObject data = JSONObject.parseObject(ret);
-                    result.onSuccess(data);
+                    result.onSuccess(ret);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 } catch (ExecutionException e) {
@@ -100,7 +98,7 @@ public class HttpClient {
 
 
     public interface HttpRequestResult{
-        void onSuccess(JSONObject data);
+        void onSuccess(String res);
         void onFail(String msg);
     }
 }

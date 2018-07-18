@@ -1,4 +1,4 @@
-package com.smtech.swing.common.panel;
+package com.smtech.swing.common.view;
 
 import com.smtech.swing.common.Res;
 
@@ -28,7 +28,7 @@ public class ListView {
     JPanel sum;
 
     public ListView(int colNum) {
-        view = new TransparentPanel(new BorderLayout());
+        view = new TransparentView(new BorderLayout());
         view.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
 
         dataModel = new ListViewModel(colNum);
@@ -56,7 +56,7 @@ public class ListView {
             table.removeMouseMotionListener(ml);
         }
 
-        listContent = new TransparentPanel(new BorderLayout());
+        listContent = new TransparentView(new BorderLayout());
         listContent.add(scrollPane, BorderLayout.CENTER);
 
         view.add(table.getTableHeader(),BorderLayout.NORTH);

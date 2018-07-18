@@ -2,7 +2,7 @@ package com.smtech.swing.common.btns;
 
 import com.smtech.swing.common.ImageManager;
 import com.smtech.swing.common.Res;
-import com.smtech.swing.common.panel.ComponentWrapper;
+import com.smtech.swing.common.view.ComponentWrapper;
 
 import javax.swing.*;
 import java.awt.*;

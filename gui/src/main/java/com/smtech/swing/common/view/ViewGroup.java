@@ -1,14 +1,17 @@
-package com.smtech.swing.common.panel;
+package com.smtech.swing.common.view;
 
 import com.smtech.restaurant.util.StringUtil;
 import com.smtech.swing.common.ImageManager;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 /**
- *
- * @author 003
+ * 封装swing Panel类
+ * 扩展功能：
+ * 1，设置背景图片
  */
 public class ViewGroup extends JPanel {
 
@@ -17,9 +20,59 @@ public class ViewGroup extends JPanel {
 
 	private boolean isDotNinePNG = false;
 
-    public ViewGroup() {
+	/**
+	 */
+	public static final String CENTRE = "Centre";
+
+	/**
+	 */
+	public static final String TILED = "Tiled";
+
+	/**
+	 */
+	public static final String SCALED = "Scaled";
+
+	/**
+	 */
+	public static final String CENTRE_CHOP = "CENTRE_CHOP";
+
+	/**
+	 */
+	public static final String CENTER_INSIDE = "CENTER_INSIDE";
+
+	/**
+	 */
+	private Image backgroundImage;
+
+	/**
+	 */
+	private String imageDisplayMode;
+
+	private String bgPath;
+
+	private OnClickListener onClickListener;
+
+	public interface OnClickListener{
+		void onClick(ViewGroup v);
+	}
+
+	public void setOnClickListener(OnClickListener onClickListener) {
+		this.onClickListener = onClickListener;
+	}
+
+	public ViewGroup() {
         super();
         setOpaque(false);
+
+		addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				if(onClickListener != null){
+				    ViewGroup v = (ViewGroup) e.getSource();
+					onClickListener.onClick(v);
+				}
+			}
+		});
     }
 
 	@Override
@@ -215,36 +268,5 @@ public class ViewGroup extends JPanel {
 	public void setPadding(int left,int top ,int right,int bottom){
 		setBorder(BorderFactory.createEmptyBorder(top,left,bottom,right));
 	}
-
-	/**
-	 */
-	public static final String CENTRE = "Centre";
-
-	/**
-	 */
-	public static final String TILED = "Tiled";
-
-	/**
-	 */
-	public static final String SCALED = "Scaled";
-
-	/**
-	 */
-	public static final String CENTRE_CHOP = "CENTRE_CHOP";
-
-	/**
-	 */
-	public static final String CENTER_INSIDE = "CENTER_INSIDE";
-
-	/**
-	 */
-	private Image backgroundImage;
-
-	/**
-	 */
-	private String imageDisplayMode;
-
-	private String bgPath;
-
 
 }

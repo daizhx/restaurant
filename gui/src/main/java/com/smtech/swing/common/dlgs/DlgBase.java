@@ -4,7 +4,7 @@ import com.smtech.restaurant.common.StackTraceToString;
 import com.smtech.swing.common.Res;
 import com.smtech.swing.common.btns.BtnByDraw;
 import com.smtech.swing.common.btns.ButtonWrapper;
-import com.smtech.swing.common.panel.TransparentPanel;
+import com.smtech.swing.common.view.TransparentView;
 import com.smtech.swing.common.util.PanelWraper;
 import com.sun.awt.AWTUtilities;
 import org.slf4j.Logger;
@@ -31,7 +31,7 @@ public class DlgBase extends JDialog{
         setUndecorated(true);
         setDefaultCloseOperation(JDialog.DO_NOTHING_ON_CLOSE);
 
-        JPanel content =  new TransparentPanel();
+        JPanel content =  new TransparentView();
         content.setBackground(Color.WHITE);
         onCrtContntView(content);
         setContentPane(content);
@@ -88,10 +88,10 @@ public class DlgBase extends JDialog{
         oKBtn.setPreferredSize(new Dimension(176, 50));
         oKBtn.setBgColor(ButtonWrapper.BgColor.RED);
 
-        JPanel btnPanel = new TransparentPanel();
+        JPanel btnPanel = new TransparentView();
         btnPanel.add(oKBtn);
 
-        TransparentPanel contentP = new TransparentPanel();
+        TransparentView contentP = new TransparentView();
         contentP.setBorder(BorderFactory.createEmptyBorder(15, 30, 15, 30));
         contentP.setLayout(new BorderLayout(10, 10));
         contentP.add(msgLab, BorderLayout.CENTER);

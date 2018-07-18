@@ -1,9 +1,9 @@
 package com.smtech.swing.common.dlgs;
 
 import com.smtech.swing.common.Res;
-import com.smtech.swing.common.panel.RoundRectPanel;
-import com.smtech.swing.common.panel.TranslucenceJPanel;
-import com.smtech.swing.common.panel.TransparentPanel;
+import com.smtech.swing.common.view.RoundRectPanel;
+import com.smtech.swing.common.view.TranslucenceView;
+import com.smtech.swing.common.view.TransparentView;
 import com.smtech.swing.common.util.PanelBuilder;
 
 import javax.swing.*;
@@ -25,18 +25,18 @@ public abstract class SmallDlgBase extends DlgBase {
 	}
 	
 	public void initComponents() {
-		TransparentPanel pH = new TransparentPanel(new BorderLayout());
+		TransparentView pH = new TransparentView(new BorderLayout());
 		pH.add(Box.createHorizontalStrut(getLeftInset()), BorderLayout.WEST);
 		pH.add(crtCenterPanel(), BorderLayout.CENTER);
 		pH.add(Box.createHorizontalStrut(getRightInset()), BorderLayout.EAST);
 
 		JPanel northPanel = crtNorthPanel();
 		northPanel.setPreferredSize(new Dimension(0, getTitleHeight()));
-		JPanel topPanel = new TransparentPanel(new BorderLayout());
+		JPanel topPanel = new TransparentView(new BorderLayout());
 		topPanel.add(northPanel, BorderLayout.CENTER);
 		topPanel.add(Box.createVerticalStrut(getTopInset()), BorderLayout.SOUTH);
 
-		TransparentPanel pV = new TransparentPanel(new BorderLayout());
+		TransparentView pV = new TransparentView(new BorderLayout());
 		pV.add(topPanel, BorderLayout.NORTH);
 		pV.add(pH, BorderLayout.CENTER);
 		pV.add(Box.createVerticalStrut(getBottomInset()), BorderLayout.SOUTH);
@@ -57,7 +57,7 @@ public abstract class SmallDlgBase extends DlgBase {
 
 		pb.addVerticalGlue();
 
-		TranslucenceJPanel p = new TranslucenceJPanel(0.4);
+		TranslucenceView p = new TranslucenceView(0.4);
 		pb.doLayout(p);
 		setContentPane(p);
 		setUndecorated(true);
@@ -127,14 +127,14 @@ public abstract class SmallDlgBase extends DlgBase {
 		labTitle.setFont(new Font(Res.FONT, Font.PLAIN, Res.FONT_SIZE_TITLE));
 		labTitle.setHorizontalAlignment(SwingConstants.CENTER);
 		
-		TransparentPanel pTop = new TransparentPanel(new BorderLayout());
+		TransparentView pTop = new TransparentView(new BorderLayout());
 		pTop.add(Box.createHorizontalStrut(60), BorderLayout.WEST);
 		pTop.add(labTitle, BorderLayout.CENTER);
 		if(!isHideBtnClose()) {
 
 		}
 		
-		TransparentPanel pTmp = new TransparentPanel(new BorderLayout());
+		TransparentView pTmp = new TransparentView(new BorderLayout());
 		pTmp.add(pTop, BorderLayout.CENTER);
 		
 		if(!isHideDivider()){
@@ -148,7 +148,7 @@ public abstract class SmallDlgBase extends DlgBase {
 			};
 			labLine.setPreferredSize(new Dimension(0, 5));
 	
-			TransparentPanel pBottom = new TransparentPanel(new BorderLayout());
+			TransparentView pBottom = new TransparentView(new BorderLayout());
 			pBottom.add(Box.createHorizontalStrut(getLeftInset()), BorderLayout.WEST);
 			pBottom.add(labLine, BorderLayout.CENTER);
 			pBottom.add(Box.createHorizontalStrut(getRightInset()), BorderLayout.EAST);

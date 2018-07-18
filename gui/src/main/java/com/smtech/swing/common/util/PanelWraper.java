@@ -1,9 +1,9 @@
 package com.smtech.swing.common.util;
 
 import com.smtech.swing.common.ImageManager;
-import com.smtech.swing.common.panel.RoundRectPanel;
-import com.smtech.swing.common.panel.TranslucenceJPanel;
-import com.smtech.swing.common.panel.TransparentPanel;
+import com.smtech.swing.common.view.RoundRectPanel;
+import com.smtech.swing.common.view.TranslucenceView;
+import com.smtech.swing.common.view.TransparentView;
 
 import javax.swing.*;
 import java.awt.*;
@@ -26,8 +26,8 @@ public class PanelWraper {
 	 * @param right
 	 * @return
 	 */
-	public static TransparentPanel getEmptyBordPanel(Component content, int top, int left, int bottom, int right) {
-		TransparentPanel p = new TransparentPanel(new BorderLayout());
+	public static TransparentView getEmptyBordPanel(Component content, int top, int left, int bottom, int right) {
+		TransparentView p = new TransparentView(new BorderLayout());
 		p.add(content, BorderLayout.CENTER);
 		p.setBorder(BorderFactory.createEmptyBorder(top, left, bottom, right));
 		return p;
@@ -96,7 +96,7 @@ public class PanelWraper {
 
 		pb.addVerticalGlue();
 
-		TranslucenceJPanel p = new TranslucenceJPanel(0.2);
+		TranslucenceView p = new TranslucenceView(0.2);
 		p.setPreferredSize(Toolkit.getDefaultToolkit().getScreenSize());
 		pb.doLayout(p);
 		return p;

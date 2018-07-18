@@ -1,6 +1,4 @@
-package com.smtech.swing.common.layout;
-
-import com.smtech.swing.common.panel.ViewGroup;
+package com.smtech.swing.common.view;
 
 import javax.swing.*;
 import java.awt.*;

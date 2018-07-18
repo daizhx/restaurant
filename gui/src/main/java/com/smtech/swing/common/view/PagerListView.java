@@ -1,9 +1,8 @@
-package com.smtech.swing.common.panel;
+package com.smtech.swing.common.view;
 
 import com.smtech.restaurant.common.Pager;
 import com.smtech.swing.common.Res;
 import com.smtech.swing.common.btns.XButton;
-import com.smtech.swing.common.layout.LinearLayout;
 
 import javax.swing.*;
 import javax.swing.table.AbstractTableModel;

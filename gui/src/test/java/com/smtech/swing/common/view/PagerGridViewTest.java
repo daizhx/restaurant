@@ -1,4 +1,4 @@
-package com.smtech.swing.common.panel;
+package com.smtech.swing.common.view;
 
 import org.junit.Test;
 

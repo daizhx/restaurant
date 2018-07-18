@@ -5,8 +5,8 @@ import com.smtech.restaurant.entities.Food;
 import com.smtech.restaurant.entities.FoodType;
 import com.smtech.swing.common.btns.BtnByDraw;
 import com.smtech.swing.common.btns.XButton;
-import com.smtech.swing.common.panel.PagerGridView;
-import com.smtech.swing.common.panel.ViewGroup;
+import com.smtech.swing.common.view.PagerGridView;
+import com.smtech.swing.common.view.ViewGroup;
 
 import java.awt.*;
 import java.util.ArrayList;

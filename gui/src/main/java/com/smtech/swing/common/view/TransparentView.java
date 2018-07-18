@@ -1,4 +1,4 @@
-package com.smtech.swing.common.panel;
+package com.smtech.swing.common.view;
 
 import java.awt.LayoutManager;
 
@@ -6,16 +6,15 @@ import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 
 /**
- *
+ * 透明视图
  */
-@SuppressWarnings("serial")
-public class TransparentPanel extends JPanel {
+public class TransparentView extends JPanel {
 
-	public TransparentPanel() {
+	public TransparentView() {
 		setOpaque(false);
 	}
 
-	public TransparentPanel(LayoutManager l) {
+	public TransparentView(LayoutManager l) {
 		super(l);
 		setOpaque(false);
 	}

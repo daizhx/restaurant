@@ -1,11 +1,11 @@
-package com.smtech.swing.common.panel;
+package com.smtech.swing.common.view;
 
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-@SuppressWarnings("serial")
-public class RadioGroupPanel extends TransparentPanel {
+
+public class RadioGroup extends TransparentView {
 	
 	private int selectedIndex = -1;
 	
@@ -44,11 +44,11 @@ public class RadioGroupPanel extends TransparentPanel {
 		}
 	};
 
-	public RadioGroupPanel() {
+	public RadioGroup() {
 		super();
 	}
 
-	public RadioGroupPanel(LayoutManager l) {
+	public RadioGroup(LayoutManager l) {
 		super(l);
 	}
 

@@ -1,4 +1,4 @@
-package com.smtech.swing.common.panel;
+package com.smtech.swing.common.view;
 
 //gui控制可被选选中
 public interface SelectedAble {

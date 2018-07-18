@@ -1,6 +1,6 @@
 package com.smtech.swing.common.btns;
 
-import com.smtech.swing.common.panel.SelectedAble;
+import com.smtech.swing.common.view.SelectedAble;
 
 import javax.swing.*;
 import java.awt.*;

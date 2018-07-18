@@ -1,5 +1,7 @@
 package com.smtech.restaurant.entities;
 
+import com.smtech.restaurant.enums.TableStatus;
+
 import javax.persistence.*;
 
 @Entity
@@ -13,7 +15,16 @@ public class DiningTable {
 
     @ManyToOne
     private DiningTableArea area;
+    // 桌台状态
+    private TableStatus status;
 
+    public TableStatus getStatus() {
+        return status;
+    }
+
+    public void setStatus(TableStatus status) {
+        this.status = status;
+    }
 
     public int getId() {
         return id;

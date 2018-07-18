@@ -4,10 +4,10 @@ import com.smtech.restaurant.common.Pager;
 import com.smtech.restaurant.entities.FoodOrder;
 import com.smtech.swing.common.dlgs.DlgBase;
 import com.smtech.swing.common.layout.GridBagLayoutAdp;
-import com.smtech.swing.common.layout.LinearLayout;
-import com.smtech.swing.common.panel.PagerListView;
-import com.smtech.swing.common.panel.TransparentPanel;
-import com.smtech.swing.common.panel.ViewGroup;
+import com.smtech.swing.common.view.LinearLayout;
+import com.smtech.swing.common.view.PagerListView;
+import com.smtech.swing.common.view.TransparentView;
+import com.smtech.swing.common.view.ViewGroup;
 
 import javax.swing.*;
 import java.awt.*;
@@ -43,7 +43,7 @@ public class DlgOrder extends DlgBase {
     }
 
     private Component crtFuncBtns() {
-        return new TransparentPanel();
+        return new TransparentView();
     }
 
     private Component crtOrderView() {

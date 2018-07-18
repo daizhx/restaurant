@@ -1,18 +1,19 @@
-package com.smtech.swing.common.panel;
+package com.smtech.swing.common.view;
 
-/*
- */
 import java.awt.AlphaComposite;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 
 import javax.swing.JPanel;
 
-public class TranslucenceJPanel extends JPanel {
+/**
+ * 通透视图，可以设置通透值
+ */
+public class TranslucenceView extends JPanel {
 
 	private Double transparency;
 
-	public TranslucenceJPanel(double transparency) {
+	public TranslucenceView(double transparency) {
 		this.transparency = transparency;
 	}
 

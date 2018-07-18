@@ -1,5 +1,8 @@
 package com.smtech.restaurant.entities;
 
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+
 import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
@@ -11,7 +14,9 @@ public class FoodOrder {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
-    // 生成时间
+    // 创建时间
+    @CreationTimestamp
+    @Column(updatable = false)
     private Date createTime;
 
     // 结账时间
@@ -50,7 +55,6 @@ public class FoodOrder {
     // 消费详情
     @OneToMany
     private List<Food> foodList;
-
 
     public int getId() {
         return id;
@@ -148,5 +152,24 @@ public class FoodOrder {
 
     public void setFoodList(List<Food> foodList) {
         this.foodList = foodList;
+    }
+
+
+    @Override
+    public String toString() {
+        return "FoodOrder{" +
+                "id=" + id +
+                ", createTime=" + createTime +
+                ", checkTime=" + checkTime +
+                ", sum=" + sum +
+                ", income=" + income +
+                ", serviceCharge=" + serviceCharge +
+                ", deliveryAddr='" + deliveryAddr + '\'' +
+                ", tax=" + tax +
+                ", stateTax=" + stateTax +
+                ", paymentList=" + paymentList +
+                ", createSource='" + createSource + '\'' +
+                ", foodList=" + foodList +
+                '}';
     }
 }

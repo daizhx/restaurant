@@ -1,4 +1,4 @@
-package com.smtech.swing.common.panel;
+package com.smtech.swing.common.view;
 
 import java.awt.Graphics;
 import java.awt.Graphics2D;

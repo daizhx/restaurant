@@ -13,13 +13,18 @@ public class FoodOrderServiceImpl implements FoodOrderService{
     FoodOrderRepository foodOrderRepository;
 
     @Override
-    public FoodOrder generateFoodOrder() {
-        FoodOrder fo = new FoodOrder();
+    public FoodOrder generateFoodOrder(FoodOrder fo) {
         return foodOrderRepository.save(fo);
     }
 
     @Override
-    public FoodOrder generateFoodOrder(int tableId) {
+    public FoodOrder getFoodOrderByTableId(int tableId) {
         return null;
     }
+
+    @Override
+    public FoodOrder getFoodOrderById(int id) {
+        return null;
+    }
+
 }

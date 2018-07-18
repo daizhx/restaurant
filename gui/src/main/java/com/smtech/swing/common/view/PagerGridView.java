@@ -1,4 +1,4 @@
-package com.smtech.swing.common.panel;
+package com.smtech.swing.common.view;
 
 import com.smtech.swing.common.btns.XButton;
 import com.smtech.swing.common.layout.GridLayoutEx;
