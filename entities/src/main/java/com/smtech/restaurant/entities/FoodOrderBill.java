@@ -54,7 +54,7 @@ public class FoodOrderBill {
 
     // 消费详情
     @OneToMany
-    private List<Food> foodList;
+    private List<FoodOrder> foodOrderList;
 
     public int getId() {
         return id;
@@ -146,14 +146,13 @@ public class FoodOrderBill {
         this.stateTax = stateTax;
     }
 
-    public List<Food> getFoodList() {
-        return foodList;
+    public List<FoodOrder> getFoodOrderList() {
+        return foodOrderList;
     }
 
-    public void setFoodList(List<Food> foodList) {
-        this.foodList = foodList;
+    public void setFoodOrderList(List<FoodOrder> foodOrderList) {
+        this.foodOrderList = foodOrderList;
     }
-
 
     @Override
     public String toString() {
@@ -169,7 +168,7 @@ public class FoodOrderBill {
                 ", stateTax=" + stateTax +
                 ", paymentList=" + paymentList +
                 ", createSource='" + createSource + '\'' +
-                ", foodList=" + foodList +
+                ", foodOrderList=" + foodOrderList +
                 '}';
     }
 }
