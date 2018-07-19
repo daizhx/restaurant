@@ -56,6 +56,20 @@ public class FoodOrderBill {
     @OneToMany
     private List<FoodOrder> foodOrderList;
 
+    // 关联的桌台，外卖，快餐等账单为null
+    @OneToMany
+    @Column(nullable = true)
+    private List<DiningTable> diningTables;
+
+
+    public List<DiningTable> getDiningTables() {
+        return diningTables;
+    }
+
+    public void setDiningTables(List<DiningTable> diningTables) {
+        this.diningTables = diningTables;
+    }
+
     public int getId() {
         return id;
     }

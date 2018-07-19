@@ -14,11 +14,14 @@ public class FoodOrderBillServiceImpl implements FoodOrderBillService {
 
     @Override
     public FoodOrderBill generateFoodOrder() {
-        return generateFoodOrder(new FoodOrderBill());
+        return generateFoodOrder(null);
     }
 
     @Override
     public FoodOrderBill generateFoodOrder(FoodOrderBill fo) {
+        if(fo == null){
+            fo = new FoodOrderBill();
+        }
         return foodOrderRepository.save(fo);
     }
 

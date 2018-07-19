@@ -4,8 +4,6 @@ import com.smtech.swing.common.view.SelectedAble;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.HashMap;
 import java.util.Map;
@@ -313,19 +311,19 @@ public class BtnByDraw extends ButtonWrapper implements SelectedAble {
 		}
 		
 		super.addMouseListener(l);
-		for (MouseListener ml : btn.getMouseListeners()) {
-			removeMouseListener(ml);
-		}
-		btn.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				for (MouseListener ml : getMouseListeners()) {
-					if(ml != null){
-						ml.mouseClicked(e);
-					}
-				}
-				
-			}
-		});
+//		for (MouseListener ml : btn.getMouseListeners()) {
+//			removeMouseListener(ml);
+//		}
+//		btn.addMouseListener(new MouseAdapter() {
+//			@Override
+//			public void mouseClicked(MouseEvent e) {
+//				for (MouseListener ml : getMouseListeners()) {
+//					if(ml != null){
+//						ml.mouseClicked(e);
+//					}
+//				}
+//
+//			}
+//		});
 	}
 }

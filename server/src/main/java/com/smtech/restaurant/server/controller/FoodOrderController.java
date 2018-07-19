@@ -12,10 +12,9 @@ public class FoodOrderController {
     @Autowired
     private FoodOrderBillService foodOrderBillService;
 
-    @PostMapping(path = "/foodOrder/new")
+    @PostMapping(path = "/foodOrderBill/new")
     @ResponseBody
-    public FoodOrderBill createFoodOrder(@RequestBody() FoodOrderBill fo){
-
+    public FoodOrderBill createFoodOrderBill(@RequestBody(required = false) FoodOrderBill fo){
         return foodOrderBillService.generateFoodOrder(fo);
 //        JSONObject result = (JSONObject) JSONObject.toJSON(fo);
 //        return HttpRes.getSuccesResponse(result);
