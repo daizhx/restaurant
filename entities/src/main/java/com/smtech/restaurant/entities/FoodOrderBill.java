@@ -1,14 +1,14 @@
 package com.smtech.restaurant.entities;
 
 import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
 
+// 消费单
 @Entity
-public class FoodOrder {
+public class FoodOrderBill {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -157,7 +157,7 @@ public class FoodOrder {
 
     @Override
     public String toString() {
-        return "FoodOrder{" +
+        return "FoodOrderBill{" +
                 "id=" + id +
                 ", createTime=" + createTime +
                 ", checkTime=" + checkTime +

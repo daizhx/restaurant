@@ -1,6 +1,6 @@
 package com.smtech.restaurant.server.service;
 
-import com.smtech.restaurant.entities.FoodOrder;
+import com.smtech.restaurant.entities.FoodOrderBill;
 import com.smtech.restaurant.server.RestaurantServer;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -10,14 +10,14 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest(classes = RestaurantServer.class)
-public class FoodOrderServiceTest {
+public class FoodOrderBillServiceTest {
 
     @Autowired
-    FoodOrderService foodOrderService;
+    FoodOrderBillService foodOrderBillService;
 
     @Test
     public void generateFoodOrder() {
-        FoodOrder fo = foodOrderService.generateFoodOrder();
+        FoodOrderBill fo = foodOrderBillService.generateFoodOrder();
         int id = fo.getId();
         System.out.println("----------->"+id);
     }

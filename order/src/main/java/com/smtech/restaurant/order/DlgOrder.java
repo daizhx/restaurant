@@ -1,7 +1,7 @@
 package com.smtech.restaurant.order;
 
 import com.smtech.restaurant.common.Pager;
-import com.smtech.restaurant.entities.FoodOrder;
+import com.smtech.restaurant.entities.FoodOrderBill;
 import com.smtech.swing.common.dlgs.DlgBase;
 import com.smtech.swing.common.layout.GridBagLayoutAdp;
 import com.smtech.swing.common.view.LinearLayout;
@@ -15,7 +15,7 @@ import java.util.ArrayList;
 
 public class DlgOrder extends DlgBase {
     // 消费单
-    private FoodOrder foodOrder;
+    private FoodOrderBill foodOrderBill;
 
 
     public DlgOrder(Window owner) {
@@ -23,8 +23,8 @@ public class DlgOrder extends DlgBase {
     }
 
     // 刷新对话框
-    public void reflash(FoodOrder foodOrder){
-        this.foodOrder = foodOrder;
+    public void reflash(FoodOrderBill foodOrderBill){
+        this.foodOrderBill = foodOrderBill;
     }
 
     @Override

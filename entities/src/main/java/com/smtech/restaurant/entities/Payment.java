@@ -12,7 +12,7 @@ public class Payment {
     private int id;
 
     @ManyToOne
-    private FoodOrder order;
+    private FoodOrderBill order;
 
     private PaymentType type;
 
@@ -27,11 +27,11 @@ public class Payment {
         this.id = id;
     }
 
-    public FoodOrder getOrder() {
+    public FoodOrderBill getOrder() {
         return order;
     }
 
-    public void setOrder(FoodOrder order) {
+    public void setOrder(FoodOrderBill order) {
         this.order = order;
     }
 

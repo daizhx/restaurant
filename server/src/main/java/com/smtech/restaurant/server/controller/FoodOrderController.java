@@ -1,23 +1,22 @@
 package com.smtech.restaurant.server.controller;
 
-import com.smtech.restaurant.entities.FoodOrder;
-import com.smtech.restaurant.server.service.FoodOrderService;
+import com.smtech.restaurant.entities.FoodOrderBill;
+import com.smtech.restaurant.server.service.FoodOrderBillService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class FoodOrderController {
 
     @Autowired
-    private FoodOrderService foodOrderService;
+    private FoodOrderBillService foodOrderBillService;
 
     @PostMapping(path = "/foodOrder/new")
     @ResponseBody
-    public FoodOrder createFoodOrder(@RequestBody() FoodOrder fo){
+    public FoodOrderBill createFoodOrder(@RequestBody() FoodOrderBill fo){
 
-        return foodOrderService.generateFoodOrder(fo);
+        return foodOrderBillService.generateFoodOrder(fo);
 //        JSONObject result = (JSONObject) JSONObject.toJSON(fo);
 //        return HttpRes.getSuccesResponse(result);
     }
