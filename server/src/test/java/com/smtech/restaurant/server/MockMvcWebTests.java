@@ -31,14 +31,19 @@ public class MockMvcWebTests {
 
     @Test
     public void generateBill() throws Exception{
-        //测试生产空账单
+        //测试生成空账单
         mockMvc.perform(MockMvcRequestBuilders.post("/foodOrderBill/new"))
                 .andExpect(MockMvcResultMatchers.status().isOk());
 //                .andExpect(MockMvcResultMatchers.content().contentType(MediaType.APPLICATION_JSON))
 //                .andExpect(MockMvcResultMatchers.view().name("foodOrderBill"))
 //        .andReturn().getResponse().getContentAsString();
 
-        
+    }
+
+    //生成一些测试台
+    @Test
+    public void crtSomeTable(){
+
     }
 
 }

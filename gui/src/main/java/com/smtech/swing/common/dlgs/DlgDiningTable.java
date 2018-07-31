@@ -43,8 +43,13 @@ public class DlgDiningTable extends DlgBase {
         httpClient.getLocal("/dining_table/all", new HttpClient.HttpRequestResult() {
             @Override
             public void onSuccess(String data) {
-                System.out.println("onsuccess:---->"+data);
                 List<DiningTable> diningTableList = JSON.parseArray(data,DiningTable.class);
+                if(diningTableList.size() == 0){
+                    //未设置桌台编号
+                    TextView tv = new TextView("您还未设置桌台编号!");
+                    contentPanel.setLayout(new BorderLayoutEx());
+                    contentPanel.add(tv,BorderLayout.CENTER);
+                }
                 for(DiningTable t : diningTableList){
                     contentPanel.add(new TableView(t, new ViewGroup.OnClickListener() {
                         @Override

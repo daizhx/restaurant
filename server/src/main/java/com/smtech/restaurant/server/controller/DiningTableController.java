@@ -4,10 +4,7 @@ import com.smtech.restaurant.entities.DiningTable;
 import com.smtech.restaurant.server.dao.DiningTableRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -22,6 +19,10 @@ public class DiningTableController {
     DiningTable addDiningTable(@RequestBody DiningTable t){
         DiningTable ret = diningTableRepository.save(t);
         return ret;
+    }
+
+    void delDiningTable(@RequestParam Integer id){
+        diningTableRepository.delete(id);
     }
 
     @RequestMapping(value = "/dining_table/all",method = RequestMethod.GET)
