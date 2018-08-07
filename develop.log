@@ -5,4 +5,4 @@ eg. gradle :server:build -Dorg.gradle.java.home="C:\Program Files\Java\jdk1.8.0_
 2,使用exe4j将可执行jar包打包成exe文件，网上很多都是exe4j的Gui wizard教程，每次都要手动去操作打包成exe文件太麻烦，必须使用自动化
 打包。找到官方帮助文档地址http://resources.ej-technologies.com/exe4j/help/doc/，结合ant可以实现自动化打包exe
 
-现在的问题是，gradle如何ant task来完成相关操作。
+现在的问题是，gradle如何调用ant task来完成相关操作。

@@ -15,3 +15,7 @@ dependencies {
     compile 'com.squareup.okhttp3:okhttp:3.10.0'
 //    compile 'ch.qos.logback:logback-classic:1.0.13'
 }
+
+tasks.withType(JavaCompile){
+    options.encoding = "UTF-8"
+}

@@ -14,9 +14,21 @@ task release(type: Copy,dependsOn: ['server:build','casher:build','entities:buil
     into ('dist')
 }
 
+task buildServer(type: Copy,dependsOn: 'server:build'){
+    from 'server/build/libs'
+    into ('dist')
+}
+
 //print.dependsOn 'server:build'
 tasks.withType(JavaCompile){
     options.encoding = "UTF-8"
 }
+
+ant.importBuild 'Build.xml'
+
+task intro(dependsOn: hello) doLast {
+    println 'Hello, from Gradle'
+}
+
 
 
