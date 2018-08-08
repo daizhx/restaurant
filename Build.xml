@@ -5,4 +5,11 @@
         <echo>Hello, from Ant</echo>
     </target>
 
+    <taskdef name="exe4j"
+             classname="com.exe4j.Exe4JTask"
+             classpath="C:\Program Files\exe4j\bin\ant.jar"/>
+
+    <target name="launcher">
+        <exe4j projectfile="myapp.exe4j"/>
+    </target>
 </project>
