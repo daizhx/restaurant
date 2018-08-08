@@ -14,5 +14,6 @@ public class RestaurantServer {
         SpringApplication.run(RestaurantServer.class, args);
         //启动线程
         new ReceiveUDP().start();
+        System.out.println("----------------------------------------------->main end");
     }
 }
