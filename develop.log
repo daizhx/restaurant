@@ -6,5 +6,7 @@ eg. gradle :server:build -Dorg.gradle.java.home="C:\Program Files\Java\jdk1.8.0_
 打包。找到官方帮助文档地址http://resources.ej-technologies.com/exe4j/help/doc/，结合ant可以实现自动化打包exe
 
 现在的问题是，gradle如何调用ant task来完成相关操作。
-
 exe4j的注册码，参考http://conkeyn.iteye.com/blog/1743199
+
+8-10
+掌握gradle调用ant任务直接编译出现可执行文件后，接下来需要编写一个app模块（gui程序）来管理后台服务进程，同时还能进行所有的功能模块。
