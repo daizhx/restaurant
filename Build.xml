@@ -7,9 +7,9 @@
 
     <taskdef name="exe4j"
              classname="com.exe4j.Exe4JTask"
-             classpath="C:\Program Files\exe4j\bin\ant.jar"/>
+             classpath="./apache-ant-1.8.2/lib/exe4j/bin/ant.jar"/>
 
-    <target name="launcher">
-        <exe4j projectfile="myapp.exe4j"/>
+    <target name="jar2exe">
+        <exe4j projectfile="server.exe4j"/>
     </target>
 </project>
