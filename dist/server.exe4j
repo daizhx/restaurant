@@ -10,7 +10,7 @@
     <messageSet />
     <versionInfo include="false" fileVersion="" fileDescription="" legalCopyright="" internalName="" productName="" companyName="" productVersion="" />
   </executable>
-  <splashScreen show="true" autoOff="true" alwaysOnTop="true" width="0" height="0" bitmapFile="E:/yunClient/resources/standy.png" java6SplashScreen="false">
+  <splashScreen show="true" autoOff="true" alwaysOnTop="true" width="600" height="600" bitmapFile="E:/yunClient/resources/standy.png" java6SplashScreen="false">
     <text>
       <statusLine x="20" y="20" text="" font="Arial" fontSize="8" fontColor="0,0,0" fontWeight="500" />
       <versionLine x="20" y="40" text="version %VERSION%" font="Arial" fontSize="8" fontColor="0,0,0" fontWeight="500" />
