@@ -52,6 +52,7 @@ public class util {
         StringBuilder build = new StringBuilder();
         while ((line = br.readLine()) != null) {
 //            log.info(line);
+            System.out.println(line);
             build.append(line);
         }
         return build.toString();
