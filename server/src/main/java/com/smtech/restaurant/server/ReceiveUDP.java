@@ -24,7 +24,7 @@ public class ReceiveUDP extends Thread {
             //异常返回
             return;
         }
-        System.out.println("Server started, Listen port: " + listenPort);
+        System.out.println("serverstarted");
         while (true){
             try {
                 responseSocket.receive(packet);

@@ -8,12 +8,11 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
 @EntityScan({"com.smtech.restaurant.entities"})
 public class RestaurantServer {
 
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args){
         System.out.println(System.getProperty("java.class.path"));//系统的classpaht路径
         //启动
         SpringApplication.run(RestaurantServer.class, args);
         //启动线程
         new ReceiveUDP().start();
-        System.out.println("----------------------------------------------->main end");
     }
 }

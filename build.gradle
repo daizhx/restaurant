@@ -24,11 +24,11 @@ tasks.withType(JavaCompile){
     options.encoding = "UTF-8"
 }
 
-ant.importBuild 'Build.xml'
+//ant.importBuild 'Build.xml'
 
-task intro(dependsOn: hello) doLast {
-    println 'Hello, from Gradle'
-}
+//task intro(dependsOn: hello) doLast {
+//    println 'Hello, from Gradle'
+//}
 
 
 
