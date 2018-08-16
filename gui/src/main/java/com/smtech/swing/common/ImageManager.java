@@ -73,6 +73,6 @@ public class ImageManager {
 	}
 
 	private static Map<String, Image> images = new HashMap<String, Image>();
-	private final static String RES_PATH = "../images/";
+	private final static String RES_PATH = "./images/";
 	private final static String KEY = "32E41F3611D818C0";
 }
