@@ -88,7 +88,7 @@ public class ViewGroup extends JPanel {
 		setImageDisplayMode(modeName);
 	}
 
-	public void setBackgroundImage(String imagePath) {
+	public void setBackgroundImagePath(String imagePath) {
 		if (imagePath != null) {
 			this.bgPath = imagePath;
 			this.setBackgroundImage(imagePath, getImageDisplayMode());

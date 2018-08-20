@@ -51,8 +51,8 @@ public class ButtonWrapper extends ComponentWrapper {
 		this.btn = (JButton) btn;
 	}
 
-	public void setBackgroundImage(String imagePath) {
-		super.setBackgroundImage(imagePath);
+	public void setBackgroundImagePath(String imagePath) {
+		super.setBackgroundImagePath(imagePath);
 		nomalImgPath = imagePath;
 	}
 
@@ -414,7 +414,7 @@ public class ButtonWrapper extends ComponentWrapper {
 	}
 
 	public void isSelected(String btnInScope) {
-		setBackgroundImage(getDefaultSelectedImgPath());
+		setBackgroundImagePath(getDefaultSelectedImgPath());
 	}
 
 	public void setSelected(boolean b) {
@@ -426,7 +426,7 @@ public class ButtonWrapper extends ComponentWrapper {
 			}
 		} else {
 			status = ACTION_UP;
-			setBackgroundImage(nomalImgPath);
+			setBackgroundImagePath(nomalImgPath);
 			if (selectedTextColor != null) {
 				btn.setForeground(textColor);
 			}

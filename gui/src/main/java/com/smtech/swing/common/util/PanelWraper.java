@@ -13,9 +13,6 @@ import java.awt.*;
  */
 public class PanelWraper {
 
-
-
-
 	/**
 	 * 获得具有指定空白边框的面板
 	 * 
