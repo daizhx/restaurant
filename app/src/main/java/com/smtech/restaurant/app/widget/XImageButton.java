@@ -7,6 +7,7 @@ import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
+//图片按钮
 public class XImageButton extends JButton {
 	public XImageButton(Action ac) {
 		super(ac);
@@ -18,9 +19,8 @@ public class XImageButton extends JButton {
 
 	@Override
 	public void paint(Graphics g) {
-		Image img = ImageManager.getImage(String.format("frame/%s", imgPath));
-		Image hoverImg = ImageManager.getImage(String.format("frame/%s",
-				hoverImgPath));
+		Image img = ImageManager.getImage(imgPath);
+		Image hoverImg = ImageManager.getImage(hoverImgPath);
 		if (isHover && hoverImg != null) {
 			g.drawImage(hoverImg, 0, 0, getWidth(), getHeight(), this);
 		}
@@ -68,7 +68,9 @@ public class XImageButton extends JButton {
 		
 	};
 
+	//图片路径
 	private String imgPath;
+	//hover图片路径
 	private String hoverImgPath;
 	private boolean isHover;
 }

@@ -15,9 +15,10 @@ public class Res {
     public static final Color TEXT_COLOR2 = new Color(0xe8, 0xa0, 0x7e);
     // 导航菜单按钮文字颜色
     public static final Color TEXT_BTN_COLOR = TEXT_COLOR_REVERSE;
-
     // 消息提示框背景色
     public static final int COLOR_MSG_BG = 0xe7e7e7;
+    //状态栏背景色
+    public static final Color STATUS_BAR_COLOR = new Color(230, 230, 230);
 
     // 字体
     public static final String FONT = "Noto Sans S Chinese Regular";
@@ -31,4 +32,6 @@ public class Res {
     //按钮字体
 
     public static final Font FONT_TEXT = new Font(FONT, Font.PLAIN, FONT_SIZE_TEXT);// 文本框中的字体
+
+
 }

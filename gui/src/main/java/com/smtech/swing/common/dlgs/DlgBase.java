@@ -179,4 +179,11 @@ public class DlgBase extends JDialog{
 
         Dialog dlg;
     }
+
+    //显示对话框窗口
+    public void display(){
+        setVisible(true);
+        dispose();
+    }
+
 }

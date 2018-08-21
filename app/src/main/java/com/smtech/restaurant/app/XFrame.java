@@ -107,8 +107,6 @@ public class XFrame extends JFrame {
 
 		Dimension btnSize = new Dimension(24, 24);
 		List<Object[]> btnInfo = new Vector<Object[]>();
-		// btnInfo.add(new Object[] { "skin.png", "bgNormal.png", new Skin() });
-		// btnInfo.add(new Object[] { "menu.png", "bgNormal.png", new Menu() });
 		btnInfo.add(new Object[] { "min.png", "bgNormal.png", new Min() });
 		btnInfo.add(new Object[] { "max.png", "bgNormal.png", new Max() });
 		btnInfo.add(new Object[] { "close.png", "bgClose.png", new Close() });
@@ -117,8 +115,8 @@ public class XFrame extends JFrame {
 		pb.setInsets(new Insets(0, 0, 0, 0));
 		pb.addHorizontalGlue();
 		for (Object[] v : btnInfo) {
-			String imgPath = (String) v[0];
-			String hoverImgPath = (String) v[1];
+			String imgPath = "app/" + (String) v[0];
+			String hoverImgPath ="app/" +  (String) v[1];
 			AbstractAction ac = (AbstractAction) v[2];
 			XImageButton btn = new XImageButton(ac);
 			btn.setImgPath(imgPath);

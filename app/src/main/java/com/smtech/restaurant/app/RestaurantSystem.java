@@ -1,11 +1,14 @@
 package com.smtech.restaurant.app;
 
 
+import com.smtech.restaurant.app.widget.LoginPanel;
 import com.smtech.restaurant.common.StackTraceToString;
 import com.smtech.swing.common.DlgManager;
 import com.smtech.swing.common.MainFrame;
+import com.smtech.swing.common.Res;
 import com.smtech.swing.common.dlgs.DlgBase;
 import com.smtech.swing.common.layout.BorderLayoutEx;
+import com.smtech.swing.common.layout.GridBagLayoutEx;
 import com.smtech.swing.common.util.PanelBuilder;
 import com.smtech.swing.common.util.UIUtil;
 import com.smtech.swing.common.view.TransparentView;
@@ -22,6 +25,7 @@ import java.io.InputStreamReader;
 import java.util.TimeZone;
 
 public class RestaurantSystem {
+    private static final String INIT_LOGO_BG = "app/init_logo.png";
     private static Logger logger = LoggerFactory.getLogger(RestaurantSystem.class);
     private static ViewGroup contentPanel;
     private static Process serverProcess;
@@ -41,8 +45,12 @@ public class RestaurantSystem {
         createAndShowGUI();
 
         //start serverIDEA,after server started go to home page
-        startServer();
-
+        //启动服务成功后，进入登录界面
+        if(startServer()){
+            showLoginPanel();
+        }else{
+            System.exit(0);
+        }
 
         //Schedule a job for the event-dispatching thread:
         //creating and showing this application's GUI.
@@ -55,7 +63,7 @@ public class RestaurantSystem {
 
     }
 
-    private static void startServer() {
+    private static boolean startServer() {
         //这种启动方式只用在idea中启动server
         String usrHome = System.getProperty("user.home");
         try {
@@ -137,12 +145,11 @@ public class RestaurantSystem {
                 System.out.println(line);
                 if("serverstarted".equals(line)){
                     System.out.println("server has started");
-                    showHomeView();
-                    break;
+//                    showHomeView();
+                    return true;
                 }
             }
 
-            System.out.println("======================================================");
             br = new BufferedReader(new InputStreamReader(serverProcess.getErrorStream(),"GBK"));
             while ((line = br.readLine()) != null){
                 System.out.println(line);
@@ -153,6 +160,8 @@ public class RestaurantSystem {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+        return false;
     }
 
     private static void initLogSystem() {
@@ -167,7 +176,8 @@ public class RestaurantSystem {
      * event-dispatching thread.
      */
     private static void createAndShowGUI() {
-        showSetupView();
+//        showSetupView();
+        showInitPanel();
     }
 
 
@@ -223,6 +233,7 @@ public class RestaurantSystem {
     private static void showInitPanel() {
         mainFrame.setResizable(false);
         JProgressBar progressBar = new JProgressBar();
+        progressBar.setIndeterminate(true);
         UIUtil.fixSize(progressBar, new Dimension(500, 80));
         PanelBuilder pb = new PanelBuilder();
         pb.addHorizontalGlue();
@@ -236,18 +247,18 @@ public class RestaurantSystem {
         JPanel p = new TransparentView();
         pb.doLayout(p);
 
-//        ViewGroup logoPanel = new ViewGroup(
-//                ImageManager.getImage(INIT_LOGO_BG), ViewGroup.CENTRE);
-//        logoPanel.setOpaque(false);
+        ViewGroup logoPanel = new ViewGroup();
+        logoPanel.setBackgroundImage(INIT_LOGO_BG, ViewGroup.CENTRE);
+        logoPanel.setOpaque(false);
 
         JPanel bgPanel = new JPanel();
 
-//        bgPanel.setBackground(StatusInfoBar.STATUS_BAR_COLOR);
+        bgPanel.setBackground(Res.STATUS_BAR_COLOR);
 
-//        GridBagLayoutEx gx = new GridBagLayoutEx(20, 1, new Insets(0, 0, 0, 0));
-//        gx.addComponent(logoPanel, 0, 5, 1, 6);
-//        gx.addComponent(p, 0, 12, 1, 1);
-//        gx.doLayout(bgPanel);
+        GridBagLayoutEx gx = new GridBagLayoutEx(20, 1, new Insets(0, 0, 0, 0));
+        gx.addComponent(logoPanel, 0, 5, 1, 6);
+        gx.addComponent(p, 0, 12, 1, 1);
+        gx.doLayout(bgPanel);
 
         mainFrame.getContentPane().removeAll();
         mainFrame.getContentPane().setLayout(new BorderLayout());
@@ -260,9 +271,48 @@ public class RestaurantSystem {
         mainFrame.setLocationRelativeTo(null);
     }
 
+    //显示
     private static void showHomeView(){
         DlgBase dlg = DlgManager.getInstance().getDlg(DlgHome.class);
         dlg.pack();
         dlg.setVisible(true);
+    }
+
+
+    /**
+     * 显示登录面板
+     */
+    private static void showLoginPanel() {
+        ViewGroup logoPanel = new ViewGroup();
+        logoPanel.setBackgroundImage(INIT_LOGO_BG,ViewGroup.CENTRE);
+        logoPanel.setOpaque(false);
+
+        LoginPanel loginPanel = new LoginPanel();
+        JPanel bgPanel = new JPanel();
+        bgPanel.setBackground(Res.STATUS_BAR_COLOR);
+
+        GridBagLayoutEx gx = new GridBagLayoutEx(20, 10, new Insets(0, 0, 0, 0));
+
+        gx.addComponent(logoPanel, 0, 5, 10, 6);
+        gx.addComponent(loginPanel, 1, 11, 8, 8);
+
+        gx.doLayout(bgPanel);
+
+        mainFrame.getContentPane().removeAll();
+        mainFrame.getContentPane().setLayout(new BorderLayout());
+        mainFrame.getContentPane().add(bgPanel, BorderLayout.CENTER);
+        mainFrame.getContentPane().validate();
+        mainFrame.getContentPane().repaint();
+        loginPanel.reflash();
+
+    }
+
+
+    //退出应用
+    public static void exit(){
+        if(serverProcess != null){
+            serverProcess.destroy();
+        }
+        System.exit(0);
     }
 }

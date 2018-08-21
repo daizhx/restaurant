@@ -75,6 +75,11 @@ public class ViewGroup extends JPanel {
 		});
     }
 
+    public ViewGroup(String bgPath,String mode){
+	    this();
+	    setBackgroundImage(bgPath,mode);
+    }
+
 	@Override
 	public void setBackground(Color bg) {
 		super.setBackground(bg);
