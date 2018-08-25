@@ -26,4 +26,9 @@ common----业务模块公共类，包含http请求所需的一些类
 gui----一些构建界面的公共类
 util---java开发一些常用的工具类
 
+打印单据简要流程：
+1，业务代码创建打印任务Prn_PrintJob。
+2，PrinterJobInitor处理打印任务。
+3，printEx循环处理打印任务。
+
 
