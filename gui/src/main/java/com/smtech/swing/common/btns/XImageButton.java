@@ -1,4 +1,4 @@
-package com.smtech.restaurant.app.widget;
+package com.smtech.swing.common.btns;
 
 import com.smtech.swing.common.ImageManager;
 

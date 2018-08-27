@@ -1,7 +1,7 @@
 package com.smtech.restaurant.app;
 
 import com.smtech.restaurant.app.widget.Dragger;
-import com.smtech.restaurant.app.widget.XImageButton;
+import com.smtech.swing.common.btns.XImageButton;
 import com.smtech.swing.common.util.CommonFunc;
 import com.smtech.swing.common.util.PanelBuilder;
 import com.smtech.swing.common.util.UIUtil;

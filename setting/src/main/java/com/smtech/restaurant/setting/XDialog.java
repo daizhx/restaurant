@@ -1,34 +1,19 @@
 package com.smtech.restaurant.setting;
 
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Container;
-import java.awt.Dimension;
-import java.awt.Image;
-import java.awt.Insets;
-import java.awt.Point;
-import java.awt.Rectangle;
-import java.awt.Window;
-import java.awt.event.ActionEvent;
-import java.awt.geom.RoundRectangle2D;
-
-import javax.swing.AbstractAction;
-import javax.swing.Action;
-import javax.swing.BorderFactory;
-import javax.swing.Box;
-import javax.swing.ImageIcon;
-import javax.swing.JComponent;
-import javax.swing.JDialog;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.SwingConstants;
-
+import com.smtech.swing.common.btns.XImageButton;
+import com.smtech.swing.common.util.PanelBuilder;
+import com.smtech.swing.common.util.UIUtil;
+import com.smtech.swing.common.view.TransparentView;
 import com.smtech.swing.common.view.ViewGroup;
 import com.sun.awt.AWTUtilities;
 
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.geom.RoundRectangle2D;
+
 /**
- * ��360����
+ * 仿360窗体
  */
 public class XDialog extends JDialog {
 	public XDialog() {
@@ -50,7 +35,7 @@ public class XDialog extends JDialog {
 		setUndecorated(true);
 		setRoundRectWin();
 		setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
-//		new Dragger(this, imgPanel); // �����ק
+//		new Dragger(this, imgPanel); // 添加拖拽
 	}
 
 	@Override
@@ -60,6 +45,7 @@ public class XDialog extends JDialog {
 		super.setTitle(title);
 	}
 
+	//设置图标，在标题的左边
 	@Override
 	public void setIconImage(Image image) {
 		ImageIcon icon = new ImageIcon(image);
@@ -108,8 +94,8 @@ public class XDialog extends JDialog {
 		super.setVisible(arg0);
 	}
 	/**
-	 * ����������
-	 * 
+	 * 创建标题栏
+	 *
 	 * @return
 	 */
 	private JPanel createTitlePanel() {
@@ -118,9 +104,9 @@ public class XDialog extends JDialog {
 		labTitle.setBorder(BorderFactory.createEmptyBorder(0, 5, 0, 0));
 
 		clsBtn = new XImageButton(new Close());
-		clsBtn.setImgPath("close.png");
-		clsBtn.setHoverImgPath("bgClose.png");
-		PopDlgBase.fixSize(clsBtn, new Dimension(24, 24));
+		clsBtn.setImgPath("dialog/close.png");
+		clsBtn.setHoverImgPath("dialog/bgClose.png");
+		UIUtil.fixSize(clsBtn, new Dimension(24, 24));
 		PanelBuilder pb = new PanelBuilder();
 		pb.setInsets(new Insets(2, 0, 2, 0));
 		pb.add(labTitle);
@@ -128,24 +114,26 @@ public class XDialog extends JDialog {
 		pb.add(clsBtn);
 		pb.add((JComponent) Box.createHorizontalStrut(5));
 
-		JPanel panel = new TransparentPanel();
+		JPanel panel = new TransparentView();
 		pb.doLayout(panel);
 		return panel;
 	}
 
 	private JPanel createSelfPanel() {
-		selfPanel = new TransparentPanel();
+		selfPanel = new TransparentView();
 		selfPanel.setLayout(new BorderLayout());
 		return selfPanel;
 	}
 
 	/**
-	 * ���ô���ΪԲ��
+	 * 设置窗体为圆角
 	 */
 	private void setRoundRectWin() {
 		AWTUtilities.setWindowShape(this, new RoundRectangle2D.Double(0, 0,
 				this.getWidth(), this.getHeight(), 15, 15));
 	}
+
+	//设置关闭action
 	public void setCloseAction(Action closeAction) {
 		this.closeAction = closeAction;
 		clsBtn.setAction(closeAction);
@@ -155,7 +143,7 @@ public class XDialog extends JDialog {
 		return closeAction;
 	}
 	/**
-	 * ����ر�һ���ڲ����塣
+	 * 处理关闭一个内部窗体。
 	 */
 	protected class Close extends AbstractAction {
 		@Override
@@ -168,7 +156,7 @@ public class XDialog extends JDialog {
 	public static final Color FRAME_COLOR = new Color(14, 98, 155);
 	public static final Color DIALOG_COLOR = new Color(19, 86, 137);
 
-	// �������ϵĿؼ�
+	// 标题栏上的控件
 	private Action closeAction;
 	private XImageButton clsBtn;
 	private JLabel labTitle;
