@@ -1,7 +1,6 @@
-package com.smtech.restaurant.app.widget;
+package com.smtech.swing.common.util;
 
-import com.smtech.restaurant.app.XFrame;
-import com.smtech.swing.common.util.CommonFunc;
+import com.smtech.swing.common.XFrame;
 
 import javax.swing.*;
 import java.awt.*;

@@ -1,6 +1,5 @@
 package com.smtech.restaurant.common.http;
 
-import com.alibaba.fastjson.JSONObject;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
@@ -31,7 +30,7 @@ public class HttpClient {
     }
 
     //合成本地server的url
-    public String genLocalUrl(String api){
+    private String genLocalUrl(String api){
         return "http://" + localServerIP + ":" + localServerPort +"/" + api;
     }
 

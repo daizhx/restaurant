@@ -7,6 +7,7 @@ import com.smtech.swing.common.DlgManager;
 import com.smtech.swing.common.MainFrame;
 import com.smtech.swing.common.Res;
 import com.smtech.swing.common.dlgs.DlgBase;
+import com.smtech.swing.common.XFrame;
 import com.smtech.swing.common.layout.BorderLayoutEx;
 import com.smtech.swing.common.layout.GridBagLayoutEx;
 import com.smtech.swing.common.util.PanelBuilder;
