@@ -11,21 +11,6 @@ import java.awt.*;
  */
 public class TblAreaSetting {
 
-    public void loadData(){
-        HttpClient httpClient = HttpClient.getInstance();
-        httpClient.setLocalServerIP("127.0.0.1");
-        httpClient.getLocal("/dining_table_area/all", new HttpClient.HttpRequestResult() {
-            @Override
-            public void onSuccess(String res) {
-
-            }
-
-            @Override
-            public void onFail(String msg) {
-
-            }
-        });
-    }
 
     public static void main(String[] args) {
 

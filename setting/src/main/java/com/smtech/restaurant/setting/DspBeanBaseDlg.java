@@ -1,15 +1,23 @@
 package com.smtech.restaurant.setting;
 
+import com.smtech.restaurant.common.http.HttpClient;
 import com.smtech.swing.common.util.PanelBuilder;
 import com.smtech.swing.common.view.CommonTable;
 import com.smtech.swing.common.view.TextFieldEx;
 import com.smtech.swing.common.view.ViewGroup;
 
 import javax.swing.*;
+import javax.swing.table.AbstractTableModel;
 import javax.swing.table.TableCellRenderer;
 import java.awt.*;
 import java.awt.event.*;
+import java.beans.IntrospectionException;
+import java.beans.PropertyDescriptor;
+import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.lang.reflect.ParameterizedType;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -30,13 +38,36 @@ public abstract class DspBeanBaseDlg<T> extends FunctionItemBase {
     protected CommonTable table;
 
     //对象数据
-    protected List<T> data;
+    protected List<T> data = new ArrayList<T>();
 
     @Override
     public void init() {
         contentPanel.setLayout(new BorderLayout());
         contentPanel.add(createBtnPanel(), BorderLayout.NORTH);
         contentPanel.add(createCenterPanel(), BorderLayout.CENTER);
+    }
+
+    //从server加载数据的api
+    protected abstract String loadDataApi();
+
+    //需要显示的字段
+    protected abstract String[] getDspFields();
+    //需要显示的字段名称
+    protected abstract String[] getDspFieldTitles();
+
+    private void loadData(){
+        HttpClient httpClient = HttpClient.getInstance();
+        httpClient.get(httpClient.getLocal(loadDataApi()), new HttpClient.HttpRequestResult() {
+            @Override
+            public void onSuccess(String res) {
+
+            }
+
+            @Override
+            public void onFail(String msg) {
+
+            }
+        });
     }
 
     //获取泛型类型对象
@@ -47,10 +78,10 @@ public abstract class DspBeanBaseDlg<T> extends FunctionItemBase {
 
     @Override
     public void reflash() {
-        Class<T> beanClass = getTempalteType();
-        String beanName = beanClass.getSimpleName();
 
-        beanClass.getFields();
+
+
+
 
     }
 
@@ -76,6 +107,42 @@ public abstract class DspBeanBaseDlg<T> extends FunctionItemBase {
         JPanel tablePanel = new JPanel(new BorderLayout());
 
         table = new CommonTable();
+        table.setModel(new AbstractTableModel() {
+            @Override
+            public int getRowCount() {
+                return data.size();
+            }
+
+            @Override
+            public int getColumnCount() {
+                return getDspFields().length;
+            }
+
+            @Override
+            public Object getValueAt(int rowIndex, int columnIndex) {
+                T t = data.get(rowIndex);
+                String fn = getDspFields()[columnIndex];
+
+                //获取属性值
+                Class<T> beanClass = getTempalteType();
+                try {
+                    PropertyDescriptor pd = new PropertyDescriptor(fn, beanClass);
+                    Method method = pd.getReadMethod();
+                    Object val = method.invoke(t);
+                    return val;
+                } catch (IntrospectionException | IllegalAccessException | InvocationTargetException e) {
+                    e.printStackTrace();
+                }
+
+
+                return null;
+            }
+
+            @Override
+            public String getColumnName(int column) {
+                return getDspFieldTitles()[column];
+            }
+        });
         table.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseReleased(MouseEvent e) {
