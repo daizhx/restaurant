@@ -12,32 +12,46 @@ import javax.swing.text.PlainDocument;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.lang.reflect.ParameterizedType;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+//带标签的输入项
+public class InputWithLabel<T> extends JComponent{
 
-public abstract class ParaForInputBase<T> {
+    T t;
+    Class<?> cls;
 
-    Class<T> cls;
+    public InputWithLabel() {
+//        this.cls = cls;
+        init();
+    }
 
-	public abstract void requestFocus();
+    //	public abstract void requestFocus();
 
-	public abstract JComponent getComponent();
+//	public abstract JComponent getComponent();
 
 	public JComponent createComponent(){
+	    //获取T的class对象
+        cls = (Class<T>) ((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[0];
+
 	    if(cls == String.class){
 	        return createStringInputComponent();
         }
         return createStringInputComponent();
     }
 
-	public abstract T getValue();
+	public T getValue(){
+	    return t;
+    }
 
-	public abstract void setValue(T value);
-
-	public abstract void cleanData();
+	public void setValue(T value){
+	    this.t = value;
+    }
+//
+//	public abstract void cleanData();
 
 
     public JComponent createStringInputComponent() {
@@ -125,7 +139,7 @@ public abstract class ParaForInputBase<T> {
 		return label;
 	}
 
-	public abstract void setEnabled(Boolean enabled);
+//	public abstract void setEnabled(Boolean enabled);
 
 	public void setContentPanel(JPanel contentPanel) {
 		this.contentPanel = contentPanel;

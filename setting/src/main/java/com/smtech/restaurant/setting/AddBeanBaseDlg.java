@@ -1,7 +1,6 @@
 package com.smtech.restaurant.setting;
 
 import com.smtech.restaurant.common.StackTraceToString;
-import com.smtech.swing.common.dlgs.DlgBase;
 import com.smtech.swing.common.util.CommonFunc;
 import com.sun.corba.se.spi.orbutil.fsm.ActionBase;
 import jdk.nashorn.internal.runtime.GlobalFunctions;
@@ -19,11 +18,13 @@ import java.util.Iterator;
  *
  */
 @SuppressWarnings("serial")
-public class AddBeanBaseDlg extends XDialog {
+public class AddBeanBaseDlg<T> extends XDialog {
 
+	private T bean;
 
 	public AddBeanBaseDlg(Window owner) {
 		super(owner);
+		init();
 	}
 
 	public void init() {
@@ -34,8 +35,7 @@ public class AddBeanBaseDlg extends XDialog {
 		getAttrPanel().requestFocus();
 
 		// 设置对话框属性
-		setTitle(getMessageSource().getMessage("AddBeanBaseDlg.title",
-				new String[] { obj.getDspName() }));
+		setTitle("增加");
 		setModal(true);
 		setResizable(false);
 		setPreferredSize(new Dimension(850, 400));
@@ -47,13 +47,9 @@ public class AddBeanBaseDlg extends XDialog {
 	 * 创建属性面板
 	 */
 	protected JPanel createAttrPanel() {
-		logger.trace("enter");
 		if (getAttrPanel() == null) {
-			setAttrPanel(new PanelForAttr(this));
+			setAttrPanel(new PanelForBean(this,bean));
 		}
-		getAttrPanel().setIwd(getIwd());
-		getAttrPanel().setMessageSource(getMessageSource());
-		getAttrPanel().setSessionFactory(getSessionFactory());
 		setShowAttrsInAttrPanel();
 		getAttrPanel().init();
 		return getAttrPanel();
@@ -72,12 +68,12 @@ public class AddBeanBaseDlg extends XDialog {
 		btnForCommit = new JButton(new ActionForCommit());
 		btnForCommit.setText(String.format("%s(F1)", btnForCommit.getText()));
 		btnPanel.add(btnForCommit);
-		addHotKeyForBtn(btnForCommit, KeyEvent.VK_F1);
+//		addHotKeyForBtn(btnForCommit, KeyEvent.VK_F1);
 
 		btnForCancel = new JButton(new ActionForCancel());
 		btnForCancel.setText(String.format("%s(ESC)", btnForCancel.getText()));
 		btnPanel.add(btnForCancel);
-		addHotKeyForBtn(btnForCancel, KeyEvent.VK_ESCAPE);
+//		addHotKeyForBtn(btnForCancel, KeyEvent.VK_ESCAPE);
 		return btnPanel;
 	}
 
@@ -85,35 +81,9 @@ public class AddBeanBaseDlg extends XDialog {
 	 * 重新设置属性面板中需要显示的列
 	 */
 	protected void setShowAttrsInAttrPanel() {
-		logger.trace("enter");
-		Iterator<Attr> it = obj.getAllAttrs().iterator();
-		while (it.hasNext()) {
-			Attr attr = it.next();
-			if (!attr.getVisible()) {
-				continue;
-			}
-			if (attr.getType() == AttrType.relatedObj) {
-				if (attr.getRelationType() == RelationType.BothWayN_N
-						|| attr.getRelationType() == RelationType.BothWay1_N) {
-					continue;
-				}
-			}
-			getAttrPanel().getSelfAttrs().add(attr);
-		}
-	}
 
-	/**
-	 * 仓库做特殊处理
-	 */
-	private void specialProForWarse() {
-		Warehouse curCangKu = (Warehouse) getAttrPanel().getBean();
-		if (!curCangKu.getMoRen()) {
-			return;
-		}
+    }
 
-		String sql = "UPDATE Warehouse SET moRen = 0";
-		dspDlg.executeUpdateSql(sql);
-	}
 
 	protected void commit() {
 		// 保存当前编辑的Bean对象
@@ -143,30 +113,8 @@ public class AddBeanBaseDlg extends XDialog {
 	 * @return
 	 */
 	private Object saveBeanBefore() {
-		Object curBean = getAttrPanel().getBean();
-		if (curBean instanceof Goods) {
-			Goods g = (Goods) curBean;
-			g.setKuCunJiaGe(g.getJiBenJiaGe());
-		}
-		try {
-			if (curBean instanceof CaiPingDaiLei) {
-				CaiPingDaiLei dl = (CaiPingDaiLei) curBean;
-				dl.setIsBenDi(true);
-			}
-			if (curBean instanceof CaiPingXiaoLei) {
-				CaiPingXiaoLei xl = (CaiPingXiaoLei) curBean;
-				xl.setIsBenDi(true);
-			}
-			if (curBean instanceof CaiPing) {
-				CaiPing cp = (CaiPing) curBean;
-				cp.setOldJiaGe(cp.getJiaGe());
-				cp.setIsBenDi(true);
-			}
-		} catch (Exception ex) {
-			logger.error(StackTraceToString.getExceptionTrace(ex));
-		}
-		return curBean;
-	}
+	    return null;
+    }
 
 	/**
 	 * 保存当前Bean，成功则返回保存的bean对象，否则返回null
@@ -174,65 +122,17 @@ public class AddBeanBaseDlg extends XDialog {
 	 * @return
 	 */
 	protected Object saveBean() {
-		getAttrPanel().setStatus(PanelStatus.ForAdd);
-		if (!getAttrPanel().updateBean()) {
-			return null;
-		}
-		Object curBean = saveBeanBefore();
-		Object ret = GlobalFunctions.execCRUD(GlobalFunctions.CRUD.INSERT,
-				curBean);
-		if (ret != ActionBase.SUCCESS) {
-			JOptionPane.showMessageDialog(getOwner(), ret);
-			return null;
-		}
-		Integer curBeanPID = GlobalFunctions.getBeanPID(curBean);
-		// 如果是仓库，并且设置为默认仓库，需要把其它仓库设置为非默认
-		if (obj.getName().equals("Warehouse")) {
-			specialProForWarse();
-		}
-		saveBeanAfter(curBean, curBeanPID);
-		return curBean;
-	}
+	    return null;
+    }
 
 	private Object saveBeanAfter(Object curBean, Object pid) {
-		StandardEvaluationContext ctx = new StandardEvaluationContext();
-		ctx.setRootObject(curBean);
-		ctx.setVariable("id", pid);
-		Expression exp = parser.parseExpression(
-				String.format("#{set%s(#id)}", obj.getIdAttr().getName()),
-				new TemplateParserContext());
-		exp.getValue(ctx);
-
-		if (childDspDlg != null) {
-			childDspDlg.refalseParentTree(curBean);
-			setVisible(true);
-			dispose();
-			return null;
-		} else if (dspDlg != null) {
-			dspDlg.reflashTablePanel();
-			dspDlg.setSelectedBean(curBean);
-		} else if (selDlg != null) {
-			selDlg.reflash();
-		} else if (qxglPanel != null) {
-			if (obj.getName().equals("YongHuZu")) {
-				qxglPanel.reflashUserTypePanel();
-			} else if (obj.getName().equals("Staff")) {
-				qxglPanel.setDefaultQuanXian((Staff) curBean);
-				qxglPanel.reflashUserPanel();
-			}
-		}
-
-		// 生成一个新 的BEAN，并计放置在属性面板中
-		getAttrPanel().setBean(createABeanInstanceWithClone(curBean));
-		getAttrPanel().requestFocus();
-		getAttrPanel().setDataHasChange(false);
-		return curBean;
-	}
+	    return null;
+    }
 
 	protected void cancel() {
 		if (attrPanel.getDataHasChange()) {// 界面数据已经被修改，提示用户是否保存
 			Integer iRet = JOptionPane.showConfirmDialog(getContentPane(),
-					getMessage("ShiFuoBaoCun"), getMessage("Tips"),
+					"是否保存", "提示",
 					JOptionPane.YES_NO_CANCEL_OPTION,
 					JOptionPane.QUESTION_MESSAGE);
 			if (JOptionPane.YES_OPTION == iRet) {
@@ -251,7 +151,7 @@ public class AddBeanBaseDlg extends XDialog {
 
 	protected class ActionForCommit extends AbstractAction {
 		public ActionForCommit() {
-			super(getMessage("AddBeanBaseDlg.commitBtn.title"));
+			super("确定");
 		}
 
 		@Override
@@ -262,7 +162,7 @@ public class AddBeanBaseDlg extends XDialog {
 
 	protected class ActionForCancel extends AbstractAction {
 		public ActionForCancel() {
-			super(getMessage("AddBeanBaseDlg.cancleBtn.title"));
+			super("取消");
 		}
 
 		@Override
@@ -276,37 +176,7 @@ public class AddBeanBaseDlg extends XDialog {
 	 *
 	 * @return
 	 */
-	public Object createABeanInstanceWithDefault() {
-		Object beanInstance = null;
-		try {
-			beanInstance = Class.forName(beansPackageName + obj.getName())
-					.newInstance();
-		} catch (Exception e) {
-			logger.error(StackTraceToString.getExceptionTrace(e));
-		}
-		StandardEvaluationContext ctx = new StandardEvaluationContext();
-		ctx.setRootObject(beanInstance);
 
-		for (int i = 0; i < obj.getAllAttrs().size(); i++) {
-			Attr attr = obj.getAllAttrs().get(i);
-			if (attr.getType() == AttrType.idAttr
-					|| attr.getType() == AttrType.relatedObj) {
-				continue;
-			}
-			Object defaultValue = attr.getDefaultValue();
-			if (defaultValue != null && !defaultValue.equals("")) {
-				Expression exp;
-				ctx.setVariable("defaultValue", defaultValue);
-
-				exp = parser.parseExpression(String.format(
-						"#{set%s(#defaultValue)}", attr.getName()),
-						new TemplateParserContext());
-				exp.getValue(ctx);
-			}
-		}
-
-		return beanInstance;
-	}
 
 	/**
 	 * 利用已存在的对象实例克隆出新的实例
@@ -315,66 +185,8 @@ public class AddBeanBaseDlg extends XDialog {
 	 * @return
 	 */
 	public Object createABeanInstanceWithClone(Object otherBeanInstance) {
-		Object beanInstance = null;
-		try {
-			beanInstance = Class.forName(beansPackageName + obj.getName())
-					.newInstance();
-		} catch (Exception e) {
-			logger.error(StackTraceToString.getExceptionTrace(e));
-		}
-
-		StandardEvaluationContext ctx = new StandardEvaluationContext();
-		ctx.setRootObject(beanInstance);
-		ctx.setVariable("otherBeanInstance", otherBeanInstance);
-		Expression exp;
-		for (int i = 0; i < obj.getAllAttrs().size(); i++) {
-			Attr attr = obj.getAllAttrs().get(i);
-			if (attr.getType() != AttrType.relatedObj) {
-				Object attrValue = null;
-				switch (attr.getFillMode()) {
-					case INCREASE:
-						exp = parser.parseExpression(
-								String.format("#{get%s()}", attr.getName()),
-								new TemplateParserContext());
-						Object oldValue = exp.getValue(otherBeanInstance);
-						attrValue = createIncreaseValue(oldValue);
-						break;
-					case CLEAN:
-						attrValue = null;
-						break;
-					case USE_DEFAULT:
-						attrValue = attr.getDefaultValue();
-						break;
-					case USE_OLDVALUE:
-						exp = parser.parseExpression(
-								String.format("#{get%s()}", attr.getName()),
-								new TemplateParserContext());
-						attrValue = exp.getValue(otherBeanInstance);
-						break;
-					default:
-						break;
-				}
-				ctx.setVariable("attrValue", attrValue);
-				String strToExcute = String.format("#{set%s(#attrValue)}",
-						attr.getName());
-				exp = parser.parseExpression(strToExcute,
-						new TemplateParserContext());
-				exp.getValue(ctx);
-			} else {
-				String strToExcute;
-				if (attr.getRelationType() == RelationType.BothWayN_1) {// N-1
-					strToExcute = String.format(
-							"#{set%s(#otherBeanInstance.get%s())}",
-							attr.getName(), attr.getName());
-					exp = parser.parseExpression(strToExcute,
-							new TemplateParserContext());
-					exp.getValue(ctx);
-				}
-			}
-		}
-
-		return beanInstance;
-	}
+	    return null;
+    }
 
 	/**
 	 * 在oldValue的基础上创建一个递增的值，如oldValue为"123"，那么新的值为"124"
@@ -434,11 +246,11 @@ public class AddBeanBaseDlg extends XDialog {
 		}
 	}
 
-	public void setAttrPanel(PanelForAttr attrPanel) {
+	public void setAttrPanel(PanelForBean attrPanel) {
 		this.attrPanel = attrPanel;
 	}
 
-	public PanelForAttr getAttrPanel() {
+	public PanelForBean getAttrPanel() {
 		return attrPanel;
 	}
 
@@ -500,10 +312,9 @@ public class AddBeanBaseDlg extends XDialog {
 	private SelectBeanDlgBase selDlg;
 	private QuanXianGuanLi qxglPanel;
 
-	private PanelForAttr attrPanel;
+	private PanelForBean attrPanel;
 
 	protected JButton btnForCommit;
 	protected JButton btnForCancel;
 	private static String beansPackageName = "com.lemontree.framework.beans.";
-	private ExpressionParser parser = new SpelExpressionParser();
 }
