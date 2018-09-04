@@ -2,6 +2,9 @@ package com.smtech.restaurant.setting;
 
 import com.smtech.restaurant.entities.DiningTableArea;
 
+/*
+* 设置桌台区域的对话框
+* */
 public class TblAreaDlg extends DspBeanBaseDlg<DiningTableArea> {
 
     @Override

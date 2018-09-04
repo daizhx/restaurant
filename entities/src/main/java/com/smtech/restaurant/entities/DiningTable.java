@@ -4,6 +4,7 @@ import com.smtech.restaurant.enums.TableStatus;
 
 import javax.persistence.*;
 
+//桌台
 @Entity
 public class DiningTable {
 

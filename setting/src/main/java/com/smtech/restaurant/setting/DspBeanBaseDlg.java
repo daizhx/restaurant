@@ -1,5 +1,7 @@
 package com.smtech.restaurant.setting;
 
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
 import com.smtech.restaurant.common.http.HttpClient;
 import com.smtech.swing.common.MainFrame;
 import com.smtech.swing.common.util.PanelBuilder;
@@ -37,6 +39,7 @@ public abstract class DspBeanBaseDlg<T> extends FunctionItemBase {
 
     // 放置自身实例的表格
     protected CommonTable table;
+    AbstractTableModel tableModel;
 
     //对象数据
     protected List<T> data = new ArrayList<T>();
@@ -50,38 +53,43 @@ public abstract class DspBeanBaseDlg<T> extends FunctionItemBase {
 
     //从server加载数据的api
     protected abstract String loadDataApi();
-
     //需要显示的字段
     protected abstract String[] getDspFields();
     //需要显示的字段名称
     protected abstract String[] getDspFieldTitles();
 
     private void loadData(){
-        HttpClient httpClient = HttpClient.getInstance();
-        httpClient.get(httpClient.getLocal(loadDataApi()), new HttpClient.HttpRequestResult() {
+        HttpClient httpClient = HttpClient.getInstance();;
+        httpClient.get(httpClient.genLocalUrl(loadDataApi()), new HttpClient.HttpRequestResult() {
             @Override
             public void onSuccess(String res) {
-
+                System.out.println("suceess------------------->"+res);
+                JSONArray ja = JSONArray.parseArray(res);
+                for(int i=0;i<ja.size();i++){
+                    JSONObject item = (JSONObject) ja.get(i);
+                    T t = JSONObject.parseObject(item.toString(),getTempalteType());
+                    data.add(t);
+                    tableModel.fireTableDataChanged();
+                }
             }
 
             @Override
             public void onFail(String msg) {
-
+                System.out.println("fail------------------->"+msg);
             }
         });
     }
 
     //获取泛型类型对象
-    public Class getTempalteType() {
+    public Class<T> getTempalteType() {
         Class<T> clazz = (Class<T>) ((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[0];
         return clazz;
     }
 
     @Override
     public void reflash() {
-
-
-
+        System.out.println("--------------->reflash");
+        loadData();
     }
 
     /**
@@ -106,7 +114,7 @@ public abstract class DspBeanBaseDlg<T> extends FunctionItemBase {
         JPanel tablePanel = new JPanel(new BorderLayout());
 
         table = new CommonTable();
-        table.setModel(new AbstractTableModel() {
+        tableModel = new AbstractTableModel() {
             @Override
             public int getRowCount() {
                 return data.size();
@@ -141,7 +149,8 @@ public abstract class DspBeanBaseDlg<T> extends FunctionItemBase {
             public String getColumnName(int column) {
                 return getDspFieldTitles()[column];
             }
-        });
+        };
+        table.setModel(tableModel);
         table.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseReleased(MouseEvent e) {

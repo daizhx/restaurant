@@ -14,7 +14,7 @@ public class HttpClient {
     private static final HttpClient instance = new HttpClient();
     private OkHttpClient client;
     //local server ip
-    private String localServerIP;
+    private String localServerIP = "127.0.0.1";
     private final static int localServerPort = 9000;
 
     private HttpClient(){
@@ -30,7 +30,7 @@ public class HttpClient {
     }
 
     //合成本地server的url
-    private String genLocalUrl(String api){
+    public String genLocalUrl(String api){
         return "http://" + localServerIP + ":" + localServerPort +"/" + api;
     }
 
@@ -61,7 +61,7 @@ public class HttpClient {
     }
 
     //在swing环境中使用的异步接口
-    public void get(String url, HttpRequestResult result){
+    public void get(String url, HttpRequestResult result){ ;
         new SwingWorker<String,Void>(){
 
             @Override

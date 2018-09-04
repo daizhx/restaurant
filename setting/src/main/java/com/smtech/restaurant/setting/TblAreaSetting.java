@@ -6,13 +6,17 @@ import javax.swing.*;
 import java.awt.*;
 
 /**
- *
+ *设置桌台区域
+ * 1，提供交互窗口
+ * 2，交互功能增删查改
  */
 public class TblAreaSetting {
 
-
+    //功能启动
     public void start(){
-        JPanel contentPanel = new TblAreaDlg().getContentPanel();
+        TblAreaDlg tad = new TblAreaDlg();
+        JPanel contentPanel = tad.getContentPanel();
+        tad.reflash();
         XDialog dialog = new XDialog(MainFrame.getInstance());
 //        dialog.setTitle("xx");
 
