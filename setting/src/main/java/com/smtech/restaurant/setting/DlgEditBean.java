@@ -5,7 +5,6 @@ import com.smtech.swing.common.util.CommonFunc;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
-import java.lang.reflect.Constructor;
 
 /**
  * 编辑实体对话框，新增或修改实体对象
@@ -25,10 +24,10 @@ public class DlgEditBean<T> extends XDialog {
 
     public void init() {
 		// 创建各类控件
+        beanPanel = new PanelForBean<T>(bean);
 		getContentPane().setLayout(new BorderLayout());
 		getContentPane().add(createBtnPanel(), BorderLayout.NORTH);
-		getContentPane().add(createAttrPanel(), BorderLayout.CENTER);
-		getAttrPanel().requestFocus();
+		getContentPane().add(beanPanel, BorderLayout.CENTER);
 
 		// 设置对话框属性
 		setTitle("增加");
@@ -39,17 +38,6 @@ public class DlgEditBean<T> extends XDialog {
 		setLocationRelativeTo(null);
 	}
 
-	/**
-	 * 创建属性面板
-	 */
-	protected JPanel createAttrPanel() {
-		if (getAttrPanel() == null) {
-			setAttrPanel(new PanelForBean(this,bean));
-		}
-		setShowAttrsInAttrPanel();
-		getAttrPanel().init();
-		return getAttrPanel();
-	}
 
 	/**
 	 * 创建按钮面板
@@ -98,9 +86,9 @@ public class DlgEditBean<T> extends XDialog {
 	 */
 	protected void crtNewBean(Object curBean) {
 		// 生成一个新 的BEAN，并计放置在属性面板中
-//		getAttrPanel().setBean(createABeanInstanceWithClone(curBean));
-//		getAttrPanel().requestFocus();
-//		getAttrPanel().setDataHasChange(false);
+//		getBeanPanel().setBean(createABeanInstanceWithClone(curBean));
+//		getBeanPanel().requestFocus();
+//		getBeanPanel().setDataHasChange(false);
 	}
 
 	/**
@@ -126,13 +114,13 @@ public class DlgEditBean<T> extends XDialog {
     }
 
 	protected void cancel() {
-		if (attrPanel.getDataHasChange()) {// 界面数据已经被修改，提示用户是否保存
+		if (beanPanel.getDataHasChange()) {// 界面数据已经被修改，提示用户是否保存
 			Integer iRet = JOptionPane.showConfirmDialog(getContentPane(),
 					"是否保存", "提示",
 					JOptionPane.YES_NO_CANCEL_OPTION,
 					JOptionPane.QUESTION_MESSAGE);
 			if (JOptionPane.YES_OPTION == iRet) {
-				if (!getAttrPanel().updateBean()) {// 界面填写不完整，提示用户重新填写
+				if (!beanPanel.updateBean()) {// 界面填写不完整，提示用户重新填写
 					return;
 				}
 				btnForCommit.doClick();
@@ -210,19 +198,10 @@ public class DlgEditBean<T> extends XDialog {
 
 	/**
 	 * 由某些对象有特殊的需求，这些对象需要继承本类，然后重写一些方法
-	 *
-	 * @param beanName
 	 * @return
 	 */
 
 
-	public void setAttrPanel(PanelForBean attrPanel) {
-		this.attrPanel = attrPanel;
-	}
-
-	public PanelForBean getAttrPanel() {
-		return attrPanel;
-	}
 
 	public void setDspDlg(DspBeanBaseDlg dspDlg) {
 		this.dspDlg = dspDlg;
@@ -234,18 +213,8 @@ public class DlgEditBean<T> extends XDialog {
 
 
 
-	public void setBeanInstane(Object beanInstane) {
-		this.beanInstane = beanInstane;
-//		getAttrPanel().setBean(beanInstane);
-	}
-
-	public Object getBeanInstane() {
-		return beanInstane;
-	}
-
 	public void requestFocus() {
 		super.requestFocus();
-		getAttrPanel().requestFocus();
 	}
 
 	public void setChildDspDlg(DspBeanBaseDlg childDspDlg) {
@@ -261,17 +230,13 @@ public class DlgEditBean<T> extends XDialog {
 	// （本对话框有可能是由子类面板中，点击导航树按钮产生，此时增加后，需要刷新子类面板）
 	private DspBeanBaseDlg childDspDlg;
 
-	// 对应的对象实例
-	private Object beanInstane;
-
 	// 父类面板
 	protected DspBeanBaseDlg dspDlg;
 //	private SelectBeanDlgBase selDlg;
 //	private QuanXianGuanLi qxglPanel;
 
-	private PanelForBean attrPanel;
+	private PanelForBean beanPanel;
 
 	protected JButton btnForCommit;
 	protected JButton btnForCancel;
-	private static String beansPackageName = "com.lemontree.framework.beans.";
 }

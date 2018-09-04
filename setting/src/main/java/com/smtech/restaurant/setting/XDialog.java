@@ -130,6 +130,7 @@ public class XDialog extends DlgBase {
 	private JPanel createSelfPanel() {
 		selfPanel = new TransparentView();
 		selfPanel.setLayout(new BorderLayout());
+
 		return selfPanel;
 	}
 

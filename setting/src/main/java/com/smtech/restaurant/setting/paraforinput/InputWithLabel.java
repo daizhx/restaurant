@@ -19,13 +19,12 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 //带标签的输入项
-public class InputWithLabel<T> extends JComponent{
+public class InputWithLabel<T> extends JPanel{
 
     T t;
-    Class<?> cls;
+    Class<T> cls;
 
     public InputWithLabel() {
-//        this.cls = cls;
         init();
     }
 
@@ -35,7 +34,10 @@ public class InputWithLabel<T> extends JComponent{
 
 	public JComponent createComponent(){
 	    //获取T的class对象
-        cls = (Class<T>) ((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[0];
+        if(this instanceof ParameterizedType){
+            cls = (Class<T>) ((ParameterizedType) this).getActualTypeArguments()[0];
+        }
+//        cls = (Class<T>) ((ParameterizedType) this.getClass().getGenericSuperclass()).getActualTypeArguments()[0];
 
 	    if(cls == String.class){
 	        return createStringInputComponent();

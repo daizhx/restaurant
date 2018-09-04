@@ -24,10 +24,8 @@ public class PanelForBean<T> extends JPanel {
 
     private T bean;
 
-	public PanelForBean(Window owner, T t) {
-		this.owner = owner;
+	public PanelForBean(T t) {
 		bean = t;
-
 		init();
 	}
 
@@ -50,14 +48,21 @@ public class PanelForBean<T> extends JPanel {
 	 */
 	private void createParas() {
 		Class<?> cls = bean.getClass();
-		Field[] fields = cls.getFields();
+		Field[] fields = cls.getDeclaredFields();
 		// 存放自身属性的面板
 		panelForSelfAttr = new JPanel(new FlowLayout(FlowLayout.LEFT, 10, 10));
 		for (int i = 0; i < fields.length; i++) {
             Field f = fields[i];
             Class<?> fcls = f.getDeclaringClass();
 
-			InputWithLabel para = new InputWithLabel();
+            InputWithLabel para;
+            if(fcls == String.class){
+                para = new InputWithLabel<String>();
+            }else {
+                para = new InputWithLabel<String>();
+            }
+            para.setLabel(f.getName());
+
 			// 添加监听器，于便判断界面的数据是否被修改r
 			JComponent componet = para;
 			if (componet instanceof JTextField) {
@@ -88,14 +93,16 @@ public class PanelForBean<T> extends JPanel {
 		UIUtil.fixSize(panelForSelfAttr, fixSize);
 
 		for (InputWithLabel para : parasForInput) {
-			panelForSelfAttr.add(para.getContentPanel());
+            para.setBackground(Color.RED);
+            para.setPreferredSize(new Dimension(100,20));
+			panelForSelfAttr.add(para);
 		}
 
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setViewportView(panelForSelfAttr);
 
 		setLayout(new BorderLayout());
-		add(scrollPane, BorderLayout.CENTER);
+		add(panelForSelfAttr, BorderLayout.CENTER);
 	}
 
 	/**
@@ -228,7 +235,6 @@ public class PanelForBean<T> extends JPanel {
 	 * 本面板当前的对象实例，是各个属性值的来源
 	 */
 
-	private Window owner;
 	protected PanelStatus status = PanelStatus.ForAdd;
 
 
