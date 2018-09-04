@@ -1,6 +1,8 @@
 package com.smtech.restaurant.setting;
 
 import com.smtech.swing.common.btns.XImageButton;
+import com.smtech.swing.common.dlgs.DlgBase;
+import com.smtech.swing.common.util.Dragger;
 import com.smtech.swing.common.util.PanelBuilder;
 import com.smtech.swing.common.util.UIUtil;
 import com.smtech.swing.common.view.TransparentView;
@@ -15,9 +17,14 @@ import java.awt.geom.RoundRectangle2D;
 /**
  * 仿360窗体
  */
-public class XDialog extends JDialog {
+public class XDialog extends DlgBase {
 	public XDialog() {
 		this(null);
+	}
+
+	@Override
+	protected void onCrtContntView(JPanel content) {
+		super.onCrtContntView(content);
 	}
 
 	public XDialog(Window parent) {
@@ -32,10 +39,11 @@ public class XDialog extends JDialog {
 		JPanel superContentPanel = (JPanel) super.getContentPane();
 		superContentPanel.setLayout(new BorderLayout());
 		superContentPanel.add(imgPanel, BorderLayout.CENTER);
-		setUndecorated(true);
+
+//		setUndecorated(true);
 		setRoundRectWin();
 		setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
-//		new Dragger(this, imgPanel); // 添加拖拽
+		new Dragger(this, imgPanel); // 添加拖拽
 	}
 
 	@Override

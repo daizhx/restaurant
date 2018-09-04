@@ -33,4 +33,45 @@ public class CommonFunc {
         }
         return s;
     }
+
+
+    /**
+     * 创建步长为1的新字符
+     *
+     * @param str
+     * @return
+     */
+    public static String createIncStr(String str) {
+        if (str == null || str.equals("")) {
+            return null;
+        }
+
+        String ret = "";
+        Boolean needInc = true;
+        for (int i = str.length() - 1; i >= 0; i--) {
+            char c = str.charAt(i);
+            if (needInc) {
+                if (!(c >= '0' && c <= '9') && !(c >= 'A' && c <= 'Z')) {
+                    return null;
+                }
+                if (c == '9') {
+                    if (i == 0) {
+                        c = 'A';
+                        needInc = false;
+                    } else {
+                        c = '0';
+                        needInc = true;
+                    }
+                } else if (c == 'Z') {
+                    c = '0';
+                    needInc = true;
+                } else {
+                    c++;
+                    needInc = false;
+                }
+            }
+            ret = c + ret;
+        }
+        return ret;
+    }
 }

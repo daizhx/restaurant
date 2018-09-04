@@ -1,33 +1,29 @@
 package com.smtech.restaurant.setting;
 
-import com.smtech.restaurant.common.StackTraceToString;
 import com.smtech.swing.common.util.CommonFunc;
-import com.sun.corba.se.spi.orbutil.fsm.ActionBase;
-import jdk.nashorn.internal.runtime.GlobalFunctions;
 
-import javax.management.relation.RelationType;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
-import java.awt.event.KeyEvent;
 import java.lang.reflect.Constructor;
-import java.util.Iterator;
 
 /**
- * 增加某对象实例
+ * 编辑实体对话框，新增或修改实体对象
  *
  */
 @SuppressWarnings("serial")
-public class AddBeanBaseDlg<T> extends XDialog {
+public class DlgEditBean<T> extends XDialog {
 
 	private T bean;
 
-	public AddBeanBaseDlg(Window owner) {
+	public DlgEditBean(Window owner,T t) {
 		super(owner);
+		this.bean = t;
 		init();
 	}
 
-	public void init() {
+
+    public void init() {
 		// 创建各类控件
 		getContentPane().setLayout(new BorderLayout());
 		getContentPane().add(createBtnPanel(), BorderLayout.NORTH);
@@ -102,9 +98,9 @@ public class AddBeanBaseDlg<T> extends XDialog {
 	 */
 	protected void crtNewBean(Object curBean) {
 		// 生成一个新 的BEAN，并计放置在属性面板中
-		getAttrPanel().setBean(createABeanInstanceWithClone(curBean));
-		getAttrPanel().requestFocus();
-		getAttrPanel().setDataHasChange(false);
+//		getAttrPanel().setBean(createABeanInstanceWithClone(curBean));
+//		getAttrPanel().requestFocus();
+//		getAttrPanel().setDataHasChange(false);
 	}
 
 	/**
@@ -218,33 +214,7 @@ public class AddBeanBaseDlg<T> extends XDialog {
 	 * @param beanName
 	 * @return
 	 */
-	public static AddBeanBaseDlg getDlgByBeanName(String beanName, Window owner) {
-		final String prefix = "com.lemontree.client.ComCompent.Add";
-		try {
-			AddBeanBaseDlg dlg = null;
-			if (owner != null) {
-				@SuppressWarnings("rawtypes")
-				Constructor demoConstructor = Class.forName(
-						String.format("%s%sDlg", prefix, beanName))
-						.getConstructor(new Class[] { Window.class });
-				dlg = (AddBeanBaseDlg) demoConstructor
-						.newInstance(new Object[] { owner });
-			} else {
-				dlg = (AddBeanBaseDlg) Class.forName(
-						String.format("%s%sDlg", prefix, beanName))
-						.newInstance();
-			}
 
-			return dlg;
-		} catch (Exception e) {
-			if (owner != null) {
-				return new AddBeanBaseDlg(owner);
-			} else {
-				return new AddBeanBaseDlg();
-			}
-
-		}
-	}
 
 	public void setAttrPanel(PanelForBean attrPanel) {
 		this.attrPanel = attrPanel;
@@ -262,17 +232,11 @@ public class AddBeanBaseDlg<T> extends XDialog {
 		return dspDlg;
 	}
 
-	public void setSelDlg(SelectBeanDlgBase selDlg) {
-		this.selDlg = selDlg;
-	}
 
-	public SelectBeanDlgBase getSelDlg() {
-		return selDlg;
-	}
 
 	public void setBeanInstane(Object beanInstane) {
 		this.beanInstane = beanInstane;
-		getAttrPanel().setBean(beanInstane);
+//		getAttrPanel().setBean(beanInstane);
 	}
 
 	public Object getBeanInstane() {
@@ -292,13 +256,6 @@ public class AddBeanBaseDlg<T> extends XDialog {
 		return childDspDlg;
 	}
 
-	public void setQxglPanel(QuanXianGuanLi qxglPanel) {
-		this.qxglPanel = qxglPanel;
-	}
-
-	public QuanXianGuanLi getQxglPanel() {
-		return qxglPanel;
-	}
 
 	// 子类的显示对话框
 	// （本对话框有可能是由子类面板中，点击导航树按钮产生，此时增加后，需要刷新子类面板）
@@ -309,8 +266,8 @@ public class AddBeanBaseDlg<T> extends XDialog {
 
 	// 父类面板
 	protected DspBeanBaseDlg dspDlg;
-	private SelectBeanDlgBase selDlg;
-	private QuanXianGuanLi qxglPanel;
+//	private SelectBeanDlgBase selDlg;
+//	private QuanXianGuanLi qxglPanel;
 
 	private PanelForBean attrPanel;
 

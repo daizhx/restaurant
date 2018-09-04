@@ -1,6 +1,7 @@
 package com.smtech.restaurant.setting;
 
 import com.smtech.restaurant.common.http.HttpClient;
+import com.smtech.swing.common.MainFrame;
 import com.smtech.swing.common.util.PanelBuilder;
 import com.smtech.swing.common.view.CommonTable;
 import com.smtech.swing.common.view.TextFieldEx;
@@ -13,7 +14,7 @@ import java.awt.*;
 import java.awt.event.*;
 import java.beans.IntrospectionException;
 import java.beans.PropertyDescriptor;
-import java.lang.reflect.Field;
+import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.ParameterizedType;
@@ -266,6 +267,24 @@ public abstract class DspBeanBaseDlg<T> extends FunctionItemBase {
 
         @Override
         public void actionPerformed(ActionEvent e) {
+//            DlgEditBean<T> dlg = (DlgEditBean) DlgManager.getInstance().getDlg(DlgEditBean.class);
+            Class<T> cls = getTempalteType();
+            T t  = null;
+            try {
+                t = cls.newInstance();
+
+                Constructor<?>[] cons = DlgEditBean.class.getConstructors();
+                Constructor<?> constructor = cons[0];
+//                Constructor<DlgEditBean> constructor = (Constructor<DlgEditBean>) DlgEditBean.class.getDeclaredConstructor(Window.class,cls);
+                DlgEditBean dlg = (DlgEditBean) constructor.newInstance(MainFrame.getInstance(),t);
+                dlg.display();
+            } catch (InstantiationException e1) {
+                e1.printStackTrace();
+            } catch (IllegalAccessException e1) {
+                e1.printStackTrace();
+            } catch (InvocationTargetException e1) {
+                e1.printStackTrace();
+            }
 
         }
     }

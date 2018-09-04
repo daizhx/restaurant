@@ -1,6 +1,5 @@
 package com.smtech.restaurant.setting;
 
-import com.smtech.restaurant.common.http.HttpClient;
 import com.smtech.swing.common.MainFrame;
 
 import javax.swing.*;
@@ -12,8 +11,7 @@ import java.awt.*;
 public class TblAreaSetting {
 
 
-    public static void main(String[] args) {
-
+    public void start(){
         JPanel contentPanel = new TblAreaDlg().getContentPanel();
         XDialog dialog = new XDialog(MainFrame.getInstance());
 //        dialog.setTitle("xx");
@@ -33,5 +31,10 @@ public class TblAreaSetting {
         dialog.pack();
         dialog.setLocationRelativeTo(null);
         dialog.setVisible(true);
+    }
+
+    public static void main(String[] args) {
+        TblAreaSetting m = new TblAreaSetting();
+        m.start();
     }
 }
