@@ -30,7 +30,7 @@ public class HttpClient {
     }
 
     //合成本地server的url
-    public String genLocalUrl(String api){
+    private String genLocalUrl(String api){
         return "http://" + localServerIP + ":" + localServerPort +"/" + api;
     }
 
