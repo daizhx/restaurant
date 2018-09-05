@@ -16,7 +16,6 @@ public class TblAreaSetting {
     public void start(){
         TblAreaDlg tad = new TblAreaDlg();
         JPanel contentPanel = tad.getContentPanel();
-        tad.reflash();
         XDialog dialog = new XDialog(MainFrame.getInstance());
 //        dialog.setTitle("xx");
 

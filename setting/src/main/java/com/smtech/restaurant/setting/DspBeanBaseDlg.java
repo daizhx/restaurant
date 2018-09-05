@@ -60,10 +60,13 @@ public abstract class DspBeanBaseDlg<T> extends FunctionItemBase {
 
     private void loadData(){
         HttpClient httpClient = HttpClient.getInstance();;
-        httpClient.get(httpClient.genLocalUrl(loadDataApi()), new HttpClient.HttpRequestResult() {
+        httpClient.getLocal(loadDataApi(), new HttpClient.HttpRequestResult() {
             @Override
             public void onSuccess(String res) {
-                System.out.println("suceess------------------->"+res);
+                if(res == null){
+                    return;
+                }
+
                 JSONArray ja = JSONArray.parseArray(res);
                 for(int i=0;i<ja.size();i++){
                     JSONObject item = (JSONObject) ja.get(i);
