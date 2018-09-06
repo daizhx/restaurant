@@ -1,6 +1,5 @@
 package com.smtech.restaurant.setting.paraforinput;
 
-import com.smtech.swing.common.Res;
 import com.smtech.swing.common.view.TextFieldEx;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -21,6 +20,8 @@ import java.util.regex.Pattern;
 //带标签的输入项
 public class InputWithLabel<T> extends JPanel{
 
+    protected final Logger logger = LoggerFactory.getLogger(getClass());
+
     T t;
     Class<T> cls;
 
@@ -29,7 +30,6 @@ public class InputWithLabel<T> extends JPanel{
     }
 
     //	public abstract void requestFocus();
-
 //	public abstract JComponent getComponent();
 
 	public JComponent createComponent(){
@@ -77,10 +77,10 @@ public class InputWithLabel<T> extends JPanel{
             }
         });
 
-        String fontName = Res.FONT;
-        Font font = textField.getFont();
-        font = new Font(fontName, Font.PLAIN, font.getSize());
-        textField.setFont(font);
+//        String fontName = Res.FONT;
+//        Font font = textField.getFont();
+//        font = new Font(fontName, Font.PLAIN, font.getSize());
+//        textField.setFont(font);
         return textField;
     }
 
@@ -110,9 +110,8 @@ public class InputWithLabel<T> extends JPanel{
     }
 
 	public void init() {
-		contentPanel = new JPanel();
-		BoxLayout layout = new BoxLayout(contentPanel, BoxLayout.LINE_AXIS);
-		contentPanel.setLayout(layout);
+		BoxLayout layout = new BoxLayout(this, BoxLayout.LINE_AXIS);
+		setLayout(layout);
 		JLabel l = createLabel();
 		l.setPreferredSize(fixSizeForLable);
 		l.setMaximumSize(fixSizeForLable);
@@ -123,13 +122,15 @@ public class InputWithLabel<T> extends JPanel{
 		component.setPreferredSize(fixSizeForComponent);
 		component.setMaximumSize(fixSizeForComponent);
 		component.setMinimumSize(fixSizeForComponent);
-		getContentPanel().add(l);
-		getContentPanel().add(Box.createHorizontalStrut(10));
-		getContentPanel().add(component);
+        add(l);
+        add(Box.createHorizontalStrut(10));
+        add(component);
 	}
 
 	public JLabel createLabel() {
 		label = new JLabel();
+        label.setText("标题");
+		label.setForeground(Color.BLACK);
 		return label;
 	}
 
@@ -143,28 +144,9 @@ public class InputWithLabel<T> extends JPanel{
 
 //	public abstract void setEnabled(Boolean enabled);
 
-	public void setContentPanel(JPanel contentPanel) {
-		this.contentPanel = contentPanel;
-	}
-
-	public JPanel getContentPanel() {
-		return contentPanel;
-	}
-
-
-
 	protected JLabel label;
-
-	/**
-	 * 本参数的内容面板
-	 */
-	protected JPanel contentPanel;
-
-
 
 	public static final Dimension fixSizeForLable = new Dimension(100, 20);
 	public static final Dimension fixSizeForComponent = new Dimension(100, 20);
-
-	protected final Logger logger = LoggerFactory.getLogger(getClass());
 
 }

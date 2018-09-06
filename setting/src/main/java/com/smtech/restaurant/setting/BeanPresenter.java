@@ -2,12 +2,16 @@ package com.smtech.restaurant.setting;
 
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
+import com.smtech.restaurant.common.StackTraceToString;
 import com.smtech.restaurant.common.http.HttpClient;
 import com.smtech.swing.common.MainFrame;
 import com.smtech.swing.common.util.PanelBuilder;
+import com.smtech.swing.common.util.UIUtil;
 import com.smtech.swing.common.view.CommonTable;
 import com.smtech.swing.common.view.TextFieldEx;
 import com.smtech.swing.common.view.ViewGroup;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.swing.*;
 import javax.swing.table.AbstractTableModel;
@@ -24,10 +28,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 查看对象信息的对话框
+ * 实体对象Presenter
+ * 1，管理对象，增删查改等。
+ * 2，通过getView()提供管理对象的视图
  *
  */
-public abstract class DspBeanBaseDlg<T> extends FunctionItemBase {
+public abstract class BeanPresenter<T>{
+
+    private static Logger logger = LoggerFactory.getLogger(BeanPresenter.class);
 
     protected JButton btnForAdd;// 增加按钮
     protected JButton btnForRmv;// 删除按钮
@@ -41,11 +49,14 @@ public abstract class DspBeanBaseDlg<T> extends FunctionItemBase {
     protected CommonTable table;
     AbstractTableModel tableModel;
 
+    private JPanel contentPanel = new JPanel();
+
+    private Boolean hasInit = false;
+
     //对象数据
     protected List<T> data = new ArrayList<T>();
 
-    @Override
-    public void init() {
+    private void init() {
         contentPanel.setLayout(new BorderLayout());
         contentPanel.add(createBtnPanel(), BorderLayout.NORTH);
         contentPanel.add(createCenterPanel(), BorderLayout.CENTER);
@@ -89,11 +100,22 @@ public abstract class DspBeanBaseDlg<T> extends FunctionItemBase {
         return clazz;
     }
 
-    @Override
-    public void reflash() {
-        System.out.println("--------------->reflash");
-        loadData();
+    //获取视图
+    public JComponent getView() {
+        if (!hasInit) {
+            try {
+                init();
+                loadData();
+                hasInit = true;
+            } catch (Exception e) {
+                logger.error(StackTraceToString.getExceptionTrace(e));
+            }
+        }
+
+        return contentPanel;
     }
+
+
 
     /**
      * 创建中央面板（包含左侧的父类对象面板，及自身实例的表格面板）
@@ -235,23 +257,23 @@ public abstract class DspBeanBaseDlg<T> extends FunctionItemBase {
         JPanel btnPanel = new JPanel();
         btnPanel.setBorder(BorderFactory.createEtchedBorder());
 
-        btnForAdd = createBtn(new ActionForAdd(), KeyEvent.VK_F1);
-        btnForAdd.setIcon(createImageIcon("16-16/add.png"));
+        btnForAdd = UIUtil.createBtn(new ActionForAdd(), KeyEvent.VK_F1);
+        btnForAdd.setIcon(UIUtil.createImageIcon("16-16/add.png"));
 
-        btnForRmv = createBtn(new ActionForRmv(), KeyEvent.VK_F2);
-        btnForRmv.setIcon(createImageIcon("16-16/delete.png"));
+        btnForRmv = UIUtil.createBtn(new ActionForRmv(), KeyEvent.VK_F2);
+        btnForRmv.setIcon(UIUtil.createImageIcon("16-16/delete.png"));
 
-        btnForMod = createBtn(new ActionForMod(), KeyEvent.VK_F3);
-        btnForMod.setIcon(createImageIcon("16-16/document_edit.png"));
+        btnForMod = UIUtil.createBtn(new ActionForMod(), KeyEvent.VK_F3);
+        btnForMod.setIcon(UIUtil.createImageIcon("16-16/document_edit.png"));
 
-        btnForDsp = createBtn(new ActionForDsp(), KeyEvent.VK_F4);
-        btnForDsp.setIcon(createImageIcon("16-16/zoom.png"));
+        btnForDsp = UIUtil.createBtn(new ActionForDsp(), KeyEvent.VK_F4);
+        btnForDsp.setIcon(UIUtil.createImageIcon("16-16/zoom.png"));
 
-        btnForReflash = createBtn(new ActionForReflash(), KeyEvent.VK_F5);
-        btnForReflash.setIcon(createImageIcon("16-16/refresh.png"));
+        btnForReflash = UIUtil.createBtn(new ActionForReflash(), KeyEvent.VK_F5);
+        btnForReflash.setIcon(UIUtil.createImageIcon("16-16/refresh.png"));
 
-        btnForExport = createBtn(new ActionForExport(), KeyEvent.VK_F6);
-        btnForExport.setIcon(createImageIcon("16-16/email.png"));
+        btnForExport = UIUtil.createBtn(new ActionForExport(), KeyEvent.VK_F6);
+        btnForExport.setIcon(UIUtil.createImageIcon("16-16/email.png"));
 
         TextFieldEx tfChaXunShuRu = new TextFieldEx();
 //        setIdCardInput(tfChaXunShuRu);

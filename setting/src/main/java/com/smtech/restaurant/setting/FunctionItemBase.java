@@ -2,20 +2,15 @@ package com.smtech.restaurant.setting;
 
 import com.smtech.restaurant.common.StackTraceToString;
 import com.smtech.swing.common.ImageManager;
-import com.smtech.swing.common.XFrame;
 import com.smtech.swing.common.util.PanelBuilder;
 import com.smtech.swing.common.util.UIUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.swing.*;
-import javax.swing.filechooser.FileFilter;
-import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.*;
 import java.awt.event.ActionEvent;
-import java.io.File;
 import java.math.BigDecimal;
-import java.text.SimpleDateFormat;
 import java.util.Collection;
 import java.util.List;
 
@@ -24,9 +19,27 @@ import java.util.List;
  *
  */
 public abstract class FunctionItemBase {
-	protected Dimension getOwnerDialogSize() {
-		return new Dimension(XFrame.MIN_WIDTH, XFrame.MIN_HEIGHT);
-	}
+
+	private Boolean needProgressBar = false;
+	private JProgressBar progressBar;
+	private Boolean showingProgressBar = false;
+	private Object lockForShowingProgressBar = new Object();
+
+	protected JPanel contentPanel = new JPanel();
+	protected JPanel panelForProcessbar = new JPanel();
+	protected JPanel contentPanelInclueProcessbar = new JPanel();
+
+
+	protected Logger logger = LoggerFactory.getLogger(getClass());
+
+	protected Boolean hasInit = false;
+	private Boolean needQuanXian = true;// 是否需要校验权限
+
+	// 权限不足时的提示面板
+	private JPanel errorPanel;
+	private String iconName;
+	private String title = "";
+
 
 
 	public String getIconName() {
@@ -322,19 +335,7 @@ public abstract class FunctionItemBase {
 		}
 	}
 
-	public static void deleteFile(File file) {
-		if (file.exists()) {
-			if (file.isFile()) {
-				file.delete();
-			} else if (file.isDirectory()) {
-				File files[] = file.listFiles();
-				for (int i = 0; i < files.length; i++) {
-					deleteFile(files[i]);
-				}
-			}
-			file.delete();
-		}
-	}
+
 
 	/**
 	 * 保存或更新对象
@@ -359,17 +360,7 @@ public abstract class FunctionItemBase {
 	}
 
 
-	/**
-	 * 文件过滤器
-	 *
-	 * @param msg
-	 * @return
-	 */
-	public static FileFilter crtImgFileFilter(String msg) {
-		msg += "(*.png, *.gif, *.jpg, *.jpeg, *.bmp)";
-		return new FileNameExtensionFilter(msg, "png", "gif", "jpg", "jpeg",
-				"bmp");
-	}
+
 
 	/**
 	 * 获取基于面板的缩放图片
@@ -454,28 +445,6 @@ public abstract class FunctionItemBase {
 
 
 
-	private Boolean needProgressBar = false;
-	private JProgressBar progressBar;
-	private Boolean showingProgressBar = false;
-	private Object lockForShowingProgressBar = new Object();
 
-	public static SimpleDateFormat sdfDate = new SimpleDateFormat("yyyy-MM-dd");
-	public static SimpleDateFormat sdfTime = new SimpleDateFormat(
-			"yyyy-MM-dd HH:mm:ss");
-
-	protected JPanel contentPanel = new JPanel();
-	protected JPanel panelForProcessbar = new JPanel();
-	protected JPanel contentPanelInclueProcessbar = new JPanel();
-
-
-	protected Logger logger = LoggerFactory.getLogger(getClass());
-
-	protected Boolean hasInit = false;
-	private Boolean needQuanXian = true;// 是否需要校验权限
-
-	// 权限不足时的提示面板
-	private JPanel errorPanel;
-	private String iconName;
-	private String title = "";
 
 }

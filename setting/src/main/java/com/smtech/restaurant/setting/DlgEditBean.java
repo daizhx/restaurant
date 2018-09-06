@@ -13,6 +13,20 @@ import java.awt.event.ActionEvent;
 @SuppressWarnings("serial")
 public class DlgEditBean<T> extends XDialog {
 
+    // 子类的显示对话框
+    // （本对话框有可能是由子类面板中，点击导航树按钮产生，此时增加后，需要刷新子类面板）
+    private BeanPresenter childDspDlg;
+
+    // 父类面板
+    protected BeanPresenter dspDlg;
+//	private SelectBeanDlgBase selDlg;
+//	private QuanXianGuanLi qxglPanel;
+
+    private PanelForBean beanPanel;
+
+    protected JButton btnForCommit;
+    protected JButton btnForCancel;
+
 	private T bean;
 
 	public DlgEditBean(Window owner,T t) {
@@ -203,11 +217,11 @@ public class DlgEditBean<T> extends XDialog {
 
 
 
-	public void setDspDlg(DspBeanBaseDlg dspDlg) {
+	public void setDspDlg(BeanPresenter dspDlg) {
 		this.dspDlg = dspDlg;
 	}
 
-	public DspBeanBaseDlg getDspDlg() {
+	public BeanPresenter getDspDlg() {
 		return dspDlg;
 	}
 
@@ -217,26 +231,14 @@ public class DlgEditBean<T> extends XDialog {
 		super.requestFocus();
 	}
 
-	public void setChildDspDlg(DspBeanBaseDlg childDspDlg) {
+	public void setChildDspDlg(BeanPresenter childDspDlg) {
 		this.childDspDlg = childDspDlg;
 	}
 
-	public DspBeanBaseDlg getChildDspDlg() {
+	public BeanPresenter getChildDspDlg() {
 		return childDspDlg;
 	}
 
 
-	// 子类的显示对话框
-	// （本对话框有可能是由子类面板中，点击导航树按钮产生，此时增加后，需要刷新子类面板）
-	private DspBeanBaseDlg childDspDlg;
 
-	// 父类面板
-	protected DspBeanBaseDlg dspDlg;
-//	private SelectBeanDlgBase selDlg;
-//	private QuanXianGuanLi qxglPanel;
-
-	private PanelForBean beanPanel;
-
-	protected JButton btnForCommit;
-	protected JButton btnForCancel;
 }

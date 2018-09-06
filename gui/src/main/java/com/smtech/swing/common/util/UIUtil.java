@@ -1,5 +1,7 @@
 package com.smtech.swing.common.util;
 
+import com.smtech.swing.common.ImageManager;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -51,5 +53,23 @@ public class UIUtil {
             }
             c.setFont(font);
         }
+    }
+
+    /**
+     * 创建按钮
+     * @param action
+     * @param key
+     * @return
+     */
+    public static JButton createBtn(AbstractAction action, int key) {
+        JButton btn = new JButton(action);
+        addHotKeyForBtn(btn, key);
+        return btn;
+    }
+
+    //创建图标
+    public static ImageIcon createImageIcon(String filename) {
+        String path = "Icon/" + filename;
+        return ImageManager.getImgIcon(path);
     }
 }

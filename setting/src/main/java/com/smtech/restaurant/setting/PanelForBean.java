@@ -93,8 +93,7 @@ public class PanelForBean<T> extends JPanel {
 		UIUtil.fixSize(panelForSelfAttr, fixSize);
 
 		for (InputWithLabel para : parasForInput) {
-            para.setBackground(Color.RED);
-            para.setPreferredSize(new Dimension(100,20));
+            para.setPreferredSize(new Dimension(200,40));
 			panelForSelfAttr.add(para);
 		}
 
@@ -102,7 +101,7 @@ public class PanelForBean<T> extends JPanel {
 		scrollPane.setViewportView(panelForSelfAttr);
 
 		setLayout(new BorderLayout());
-		add(panelForSelfAttr, BorderLayout.CENTER);
+		add(scrollPane, BorderLayout.CENTER);
 	}
 
 	/**

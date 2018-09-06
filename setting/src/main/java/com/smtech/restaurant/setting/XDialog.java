@@ -18,32 +18,29 @@ import java.awt.geom.RoundRectangle2D;
  * 仿360窗体
  */
 public class XDialog extends DlgBase {
-	public XDialog() {
-		this(null);
-	}
 
 	@Override
 	protected void onCrtContntView(JPanel content) {
-		super.onCrtContntView(content);
-	}
-
-	public XDialog(Window parent) {
-		super(parent);
 		ViewGroup imgPanel = new ViewGroup();
 		imgPanel.setBackground(DIALOG_COLOR);
 		imgPanel.setLayout(new BorderLayout());
 		imgPanel.add(createTitlePanel(), BorderLayout.NORTH);
 		imgPanel.add(createSelfPanel(), BorderLayout.CENTER);
 		imgPanel.setBorder(BorderFactory.createEmptyBorder(3, 3, 3, 3));
+        new Dragger(this, imgPanel); // 添加拖拽
 
-		JPanel superContentPanel = (JPanel) super.getContentPane();
-		superContentPanel.setLayout(new BorderLayout());
-		superContentPanel.add(imgPanel, BorderLayout.CENTER);
+        content.setLayout(new BorderLayout());
+        content.add(imgPanel, BorderLayout.CENTER);
+
+	}
+
+	public XDialog(Window parent) {
+		super(parent);
 
 //		setUndecorated(true);
 		setRoundRectWin();
 		setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
-		new Dragger(this, imgPanel); // 添加拖拽
+
 	}
 
 	@Override

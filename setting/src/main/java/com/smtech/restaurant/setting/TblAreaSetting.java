@@ -14,8 +14,8 @@ public class TblAreaSetting {
 
     //功能启动
     public void start(){
-        TblAreaDlg tad = new TblAreaDlg();
-        JPanel contentPanel = tad.getContentPanel();
+        TblAreaPresenter tad = new TblAreaPresenter();
+        JComponent contentPanel = tad.getView();
         XDialog dialog = new XDialog(MainFrame.getInstance());
 //        dialog.setTitle("xx");
 
