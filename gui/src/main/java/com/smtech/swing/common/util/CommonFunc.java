@@ -1,6 +1,7 @@
 package com.smtech.swing.common.util;
 
 import java.awt.*;
+import java.math.BigDecimal;
 
 public class CommonFunc {
     /**
@@ -73,5 +74,45 @@ public class CommonFunc {
             ret = c + ret;
         }
         return ret;
+    }
+
+
+    /**
+     * 保留小数
+     *
+     * @param b
+     * @return
+     */
+    public static String formateWithDecimal(BigDecimal b) {
+        if (b == null) {
+            return "0";
+        }
+        String str = b.toString();
+        if (str.equals("0E-10")) {
+            str = "0";
+        }
+        int idx = str.indexOf(".");
+        if (idx == -1) {
+            return str;
+        }
+        String strInt = str.substring(0, idx);
+        String strDouble = str.substring(idx + 1);
+        String temp = "";
+        Boolean found = false;
+        for (int i = strDouble.length() - 1; i >= 0; i--) {
+            char ch = strDouble.charAt(i);
+            if (ch != '0') {
+                found = true;
+                temp = String.format("%c%s", ch, temp);
+            } else {
+                if (found) {
+                    temp = String.format("%c%s", ch, temp);
+                }
+            }
+        }
+        if (temp.equals("")) {
+            return strInt;
+        }
+        return String.format("%s.%s", strInt, temp);
     }
 }

@@ -1,7 +1,8 @@
 package com.smtech.restaurant.setting;
 
-import com.smtech.restaurant.setting.paraforinput.InputWithLabel;
 import com.smtech.swing.common.util.UIUtil;
+import com.smtech.swing.common.view.InputStringWithLabel;
+import com.smtech.swing.common.view.InputWithLabel;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -12,8 +13,10 @@ import java.awt.*;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.lang.reflect.Field;
-import java.util.*;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Vector;
 
 /**
  *
@@ -57,9 +60,9 @@ public class PanelForBean<T> extends JPanel {
 
             InputWithLabel para;
             if(fcls == String.class){
-                para = new InputWithLabel<String>();
+                para = new InputStringWithLabel();
             }else {
-                para = new InputWithLabel<String>();
+                para = new InputStringWithLabel();
             }
             para.setLabel(f.getName());
 
