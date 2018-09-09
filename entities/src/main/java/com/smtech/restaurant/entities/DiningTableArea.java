@@ -6,7 +6,11 @@ import javax.persistence.Entity;
 @Entity
 public class DiningTableArea extends BaseColumn{
 
+    @ColumnInfo(dspName = "名称")
     private String name;
+
+    //编号
+    private String code;
 
     public String getName() {
         return name;
@@ -14,5 +18,13 @@ public class DiningTableArea extends BaseColumn{
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
     }
 }

@@ -1,5 +1,6 @@
 package com.smtech.restaurant.setting;
 
+import com.smtech.restaurant.entities.ColumnInfo;
 import com.smtech.swing.common.util.UIUtil;
 import com.smtech.swing.common.view.InputStringWithLabel;
 import com.smtech.swing.common.view.InputWithLabel;
@@ -12,11 +13,10 @@ import javax.swing.event.DocumentListener;
 import java.awt.*;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
+import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
-import java.util.HashMap;
+import java.util.*;
 import java.util.List;
-import java.util.Map;
-import java.util.Vector;
 
 /**
  *
@@ -56,7 +56,9 @@ public class PanelForBean<T> extends JPanel {
 		panelForSelfAttr = new JPanel(new FlowLayout(FlowLayout.LEFT, 10, 10));
 		for (int i = 0; i < fields.length; i++) {
             Field f = fields[i];
-            Class<?> fcls = f.getDeclaringClass();
+            Class<?> fcls = f.getType();
+			Annotation anno = f.getAnnotation(ColumnInfo.class);
+
 
             InputWithLabel para;
             if(fcls == String.class){
@@ -64,7 +66,15 @@ public class PanelForBean<T> extends JPanel {
             }else {
                 para = new InputStringWithLabel();
             }
-            para.setLabel(f.getName());
+
+            String labelName = null;
+            if(anno != null){
+            	labelName = ((ColumnInfo) anno).dspName();
+			}
+			if(labelName == null){
+				labelName = f.getName();
+			}
+            para.setLabel(labelName);
 
 			// 添加监听器，于便判断界面的数据是否被修改r
 			JComponent componet = para;
