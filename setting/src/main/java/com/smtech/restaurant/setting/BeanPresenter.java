@@ -81,6 +81,10 @@ public abstract class BeanPresenter<T> implements DlgEditBean.BeanEditInteract<T
     //新增对象到server的api
     protected abstract String addBeanApi();
 
+    //新增对象到server的api
+    protected abstract String updateBeanApi();
+
+    //加载全部对象
     private void loadData(){
         HttpClient httpClient = HttpClient.getInstance();;
         httpClient.getLocal(loadDataApi(), new HttpClient.HttpRequestResult() {
@@ -91,6 +95,7 @@ public abstract class BeanPresenter<T> implements DlgEditBean.BeanEditInteract<T
                 }
 
                 JSONArray ja = JSONArray.parseArray(res);
+                data.clear();
                 for(int i=0;i<ja.size();i++){
                     JSONObject item = (JSONObject) ja.get(i);
                     T t = JSONObject.parseObject(item.toString(),getTempalteType());
@@ -330,22 +335,32 @@ public abstract class BeanPresenter<T> implements DlgEditBean.BeanEditInteract<T
             T t  = null;
             try {
                 t = cls.newInstance();
-
-                Constructor<?>[] cons = DlgEditBean.class.getConstructors();
-                Constructor<?> constructor = cons[0];
-//                Constructor<DlgEditBean> constructor = (Constructor<DlgEditBean>) DlgEditBean.class.getDeclaredConstructor(Window.class,cls);
-                DlgEditBean dlg = (DlgEditBean) constructor.newInstance(MainFrame.getInstance(),t);
-                dlg.setBeanEditInteract(BeanPresenter.this);
-                dlg.display();
+                showBeanEditDlg(t);
             } catch (InstantiationException e1) {
                 e1.printStackTrace();
             } catch (IllegalAccessException e1) {
                 e1.printStackTrace();
-            } catch (InvocationTargetException e1) {
-                e1.printStackTrace();
             }
 
         }
+    }
+
+    private void showBeanEditDlg(T t){
+        Constructor<?>[] cons = DlgEditBean.class.getConstructors();
+        Constructor<?> constructor = cons[0];
+//                Constructor<DlgEditBean> constructor = (Constructor<DlgEditBean>) DlgEditBean.class.getDeclaredConstructor(Window.class,cls);
+        DlgEditBean dlg = null;
+        try {
+            dlg = (DlgEditBean) constructor.newInstance(MainFrame.getInstance(),t);
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        }
+        dlg.setBeanEditInteract(BeanPresenter.this);
+        dlg.display();
     }
 
     protected class ActionForRmv extends AbstractAction {
@@ -367,7 +382,9 @@ public abstract class BeanPresenter<T> implements DlgEditBean.BeanEditInteract<T
 
         @Override
         public void actionPerformed(ActionEvent e) {
-
+            int row = table.getSelectedRow();
+            T bean = data.get(row);
+            showBeanEditDlg(bean);
         }
     }
 
@@ -391,7 +408,7 @@ public abstract class BeanPresenter<T> implements DlgEditBean.BeanEditInteract<T
 
         @Override
         public void actionPerformed(ActionEvent e) {
-
+            loadData();
         }
     }
 
@@ -411,12 +428,15 @@ public abstract class BeanPresenter<T> implements DlgEditBean.BeanEditInteract<T
         String jsonStr = JSONObject.toJSONString(bean);
         HttpClient httpClient = HttpClient.getInstance();
         String res = httpClient.postLocal(addBeanApi(),jsonStr);
-        System.out.println("add bean------------>"+res);
+
     }
 
     @Override
     public void updateBean(T bean) {
-
+        String jsonStr = JSONObject.toJSONString(bean);
+        HttpClient httpClient = HttpClient.getInstance();
+        String res = httpClient.postLocal(updateBeanApi(),jsonStr);
+        System.out.println("update bean------------>"+res);
     }
 }
 

@@ -20,8 +20,14 @@ public class DiningTblAreaController {
     @RequestMapping(value = "/dining_table_area/add",method = RequestMethod.POST)
     @ResponseBody
     DiningTableArea addDiningTableArea(@RequestBody DiningTableArea t){
-        System.out.println("----------------------------123--->"+t.toString());
         DiningTableArea ret = service.add(t);
+        return ret;
+    }
+
+    @RequestMapping(value = "/dining_table_area/update",method = RequestMethod.POST)
+    @ResponseBody
+    boolean updateDiningTableArea(@RequestBody DiningTableArea t){
+        boolean ret = service.update(t);
         return ret;
     }
 

@@ -36,6 +36,7 @@ public class DinningTblAreaServiceImpl implements DinningTblAreaService {
 
     @Override
     public boolean update(DiningTableArea t) {
-        return false;
+        repository.save(t);
+        return true;
     }
 }

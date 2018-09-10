@@ -15,4 +15,9 @@ public class TblAreaPresenter extends BeanPresenter<DiningTableArea> {
         return "/dining_table_area/add";
     }
 
+    @Override
+    protected String updateBeanApi() {
+        return "/dining_table_area/update";
+    }
+
 }

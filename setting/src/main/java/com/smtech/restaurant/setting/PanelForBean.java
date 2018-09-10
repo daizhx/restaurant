@@ -60,9 +60,9 @@ public class PanelForBean<T> extends JPanel {
 		panelForSelfAttr = new JPanel(new FlowLayout(FlowLayout.LEFT, 10, 10));
 		for (int i = 0; i < fields.length; i++) {
             Field f = fields[i];
+            //对象属性类对象
             Class<?> fcls = f.getType();
 			Annotation anno = f.getAnnotation(ColumnInfo.class);
-
             InputWithLabel para;
             if(fcls == String.class){
                 para = new InputStringWithLabel();
@@ -81,7 +81,17 @@ public class PanelForBean<T> extends JPanel {
 			}
             para.setLabel(labelName);
 
-			// 添加监听器，于便判断界面的数据是否被修改r
+			//获取属性值
+            try {
+                //打开私有访问，否则不能获取private属性
+                f.setAccessible(true);
+                Object v = f.get(bean);
+                para.setValue(v);
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+            }
+
+            // 添加监听器，于便判断界面的数据是否被修改r
 			JComponent componet = para;
 			if (componet instanceof JTextField) {
 				JTextField tf = (JTextField) componet;
