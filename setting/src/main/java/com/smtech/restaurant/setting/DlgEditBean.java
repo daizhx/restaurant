@@ -5,6 +5,10 @@ import com.smtech.swing.common.util.CommonFunc;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
+import java.beans.IntrospectionException;
+import java.beans.PropertyDescriptor;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 
 /**
  * 编辑实体对话框，新增或修改实体对象
@@ -27,9 +31,27 @@ public class DlgEditBean<T> extends XDialog {
     protected JButton btnForCommit;
     protected JButton btnForCancel;
 
+    //操作的实体对象
 	private T bean;
 
-	public DlgEditBean(Window owner,T t) {
+	private BeanEditInteract beanEditInteract;
+
+	public interface BeanEditInteract<T>{
+		//新增对象
+		void addBean(T t);
+		//更新对象
+		void updateBean(T t);
+	}
+
+    public BeanEditInteract getBeanEditInteract() {
+        return beanEditInteract;
+    }
+
+    public void setBeanEditInteract(BeanEditInteract beanEditInteract) {
+        this.beanEditInteract = beanEditInteract;
+    }
+
+    public DlgEditBean(Window owner, T t) {
 		super(owner);
 		this.bean = t;
 		init();
@@ -84,13 +106,41 @@ public class DlgEditBean<T> extends XDialog {
 
 
 	protected void commit() {
-		// 保存当前编辑的Bean对象
-		Object curBean = saveBean();
-		if (curBean == null) {
-			return;
-		}
-		// 通过当前保存的bena克隆一个新bean继续编辑保存
-		crtNewBean(curBean);
+	    //获取输入的值
+	    beanPanel.updateBean();
+
+		// 保存当前编辑的Bean对象，如果bean的ID大于0，更新对象，否则为新增对象。
+        PropertyDescriptor pd = null;
+        try {
+            pd = new PropertyDescriptor("id", bean.getClass());
+            Method method = pd.getReadMethod();
+            int id = (int) method.invoke(bean);
+
+            //设置bean的属性值
+
+
+            if(id == 0){
+                if(beanEditInteract != null){
+                    beanEditInteract.addBean(bean);
+                }
+            }else{
+                if(beanEditInteract != null){
+                    beanEditInteract.updateBean(bean);
+                }
+            }
+
+
+        } catch (IntrospectionException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        }
+
+
+        // 通过当前保存的bena克隆一个新bean继续编辑保存
+//		crtNewBean(curBean);
 	}
 
 	/**
@@ -114,14 +164,6 @@ public class DlgEditBean<T> extends XDialog {
 	    return null;
     }
 
-	/**
-	 * 保存当前Bean，成功则返回保存的bean对象，否则返回null
-	 *
-	 * @return
-	 */
-	protected Object saveBean() {
-	    return null;
-    }
 
 	private Object saveBeanAfter(Object curBean, Object pid) {
 	    return null;
@@ -134,9 +176,7 @@ public class DlgEditBean<T> extends XDialog {
 					JOptionPane.YES_NO_CANCEL_OPTION,
 					JOptionPane.QUESTION_MESSAGE);
 			if (JOptionPane.YES_OPTION == iRet) {
-				if (!beanPanel.updateBean()) {// 界面填写不完整，提示用户重新填写
-					return;
-				}
+				beanPanel.updateBean();
 				btnForCommit.doClick();
 			} else if (JOptionPane.CANCEL_OPTION == iRet) {
 				return;

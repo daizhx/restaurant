@@ -1,8 +1,6 @@
 package com.smtech.restaurant.common.http;
 
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.Response;
+import okhttp3.*;
 
 import javax.swing.*;
 import java.io.IOException;
@@ -43,7 +41,12 @@ public class HttpClient {
         get(genLocalUrl(api),result);
     }
 
+    public String postLocal(String api,String json){
+        return post(genLocalUrl(api),json);
+    }
 
+
+    //同步get方法
     public String get(String url){
         Request request = new Request.Builder()
                 .url(url)
@@ -60,7 +63,7 @@ public class HttpClient {
         return null;
     }
 
-    //在swing环境中使用的异步接口
+    //在swing环境中使用的异步get方法
     public void get(String url, HttpRequestResult result){ ;
         new SwingWorker<String,Void>(){
 
@@ -93,6 +96,26 @@ public class HttpClient {
                 }
             }
         }.execute();
+    }
+
+    //post方式调用接口
+    public String post(String url,String json){
+        MediaType mediaType = MediaType.parse("application/json");
+        RequestBody requestBody = RequestBody.create(mediaType,json);
+
+        Request request = new Request.Builder()
+                .post(requestBody)
+                .url(url)
+                .build();
+
+        Response response = null;
+        try {
+            response = client.newCall(request).execute();
+            return response.body().string();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
 

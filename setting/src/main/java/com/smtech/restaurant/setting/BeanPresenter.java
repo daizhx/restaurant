@@ -1,9 +1,11 @@
 package com.smtech.restaurant.setting;
 
+import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.smtech.restaurant.common.StackTraceToString;
 import com.smtech.restaurant.common.http.HttpClient;
+import com.smtech.restaurant.entities.ColumnInfo;
 import com.smtech.swing.common.MainFrame;
 import com.smtech.swing.common.util.PanelBuilder;
 import com.smtech.swing.common.util.UIUtil;
@@ -20,10 +22,8 @@ import java.awt.*;
 import java.awt.event.*;
 import java.beans.IntrospectionException;
 import java.beans.PropertyDescriptor;
-import java.lang.reflect.Constructor;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
-import java.lang.reflect.ParameterizedType;
+import java.lang.annotation.Annotation;
+import java.lang.reflect.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -33,14 +33,14 @@ import java.util.List;
  * 2，通过getView()提供管理对象的视图
  *
  */
-public abstract class BeanPresenter<T>{
+public abstract class BeanPresenter<T> implements DlgEditBean.BeanEditInteract<T>{
 
     private static Logger logger = LoggerFactory.getLogger(BeanPresenter.class);
 
     protected JButton btnForAdd;// 增加按钮
     protected JButton btnForRmv;// 删除按钮
     protected JButton btnForMod;// 修改按钮
-    protected JButton btnForDsp;// 查询按钮
+    protected JButton btnForDsp;// 查询按钮DlgEditBean
     protected JButton btnForReflash;// 刷新按钮
     protected JButton btnForExport;// 导出按钮
     protected JPanel panelForSearch;//
@@ -66,8 +66,8 @@ public abstract class BeanPresenter<T>{
     protected abstract String loadDataApi();
     //需要显示的字段
     protected abstract String[] getDspFields();
-    //需要显示的字段名称
-    protected abstract String[] getDspFieldTitles();
+    //新增对象到server的api
+    protected abstract String addBeanApi();
 
     private void loadData(){
         HttpClient httpClient = HttpClient.getInstance();;
@@ -140,6 +140,9 @@ public abstract class BeanPresenter<T>{
 
         table = new CommonTable();
         tableModel = new AbstractTableModel() {
+            //获取属性值
+            Class<T> beanClass = getTempalteType();
+
             @Override
             public int getRowCount() {
                 return data.size();
@@ -155,8 +158,6 @@ public abstract class BeanPresenter<T>{
                 T t = data.get(rowIndex);
                 String fn = getDspFields()[columnIndex];
 
-                //获取属性值
-                Class<T> beanClass = getTempalteType();
                 try {
                     PropertyDescriptor pd = new PropertyDescriptor(fn, beanClass);
                     Method method = pd.getReadMethod();
@@ -172,7 +173,15 @@ public abstract class BeanPresenter<T>{
 
             @Override
             public String getColumnName(int column) {
-                return getDspFieldTitles()[column];
+                String fn = getDspFields()[column];
+                try {
+                    Field f = beanClass.getDeclaredField(fn);
+                    Annotation anno = f.getAnnotation(ColumnInfo.class);
+                    return ((ColumnInfo) anno).dspName();
+                } catch (NoSuchFieldException e) {
+                    e.printStackTrace();
+                }
+                return null;
             }
         };
         table.setModel(tableModel);
@@ -311,6 +320,7 @@ public abstract class BeanPresenter<T>{
                 Constructor<?> constructor = cons[0];
 //                Constructor<DlgEditBean> constructor = (Constructor<DlgEditBean>) DlgEditBean.class.getDeclaredConstructor(Window.class,cls);
                 DlgEditBean dlg = (DlgEditBean) constructor.newInstance(MainFrame.getInstance(),t);
+                dlg.setBeanEditInteract(BeanPresenter.this);
                 dlg.display();
             } catch (InstantiationException e1) {
                 e1.printStackTrace();
@@ -379,6 +389,19 @@ public abstract class BeanPresenter<T>{
         public void actionPerformed(ActionEvent e) {
 
         }
+    }
+
+    @Override
+    public void addBean(T bean) {
+        String jsonStr = JSONObject.toJSONString(bean);
+        HttpClient httpClient = HttpClient.getInstance();
+        String res = httpClient.postLocal(addBeanApi(),jsonStr);
+        System.out.println("add bean------------>"+res);
+    }
+
+    @Override
+    public void updateBean(T bean) {
+
     }
 }
 

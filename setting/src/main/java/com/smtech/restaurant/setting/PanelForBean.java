@@ -2,6 +2,7 @@ package com.smtech.restaurant.setting;
 
 import com.smtech.restaurant.entities.ColumnInfo;
 import com.smtech.swing.common.util.UIUtil;
+import com.smtech.swing.common.view.InputIntWithLabel;
 import com.smtech.swing.common.view.InputStringWithLabel;
 import com.smtech.swing.common.view.InputWithLabel;
 import org.slf4j.Logger;
@@ -24,7 +25,10 @@ import java.util.List;
  *
  */
 public class PanelForBean<T> extends JPanel {
-
+	protected Logger logger = LoggerFactory.getLogger(getClass());
+	/**
+	 * 本面板当前的对象实例，是各个属性值的来源
+	 */
     private T bean;
 
 	public PanelForBean(T t) {
@@ -59,11 +63,12 @@ public class PanelForBean<T> extends JPanel {
             Class<?> fcls = f.getType();
 			Annotation anno = f.getAnnotation(ColumnInfo.class);
 
-
             InputWithLabel para;
             if(fcls == String.class){
                 para = new InputStringWithLabel();
-            }else {
+            } else if(fcls == Integer.class){
+                para = new InputIntWithLabel();
+            } else {
                 para = new InputStringWithLabel();
             }
 
@@ -139,9 +144,38 @@ public class PanelForBean<T> extends JPanel {
 	/**
 	 * 根据当前界面上各参数的值来更新BEAN
 	 */
-	public Boolean updateBean() {
-		return false;
+	public void updateBean() {
+		for(String key : nameToPara.keySet()){
+		    InputWithLabel il = nameToPara.get(key);
+		    Object v = il.getValue();
+		    if(v != null) {
+                setFieldValueByFieldName(key, bean, v);
+            }
+        }
 	}
+
+
+    /**
+     * 根据属性名设置属性值
+     *
+     * @param fieldName
+     * @param object
+     * @return
+     */
+    private void setFieldValueByFieldName(String fieldName, Object object,Object value) {
+        try {
+            // 获取obj类的字节文件对象
+            Class c = object.getClass();
+            // 获取该类的成员变量
+            Field f = c.getDeclaredField(fieldName);
+            // 取消语言访问检查
+            f.setAccessible(true);
+            // 给变量赋值
+            f.set(object, value);
+        } catch (Exception e) {
+            logger.error(e.getMessage(),e);
+        }
+    }
 
 	public void setStatus(PanelStatus status) {
 		this.status = status;
@@ -243,14 +277,9 @@ public class PanelForBean<T> extends JPanel {
 	// KEY为属性名称，VALUE为该属性对应的控件
 	private Map<String, InputWithLabel> nameToPara = new HashMap<String, InputWithLabel>();
 
-	/**
-	 * 本面板当前的对象实例，是各个属性值的来源
-	 */
-
 	protected PanelStatus status = PanelStatus.ForAdd;
 
 
 
-	protected Logger logger = LoggerFactory.getLogger(getClass());
 
 }

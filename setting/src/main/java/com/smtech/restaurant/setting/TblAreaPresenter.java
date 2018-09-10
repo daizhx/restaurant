@@ -15,7 +15,8 @@ public class TblAreaPresenter extends BeanPresenter<DiningTableArea> {
     }
 
     @Override
-    protected String[] getDspFieldTitles() {
-        return new String[]{"名称"};
+    protected String addBeanApi() {
+        return "/dining_table_area/add";
     }
+
 }

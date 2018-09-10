@@ -16,7 +16,7 @@ public class DinningTblAreaServiceImpl implements DinningTblAreaService {
 
     @Override
     public DiningTableArea add(DiningTableArea t) {
-        return null;
+        return repository.save(t);
     }
 
     @Override
