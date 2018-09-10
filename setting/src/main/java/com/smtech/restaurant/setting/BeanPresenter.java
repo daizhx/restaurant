@@ -65,7 +65,19 @@ public abstract class BeanPresenter<T> implements DlgEditBean.BeanEditInteract<T
     //从server加载数据的api
     protected abstract String loadDataApi();
     //需要显示的字段
-    protected abstract String[] getDspFields();
+    protected String[] getDspFields(){
+        //默认显示全部字段，子类不可指点显示的列
+        Class<T> cls = getTempalteType();
+        Field[] fields = cls.getDeclaredFields();
+        String[] cols = new String[fields.length];
+        for(int i=0;i<fields.length;i++){
+            Field f = fields[i];
+            String s = f.getName();
+            cols[i] = s;
+        }
+        return cols;
+    }
+
     //新增对象到server的api
     protected abstract String addBeanApi();
 
@@ -177,11 +189,14 @@ public abstract class BeanPresenter<T> implements DlgEditBean.BeanEditInteract<T
                 try {
                     Field f = beanClass.getDeclaredField(fn);
                     Annotation anno = f.getAnnotation(ColumnInfo.class);
-                    return ((ColumnInfo) anno).dspName();
+                    if(anno != null) {
+                        return ((ColumnInfo) anno).dspName();
+                    }
                 } catch (NoSuchFieldException e) {
                     e.printStackTrace();
                 }
-                return null;
+                //不能获取列名称，显示列名
+                return fn;
             }
         };
         table.setModel(tableModel);
