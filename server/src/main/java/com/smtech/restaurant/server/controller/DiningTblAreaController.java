@@ -4,10 +4,7 @@ import com.smtech.restaurant.entities.DiningTableArea;
 import com.smtech.restaurant.server.service.DinningTblAreaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -35,5 +32,12 @@ public class DiningTblAreaController {
     @ResponseBody
     public List<DiningTableArea> getAllDiningTable(){
         return service.getAll();
+    }
+
+    @RequestMapping(value = "/dining_table_area/delete",method = RequestMethod.POST)
+    @ResponseBody
+    boolean deleteDiningTableArea(@RequestBody DiningTableArea t){
+        boolean ret = false;
+        return ret;
     }
 }

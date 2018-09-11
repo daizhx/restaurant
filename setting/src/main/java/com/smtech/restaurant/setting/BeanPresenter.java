@@ -1,6 +1,5 @@
 package com.smtech.restaurant.setting;
 
-import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.smtech.restaurant.common.StackTraceToString;
@@ -83,6 +82,9 @@ public abstract class BeanPresenter<T> implements DlgEditBean.BeanEditInteract<T
 
     //新增对象到server的api
     protected abstract String updateBeanApi();
+
+    //删除对象的api
+    protected abstract String deleteBeanApi();
 
     //加载全部对象
     private void loadData(){
@@ -322,6 +324,16 @@ public abstract class BeanPresenter<T> implements DlgEditBean.BeanEditInteract<T
         return btnPanel;
     }
 
+    private boolean deleteBean(T bean){
+        HttpClient httpClient = HttpClient.getInstance();
+        String ret = httpClient.getLocal(deleteBeanApi());
+        System.out.println("delete bean ------------------->"+ret);
+        //刷新列表
+        data.remove(bean);
+        tableModel.fireTableDataChanged();
+        return false;
+    }
+
     protected class ActionForAdd extends AbstractAction {
 
         public ActionForAdd() {
@@ -371,6 +383,8 @@ public abstract class BeanPresenter<T> implements DlgEditBean.BeanEditInteract<T
 
         @Override
         public void actionPerformed(ActionEvent e) {
+            int row = table.getSelectedRow();
+            T bean = data.get(row);
 
         }
     }
