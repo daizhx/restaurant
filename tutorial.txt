@@ -2,3 +2,4 @@
 2，各种各样的对话框都需要继承DlgBase，比如仿360窗体XDialog等，
 3，通过DlgManager对象来实例化窗口对象，使用方法查询对象的接口，（注：对象的接口就是类中的public方法）
 eg.打开一个最基础的对话框，很简单一行代码：DlgManager.getInstance().getDlg(DlgBase.class).display();
+    或者打开一个XDialog--------->DlgManager.getInstance().getDlg(XDialog.class).display();
