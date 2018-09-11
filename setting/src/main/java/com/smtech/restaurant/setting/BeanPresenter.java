@@ -84,7 +84,8 @@ public abstract class BeanPresenter<T> implements DlgEditBean.BeanEditInteract<T
     protected abstract String updateBeanApi();
 
     //删除对象的api
-    protected abstract String deleteBeanApi();
+//    protected abstract String deleteBeanApi();
+    protected abstract String deleteBeanApi(int id);
 
     //加载全部对象
     private void loadData(){
@@ -324,14 +325,29 @@ public abstract class BeanPresenter<T> implements DlgEditBean.BeanEditInteract<T
         return btnPanel;
     }
 
-    private boolean deleteBean(T bean){
-        HttpClient httpClient = HttpClient.getInstance();
-        String ret = httpClient.getLocal(deleteBeanApi());
-        System.out.println("delete bean ------------------->"+ret);
-        //刷新列表
-        data.remove(bean);
-        tableModel.fireTableDataChanged();
-        return false;
+    private void deleteBean(T bean){
+        PropertyDescriptor pd = null;
+        try {
+            pd = new PropertyDescriptor("id", bean.getClass());
+            Method method = pd.getReadMethod();
+            int id = (int) method.invoke(bean);
+            HttpClient httpClient = HttpClient.getInstance();
+            String ret = httpClient.getLocal(deleteBeanApi(id));
+
+            System.out.println("delete bean ------------------->"+ret);
+            if("true".equals(ret)) {
+                //刷新列表
+                data.remove(bean);
+                tableModel.fireTableDataChanged();
+            }
+        } catch (IntrospectionException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        }
+
     }
 
     protected class ActionForAdd extends AbstractAction {
@@ -385,7 +401,7 @@ public abstract class BeanPresenter<T> implements DlgEditBean.BeanEditInteract<T
         public void actionPerformed(ActionEvent e) {
             int row = table.getSelectedRow();
             T bean = data.get(row);
-
+            deleteBean(bean);
         }
     }
 

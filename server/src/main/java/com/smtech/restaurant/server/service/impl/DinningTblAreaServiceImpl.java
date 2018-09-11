@@ -21,7 +21,8 @@ public class DinningTblAreaServiceImpl implements DinningTblAreaService {
 
     @Override
     public boolean del(int id) {
-        return false;
+        repository.delete(id);
+        return true;
     }
 
     @Override
@@ -37,6 +38,14 @@ public class DinningTblAreaServiceImpl implements DinningTblAreaService {
     @Override
     public boolean update(DiningTableArea t) {
         repository.save(t);
+        return true;
+    }
+
+    @Override
+    public boolean del(DiningTableArea t) {
+        if(t != null){
+            repository.delete(t);
+        }
         return true;
     }
 }

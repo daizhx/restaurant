@@ -10,4 +10,5 @@ public interface DinningTblAreaService {
     DiningTableArea get(int id);
     List<DiningTableArea> getAll();
     boolean update(DiningTableArea t);
+    boolean del(DiningTableArea t);
 }

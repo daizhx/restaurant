@@ -21,8 +21,8 @@ public class TblAreaPresenter extends BeanPresenter<DiningTableArea> {
     }
 
     @Override
-    protected String deleteBeanApi() {
-        return null;
+    protected String deleteBeanApi(int id) {
+        return "/dining_table_area/delete/" + id;
     }
 
 }

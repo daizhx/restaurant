@@ -37,7 +37,16 @@ public class DiningTblAreaController {
     @RequestMapping(value = "/dining_table_area/delete",method = RequestMethod.POST)
     @ResponseBody
     boolean deleteDiningTableArea(@RequestBody DiningTableArea t){
-        boolean ret = false;
+        System.out.println("del-------->"+t.toString()+",id="+t.getId());
+        boolean ret = service.del(t);
+        return ret;
+    }
+
+
+    @RequestMapping(value = "/dining_table_area/delete/{id}",method = RequestMethod.GET)
+    @ResponseBody
+    boolean deleteDiningTableArea(@PathVariable int id){
+        boolean ret = service.del(id);
         return ret;
     }
 }

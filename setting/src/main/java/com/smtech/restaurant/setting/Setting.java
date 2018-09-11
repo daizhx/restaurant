@@ -1,6 +1,8 @@
 package com.smtech.restaurant.setting;
 
 import com.smtech.restaurant.common.Module;
+import com.smtech.swing.common.DlgManager;
+import com.smtech.swing.common.dlgs.DlgBase;
 
 /**
  * 系统设置模块
@@ -23,6 +25,7 @@ public class Setting implements Module{
     @Override
     public void start() {
         //TODO
+        DlgManager.getInstance().getDlg(XDialog.class).display();
     }
 
     @Override
