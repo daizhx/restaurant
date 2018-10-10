@@ -3,9 +3,11 @@ package com.smtech.restaurant.server;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
+import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
-@EntityScan({"com.smtech.restaurant.entities"})
+@ComponentScan(basePackages = "cn.enilu.guns")
+@EntityScan({"com.smtech.restaurant.entities","cn.enilu.guns.bean.entity"})
 public class RestaurantServer {
 
     public static void main(String[] args){

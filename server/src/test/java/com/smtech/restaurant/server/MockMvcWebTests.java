@@ -35,7 +35,7 @@ public class MockMvcWebTests {
         mockMvc.perform(MockMvcRequestBuilders.post("/foodOrderBill/new"))
                 .andExpect(MockMvcResultMatchers.status().isOk());
 //                .andExpect(MockMvcResultMatchers.content().contentType(MediaType.APPLICATION_JSON))
-//                .andExpect(MockMvcResultMatchers.view().name("foodOrderBill"))
+//                .andExpect(MockMvcResultMatchers.views().name("foodOrderBill"))
 //        .andReturn().getResponse().getContentAsString();
 
     }
