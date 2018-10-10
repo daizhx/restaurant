@@ -38,6 +38,14 @@ public class DlgBase extends JDialog{
 
         // 设置对话框属性
 //        setUndecorated(true);
+        /**
+         *设置对话框是否模态化
+         *
+         * modal就是模态的意思 模态的对话框 不能点击背景 只能在对话框上操作 其他地方都不不可点击的 非模态的 则全部可以点击
+         *
+         * modal - 指定 dialog 是否阻止在显示的时候将内容输入其他窗口。
+         也就是说，“有模式”意味着该窗口打开时其他窗口都被屏蔽了，你可以试试，在此情况下，点击程序的其他窗口是不允许的
+         */
         setModal(true);
         setPreferredSize(Toolkit.getDefaultToolkit().getScreenSize());
         setResizable(false);

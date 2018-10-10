@@ -1,6 +1,7 @@
-package com.smtech.restaurant.setting;
+package com.smtech.restaurant.setting.diningtable;
 
 import com.smtech.restaurant.entities.DiningTableArea;
+import com.smtech.restaurant.setting.BeanPresenter;
 
 public class TblAreaPresenter extends BeanPresenter<DiningTableArea> {
 
