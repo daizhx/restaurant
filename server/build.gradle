@@ -34,9 +34,7 @@ dependencies {
     compile("org.springframework.boot:spring-boot-starter-thymeleaf")
     compile("com.google.guava:guava:20.0")
     compile("org.apache.shiro:shiro-core:1.4.0")
-//    compile("org.apache.shiro:shiro-spring")
-//    compile("org.apache.shiro:shiro-ehcache")
-//    compile("org.ehcache:ehcache:3.3.1")
+    compile("org.ehcache:ehcache:3.3.1")
     compile("net.sf.ehcache:ehcache-core:2.6.11")
     compile("org.apache.commons:commons-lang3:3.6")
     compile("commons-io:commons-io:2.5")
@@ -47,8 +45,8 @@ dependencies {
     compile("io.springfox:springfox-swagger2:2.2.2")
     compile("io.springfox:springfox-swagger-ui:2.2.2")
     compile("com.google.zxing:core:3.2.1")
-    compile("org.apache.shiro:shiro-core:1.4.0")
     compile("org.apache.shiro:shiro-spring:1.4.0")
     compile("org.apache.shiro:shiro-ehcache:1.4.0")
+    compile("org.projectlombok:lombok:1.16.20")
 }
 
