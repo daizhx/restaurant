@@ -4,9 +4,11 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication
-@ComponentScan(basePackages = "cn.enilu.guns")
+@ComponentScan(basePackages = {"cn.enilu.guns"},basePackageClasses = {SpringContextHolder.class})
+@EnableJpaRepositories(basePackages = {"com.smtech.restaurant.server.dao","cn.enilu.guns.dao"})
 @EntityScan({"com.smtech.restaurant.entities","cn.enilu.guns.bean.entity"})
 public class RestaurantServer {
 
