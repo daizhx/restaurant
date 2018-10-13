@@ -1,6 +1,6 @@
 1，gradle指定JAVA_HOME编译，目前只找到在命令行中添加命令参数：-Dorg.gradle.java.home="your jdk path",
 eg. gradle :server:build -Dorg.gradle.java.home="C:\Program Files\Java\jdk1.8.0_131"
-这种方法的确点就是每次编译都要加这个参数很麻烦。
+这种方法的缺点就是每次编译都要加这个参数很麻烦。
 
 2,使用exe4j将可执行jar包打包成exe文件，网上很多都是exe4j的Gui wizard教程，每次都要手动去操作打包成exe文件太麻烦，必须使用自动化
 打包。找到官方帮助文档地址http://resources.ej-technologies.com/exe4j/help/doc/，结合ant可以实现自动化打包exe
@@ -32,14 +32,16 @@ util---java开发一些常用的工具类
 3，printEx循环处理打印任务。
 
 
-
-XDialog---->窗口
-
 2018/9/8:
 在编写实体类过程中发现每个类都有固定的字段ID等，重复相同的代码，违背了代码复用的编程思想，于是想在把实体类中的一些公共代码抽取到超类当中
 但是如何让ORM框架在mapping过程能找到相应的字段了？搜索相关方法，一开始用实体类继承的方法来做，但是不够完美，数据库中产生了多余的带HT_开头的
 空表，最后通过https://www.cnblogs.com/zr520/archive/2016/03/18/5294094.html这边博客找到了真正的方法,使用@MappedSuperclass可以让JAP框架
 映射超类的字段。
+
+
+2018/10/13:
+后台管理用swing来做工作量比较大，尽管封装了基本的对象的管理，所以计划用guns-lite来做，把html管理界面嵌入到swing中，
+把guns-lite框架移植到了Server模块中，编译通过，资源还未移植过来。
 
 
 
