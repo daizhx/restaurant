@@ -20,5 +20,5 @@ gradle-app.setting
 # gradle/wrapper/gradle-wrapper.properties
 
 /apache-ant-1.8.2/
-/DB/
+/DB/main.db
 /dist/

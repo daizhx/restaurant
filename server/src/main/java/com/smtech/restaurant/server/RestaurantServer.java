@@ -1,7 +1,10 @@
 package com.smtech.restaurant.server;
 
+import cn.enilu.guns.bean.entity.system.Cfg;
+import cn.enilu.guns.dao.system.CfgRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
@@ -10,8 +13,11 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
+import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.PersistenceUnit;
+import javax.persistence.Query;
+import java.io.*;
 
 @SpringBootApplication
 @ComponentScan(basePackages = {"cn.enilu.guns"},basePackageClasses = {SpringContextHolder.class})
@@ -24,6 +30,9 @@ public class RestaurantServer implements ApplicationRunner{
     @PersistenceUnit
     EntityManagerFactory emf;
 
+    @Autowired
+    CfgRepository cfgRepository;
+
     public static void main(String[] args){
         System.out.println(System.getProperty("java.class.path"));//系统的classpaht路径
         //启动
@@ -33,17 +42,54 @@ public class RestaurantServer implements ApplicationRunner{
     }
 
     @Override
-    public void run(ApplicationArguments args) throws Exception {
+    public void run(ApplicationArguments args){
         logger.info("项目启动后执行初始化任务!");
-        //TODO 通过JPA执行原生sql写入初始数据
-//        EntityManager em = emf.createEntityManager();
-//        em.getTransaction().begin(); //这个不加会报错
-//
-//        Query query = null;
-//        query = em.createNativeQuery("INSERT INTO `t_sys_cfg` VALUES ('1', 'JS_API_TICKET', 'test', '微信JSAPI_TICKET(produt:kgt8ON7yVITDhtdwci0qeYBa_xOxkaEccepDVZel0heq1M9pKgrfFWOlX2MfHEt122psCpElf4V5eePHPouJPg)')");
-//        query.executeUpdate();
-//
-//        em.getTransaction().commit();
-//        em.close();
+        //通过JPA执行原生sql写入初始数据
+        //写入guns-lite框架的初始化数据
+        Cfg cfg = cfgRepository.findByCfgName("init");
+        if(cfg == null){
+            logger.info("第一次启动系统，准备初始化数据!");
+            //第一次启动，写入初始化数据
+            String dir = System.getProperty("user.dir");
+            try {
+                File f = new File(dir + File.separator + "DB" + File.separator + "init.sql");
+//                FileInputStream fis = new FileInputStream(dir + File.separator + "DB" + File.separator + "init.sql");
+                BufferedReader br = new BufferedReader(new FileReader(f));
+                StringBuilder sqlSB = new StringBuilder();
+                String str;
+//                while ((str = br.readLine()) != null){
+//                    sqlSB.append(str);
+//                }
+
+                EntityManager em = emf.createEntityManager();
+                em.getTransaction().begin(); //这个不加会报错
+
+                while ((str = br.readLine()) != null){
+                    Query query = em.createNativeQuery(str);
+                    query.executeUpdate();
+                }
+//                Query query = em.createNativeQuery(sqlSB.toString());
+//                query.executeUpdate();
+
+                em.getTransaction().commit();
+                em.close();
+
+            } catch (FileNotFoundException e) {
+                logger.error("数据库初始化文件不存在");
+                return;
+            } catch (IOException e) {
+                logger.error("数据库初始化失败");
+                return;
+            }
+
+            cfg = new Cfg();
+            cfg.setCfgName("init");
+            cfg.setCfgValue("true");
+            cfgRepository.save(cfg);
+            logger.info("第一次启动系统，初始化数据完成!");
+
+        }
+
+
     }
 }

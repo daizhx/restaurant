@@ -56,4 +56,13 @@ public class Cfg {
         this.cfgDesc = cfgDesc;
     }
 
+    @Override
+    public String toString() {
+        return "Cfg{" +
+                "id=" + id +
+                ", cfgName='" + cfgName + '\'' +
+                ", cfgValue='" + cfgValue + '\'' +
+                ", cfgDesc='" + cfgDesc + '\'' +
+                '}';
+    }
 }
