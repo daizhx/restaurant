@@ -24,7 +24,7 @@ public class FoodOrderBill {
 
     //应收
     @Column(nullable = true)
-    private float sum;
+    private float chargeSum;
 
     //实收
     @Column(nullable = true)
@@ -95,13 +95,6 @@ public class FoodOrderBill {
         this.checkTime = checkTime;
     }
 
-    public float getSum() {
-        return sum;
-    }
-
-    public void setSum(float sum) {
-        this.sum = sum;
-    }
 
     public float getIncome() {
         return income;
@@ -168,21 +161,12 @@ public class FoodOrderBill {
         this.foodOrderList = foodOrderList;
     }
 
-    @Override
-    public String toString() {
-        return "FoodOrderBill{" +
-                "id=" + id +
-                ", createTime=" + createTime +
-                ", checkTime=" + checkTime +
-                ", sum=" + sum +
-                ", income=" + income +
-                ", serviceCharge=" + serviceCharge +
-                ", deliveryAddr='" + deliveryAddr + '\'' +
-                ", tax=" + tax +
-                ", stateTax=" + stateTax +
-                ", paymentList=" + paymentList +
-                ", createSource='" + createSource + '\'' +
-                ", foodOrderList=" + foodOrderList +
-                '}';
+
+    public float getChargeSum() {
+        return chargeSum;
+    }
+
+    public void setChargeSum(float chargeSum) {
+        this.chargeSum = chargeSum;
     }
 }

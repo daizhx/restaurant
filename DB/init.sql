@@ -1,317 +1,340 @@
-INSERT INTO `t_sys_cfg` (id,cfg_name,cfg_value,cfg_desc) VALUES ('1', 'JS_API_TICKET', 'test', '微信JSAPI_TICKET(produt:kgt8ON7yVITDhtdwci0qeYBa_xOxkaEccepDVZel0heq1M9pKgrfFWOlX2MfHEt122psCpElf4V5eePHPouJPg)');
-INSERT INTO `t_sys_cfg` (id,cfg_name,cfg_value,cfg_desc) VALUES ('2', 'ACCESS_TOKEN', 'test', '微信Token');
-INSERT INTO `t_sys_dept` (id,num,pid,pids,simplename,fullname,tips,version) VALUES ('24', '1', '0', '[0],', '总公司', '总公司', '', null);
-INSERT INTO `t_sys_dept` (id,num,pid,pids,simplename,fullname,tips,version) VALUES ('25', '2', '24', '[0],[24],', '开发部', '开发部', '', null);
-INSERT INTO `t_sys_dept` (id,num,pid,pids,simplename,fullname,tips,version) VALUES ('26', '3', '24', '[0],[24],', '运营部', '运营部', '', null);
-INSERT INTO `t_sys_dept` (id,num,pid,pids,simplename,fullname,tips,version) VALUES ('27', '4', '24', '[0],[24],', '战略部', '战略部', '', null);
-INSERT INTO `t_sys_dict` VALUES ('16', '0', '0', '状态', null);
-INSERT INTO `t_sys_dict` VALUES ('17', '1', '16', '启用', null);
-INSERT INTO `t_sys_dict` VALUES ('18', '2', '16', '禁用', null);
-INSERT INTO `t_sys_dict` VALUES ('29', '0', '0', '性别', null);
-INSERT INTO `t_sys_dict` VALUES ('30', '1', '29', '男', null);
-INSERT INTO `t_sys_dict` VALUES ('31', '2', '29', '女', null);
-INSERT INTO `t_sys_dict` VALUES ('35', '0', '0', '账号状态', null);
-INSERT INTO `t_sys_dict` VALUES ('36', '1', '35', '启用', null);
-INSERT INTO `t_sys_dict` VALUES ('37', '2', '35', '冻结', null);
-INSERT INTO `t_sys_dict` VALUES ('38', '3', '35', '已删除', null);
-INSERT INTO `t_sys_dict` VALUES ('39', '0', '0', '银行卡类型', null);
-INSERT INTO `t_sys_dict` VALUES ('40', '0', '39', '借记卡', null);
-INSERT INTO `t_sys_dict` VALUES ('41', '1', '39', '信用卡', null);
-INSERT INTO `t_sys_dict` VALUES ('44', '0', '0', '联系人关系', null);
-INSERT INTO `t_sys_dict` VALUES ('45', '1', '44', '父子', null);
-INSERT INTO `t_sys_dict` VALUES ('46', '2', '44', '母子', null);
-INSERT INTO `t_sys_dict` VALUES ('47', '3', '44', '配偶', null);
-INSERT INTO `t_sys_dict` VALUES ('48', '4', '44', '朋友', null);
-INSERT INTO `t_sys_dict` VALUES ('49', '5', '44', '子女', null);
-INSERT INTO `t_sys_dict` VALUES ('50', '6', '44', '兄弟姐妹', null);
-INSERT INTO `t_sys_dict` VALUES ('53', '0', '0', '证件类型', null);
-INSERT INTO `t_sys_dict` VALUES ('54', '1', '53', '身份证', null);
-INSERT INTO `t_sys_dict` VALUES ('55', '2', '53', '护照', null);
-INSERT INTO `t_sys_dict` VALUES ('56', '0', '0', '学历类型', null);
-INSERT INTO `t_sys_dict` VALUES ('57', '1', '56', '博士', null);
-INSERT INTO `t_sys_dict` VALUES ('58', '2', '56', '硕士', null);
-INSERT INTO `t_sys_dict` VALUES ('59', '3', '56', '本科', null);
-INSERT INTO `t_sys_dict` VALUES ('60', '4', '56', '专科', null);
-INSERT INTO `t_sys_dict` VALUES ('61', '5', '56', '高中及以下', null);
-INSERT INTO `t_sys_login_log` VALUES ('360', '登录日志', '1', '2018-04-05 21:15:22', '成功', null, '0:0:0:0:0:0:0:1');
-INSERT INTO `t_sys_login_log` VALUES ('361', '退出日志', '1', '2018-04-05 21:17:17', '成功', null, '0:0:0:0:0:0:0:1');
-INSERT INTO `t_sys_login_log` VALUES ('362', '登录日志', '1', '2018-04-05 21:17:23', '成功', null, '0:0:0:0:0:0:0:1');
-INSERT INTO `t_sys_login_log` VALUES ('363', '登录日志', '1', '2018-04-05 21:18:26', '成功', null, '0:0:0:0:0:0:0:1');
-INSERT INTO `t_sys_login_log` VALUES ('364', '退出日志', '1', '2018-04-05 21:18:49', '成功', null, '0:0:0:0:0:0:0:1');
-INSERT INTO `t_sys_login_log` VALUES ('365', '登录日志', '1', '2018-04-05 21:18:50', '成功', null, '0:0:0:0:0:0:0:1');
-INSERT INTO `t_sys_login_log` VALUES ('366', '退出日志', '1', '2018-04-05 21:21:01', '成功', null, '0:0:0:0:0:0:0:1');
-INSERT INTO `t_sys_login_log` VALUES ('367', '登录日志', '1', '2018-04-05 21:21:02', '成功', null, '0:0:0:0:0:0:0:1');
-INSERT INTO `t_sys_login_log` VALUES ('368', '登录日志', '1', '2018-04-05 21:21:53', '成功', null, '0:0:0:0:0:0:0:1');
-INSERT INTO `t_sys_login_log` VALUES ('369', '退出日志', '1', '2018-04-05 21:24:33', '成功', null, '0:0:0:0:0:0:0:1');
-INSERT INTO `t_sys_login_log` VALUES ('370', '登录日志', '1', '2018-04-05 21:25:27', '成功', null, '0:0:0:0:0:0:0:1');
-INSERT INTO `t_sys_login_log` VALUES ('371', '登录日志', '1', '2018-04-05 21:45:23', '成功', null, '0:0:0:0:0:0:0:1');
-INSERT INTO `t_sys_menu` VALUES ('105', 'system', '0', '[0],', '系统管理', 'fa-cog', '#', '4', '1', '1', null, '1', '1');
-INSERT INTO `t_sys_menu` VALUES ('106', 'mgr', 'system', '[0],[system],', '用户管理', '', '/mgr', '1', '2', '1', null, '1', '0');
-INSERT INTO `t_sys_menu` VALUES ('107', 'mgr_add', 'mgr', '[0],[system],[mgr],', '添加用户', null, '/mgr/add', '1', '3', '0', null, '1', '0');
-INSERT INTO `t_sys_menu` VALUES ('108', 'mgr_edit', 'mgr', '[0],[system],[mgr],', '修改用户', null, '/mgr/edit', '2', '3', '0', null, '1', '0');
-INSERT INTO `t_sys_menu` VALUES ('109', 'mgr_delete', 'mgr', '[0],[system],[mgr],', '删除用户', null, '/mgr/delete', '3', '3', '0', null, '1', '0');
-INSERT INTO `t_sys_menu` VALUES ('110', 'mgr_reset', 'mgr', '[0],[system],[mgr],', '重置密码', null, '/mgr/reset', '4', '3', '0', null, '1', '0');
-INSERT INTO `t_sys_menu` VALUES ('111', 'mgr_freeze', 'mgr', '[0],[system],[mgr],', '冻结用户', null, '/mgr/freeze', '5', '3', '0', null, '1', '0');
-INSERT INTO `t_sys_menu` VALUES ('112', 'mgr_unfreeze', 'mgr', '[0],[system],[mgr],', '解除冻结用户', null, '/mgr/unfreeze', '6', '3', '0', null, '1', '0');
-INSERT INTO `t_sys_menu` VALUES ('113', 'mgr_setRole', 'mgr', '[0],[system],[mgr],', '分配角色', null, '/mgr/setRole', '7', '3', '0', null, '1', '0');
-INSERT INTO `t_sys_menu` VALUES ('114', 'role', 'system', '[0],[system],', '角色管理', null, '/role', '2', '2', '1', null, '1', '0');
-INSERT INTO `t_sys_menu` VALUES ('115', 'role_add', 'role', '[0],[system],[role],', '添加角色', null, '/role/add', '1', '3', '0', null, '1', '0');
-INSERT INTO `t_sys_menu` VALUES ('116', 'role_edit', 'role', '[0],[system],[role],', '修改角色', null, '/role/edit', '2', '3', '0', null, '1', '0');
-INSERT INTO `t_sys_menu` VALUES ('117', 'role_remove', 'role', '[0],[system],[role],', '删除角色', null, '/role/remove', '3', '3', '0', null, '1', '0');
-INSERT INTO `t_sys_menu` VALUES ('118', 'role_setAuthority', 'role', '[0],[system],[role],', '配置权限', null, '/role/setAuthority', '4', '3', '0', null, '1', '0');
-INSERT INTO `t_sys_menu` VALUES ('119', 'menu', 'system', '[0],[system],', '菜单管理', null, '/menu', '4', '2', '1', null, '1', '0');
-INSERT INTO `t_sys_menu` VALUES ('120', 'menu_add', 'menu', '[0],[system],[menu],', '添加菜单', null, '/menu/add', '1', '3', '0', null, '1', '0');
-INSERT INTO `t_sys_menu` VALUES ('121', 'menu_edit', 'menu', '[0],[system],[menu],', '修改菜单', null, '/menu/edit', '2', '3', '0', null, '1', '0');
-INSERT INTO `t_sys_menu` VALUES ('122', 'menu_remove', 'menu', '[0],[system],[menu],', '删除菜单', null, '/menu/remove', '3', '3', '0', null, '1', '0');
-INSERT INTO `t_sys_menu` VALUES ('128', 'log', 'system', '[0],[system],', '业务日志', null, '/log', '6', '2', '1', null, '1', '0');
-INSERT INTO `t_sys_menu` VALUES ('130', 'druid', 'system', '[0],[system],', '监控管理', null, '/druid', '7', '2', '1', null, '1', null);
-INSERT INTO `t_sys_menu` VALUES ('131', 'dept', 'system', '[0],[system],', '部门管理', null, '/dept', '3', '2', '1', null, '1', null);
-INSERT INTO `t_sys_menu` VALUES ('132', 'dict', 'system', '[0],[system],', '字典管理', null, '/dict', '4', '2', '1', null, '1', null);
-INSERT INTO `t_sys_menu` VALUES ('133', 'loginLog', 'system', '[0],[system],', '登录日志', null, '/loginLog', '6', '2', '1', null, '1', null);
-INSERT INTO `t_sys_menu` VALUES ('134', 'log_clean', 'log', '[0],[system],[log],', '清空日志', null, '/log/delLog', '3', '3', '0', null, '1', null);
-INSERT INTO `t_sys_menu` VALUES ('135', 'dept_add', 'dept', '[0],[system],[dept],', '添加部门', null, '/dept/add', '1', '3', '0', null, '1', null);
-INSERT INTO `t_sys_menu` VALUES ('136', 'dept_update', 'dept', '[0],[system],[dept],', '修改部门', null, '/dept/update', '1', '3', '0', null, '1', null);
-INSERT INTO `t_sys_menu` VALUES ('137', 'dept_delete', 'dept', '[0],[system],[dept],', '删除部门', null, '/dept/delete', '1', '3', '0', null, '1', null);
-INSERT INTO `t_sys_menu` VALUES ('138', 'dict_add', 'dict', '[0],[system],[dict],', '添加字典', null, '/dict/add', '1', '3', '0', null, '1', null);
-INSERT INTO `t_sys_menu` VALUES ('139', 'dict_update', 'dict', '[0],[system],[dict],', '修改字典', null, '/dict/update', '1', '3', '0', null, '1', null);
-INSERT INTO `t_sys_menu` VALUES ('140', 'dict_delete', 'dict', '[0],[system],[dict],', '删除字典', null, '/dict/delete', '1', '3', '0', null, '1', null);
-INSERT INTO `t_sys_menu` VALUES ('141', 'notice', 'system', '[0],[system],', '通知管理', null, '/notice', '9', '2', '1', null, '1', null);
-INSERT INTO `t_sys_menu` VALUES ('142', 'notice_add', 'notice', '[0],[system],[notice],', '添加通知', null, '/notice/add', '1', '3', '0', null, '1', null);
-INSERT INTO `t_sys_menu` VALUES ('143', 'notice_update', 'notice', '[0],[system],[notice],', '修改通知', null, '/notice/update', '2', '3', '0', null, '1', null);
-INSERT INTO `t_sys_menu` VALUES ('144', 'notice_delete', 'notice', '[0],[system],[notice],', '删除通知', null, '/notice/delete', '3', '3', '0', null, '1', null);
-INSERT INTO `t_sys_menu` VALUES ('145', 'hello', '0', '[0],', '通知', 'fa-rocket', '/notice/hello', '1', '1', '1', null, '1', null);
-INSERT INTO `t_sys_menu` VALUES ('148', 'code', '0', '[0],', '代码生成', 'fa-code', '/code', '3', '1', '0', null, '1', null);
-INSERT INTO `t_sys_menu` VALUES ('149', 'api_mgr', '0', '[0],', '接口文档', 'fa-leaf', '/swagger-ui.html', '2', '1', '1', null, '1', null);
-INSERT INTO `t_sys_menu` VALUES ('150', 'to_menu_edit', 'menu', '[0],[system],[menu],', '菜单编辑跳转', '', '/menu/menu_edit', '4', '3', '0', null, '1', null);
-INSERT INTO `t_sys_menu` VALUES ('151', 'menu_list', 'menu', '[0],[system],[menu],', '菜单列表', '', '/menu/list', '5', '3', '0', null, '1', null);
-INSERT INTO `t_sys_menu` VALUES ('152', 'to_dept_update', 'dept', '[0],[system],[dept],', '修改部门跳转', '', '/dept/dept_update', '4', '3', '0', null, '1', null);
-INSERT INTO `t_sys_menu` VALUES ('153', 'dept_list', 'dept', '[0],[system],[dept],', '部门列表', '', '/dept/list', '5', '3', '0', null, '1', null);
-INSERT INTO `t_sys_menu` VALUES ('154', 'dept_detail', 'dept', '[0],[system],[dept],', '部门详情', '', '/dept/detail', '6', '3', '0', null, '1', null);
-INSERT INTO `t_sys_menu` VALUES ('155', 'to_dict_edit', 'dict', '[0],[system],[dict],', '修改菜单跳转', '', '/dict/dict_edit', '4', '3', '0', null, '1', null);
-INSERT INTO `t_sys_menu` VALUES ('156', 'dict_list', 'dict', '[0],[system],[dict],', '字典列表', '', '/dict/list', '5', '3', '0', null, '1', null);
-INSERT INTO `t_sys_menu` VALUES ('157', 'dict_detail', 'dict', '[0],[system],[dict],', '字典详情', '', '/dict/detail', '6', '3', '0', null, '1', null);
-INSERT INTO `t_sys_menu` VALUES ('158', 'log_list', 'log', '[0],[system],[log],', '日志列表', '', '/log/list', '2', '3', '0', null, '1', null);
-INSERT INTO `t_sys_menu` VALUES ('159', 'log_detail', 'log', '[0],[system],[log],', '日志详情', '', '/log/detail', '3', '3', '0', null, '1', null);
-INSERT INTO `t_sys_menu` VALUES ('160', 'del_login_log', 'loginLog', '[0],[system],[loginLog],', '清空登录日志', '', '/loginLog/delLoginLog', '1', '3', '0', null, '1', null);
-INSERT INTO `t_sys_menu` VALUES ('161', 'login_log_list', 'loginLog', '[0],[system],[loginLog],', '登录日志列表', '', '/loginLog/list', '2', '3', '0', null, '1', null);
-INSERT INTO `t_sys_menu` VALUES ('162', 'to_role_edit', 'role', '[0],[system],[role],', '修改角色跳转', '', '/role/role_edit', '5', '3', '0', null, '1', null);
-INSERT INTO `t_sys_menu` VALUES ('163', 'to_role_assign', 'role', '[0],[system],[role],', '角色分配跳转', '', '/role/role_assign', '6', '3', '0', null, '1', null);
-INSERT INTO `t_sys_menu` VALUES ('164', 'role_list', 'role', '[0],[system],[role],', '角色列表', '', '/role/list', '7', '3', '0', null, '1', null);
-INSERT INTO `t_sys_menu` VALUES ('165', 'to_assign_role', 'mgr', '[0],[system],[mgr],', '分配角色跳转', '', '/mgr/role_assign', '8', '3', '0', null, '1', null);
-INSERT INTO `t_sys_menu` VALUES ('166', 'to_user_edit', 'mgr', '[0],[system],[mgr],', '编辑用户跳转', '', '/mgr/user_edit', '9', '3', '0', null, '1', null);
-INSERT INTO `t_sys_menu` VALUES ('167', 'mgr_list', 'mgr', '[0],[system],[mgr],', '用户列表', '', '/mgr/list', '10', '3', '0', null, '1', null);
-INSERT INTO `t_sys_menu` VALUES ('168', 'expense', '0', '[0],', '报销管理', 'fa-clone', '#', '5', '1', '1', null, '0', null);
-INSERT INTO `t_sys_menu` VALUES ('169', 'expense_fill', 'expense', '[0],[expense],', '报销申请', '', '/expense', '1', '2', '1', null, '0', null);
-INSERT INTO `t_sys_menu` VALUES ('170', 'expense_progress', 'expense', '[0],[expense],', '报销审批', '', '/process', '2', '2', '1', null, '0', null);
-INSERT INTO `t_sys_menu` VALUES ('199', 'cfg_add', 'cfg', '[0],[system],[cfg],', '添加系统参数', '', '/cfg/add', '1', '3', '0', null, '1', null);
-INSERT INTO `t_sys_menu` VALUES ('200', 'cfg_update', 'cfg', '[0],[system],[cfg],', '修改系统参数', '', '/cfg/update', '2', '3', '0', null, '1', null);
-INSERT INTO `t_sys_menu` VALUES ('201', 'cfg_delete', 'cfg', '[0],[system],[cfg],', '删除系统参数', '', '/cfg/delete', '3', '3', '0', null, '1', null);
-INSERT INTO `t_sys_notice` VALUES ('6', '世界', '10', '欢迎使用后台管理系统', '2017-01-11 08:53:20', '1');
-INSERT INTO `t_sys_notice` VALUES ('8', '你好', null, '你好', '2017-05-10 19:28:57', '1');
-INSERT INTO `t_sys_relation` VALUES ('1', '105', '1');
-INSERT INTO `t_sys_relation` VALUES ('2', '106', '1');
-INSERT INTO `t_sys_relation` VALUES ('3', '107', '1');
-INSERT INTO `t_sys_relation` VALUES ('4', '108', '1');
-INSERT INTO `t_sys_relation` VALUES ('5', '109', '1');
-INSERT INTO `t_sys_relation` VALUES ('6', '110', '1');
-INSERT INTO `t_sys_relation` VALUES ('7', '111', '1');
-INSERT INTO `t_sys_relation` VALUES ('8', '112', '1');
-INSERT INTO `t_sys_relation` VALUES ('9', '113', '1');
-INSERT INTO `t_sys_relation` VALUES ('10', '165', '1');
-INSERT INTO `t_sys_relation` VALUES ('11', '166', '1');
-INSERT INTO `t_sys_relation` VALUES ('12', '167', '1');
-INSERT INTO `t_sys_relation` VALUES ('13', '114', '1');
-INSERT INTO `t_sys_relation` VALUES ('14', '115', '1');
-INSERT INTO `t_sys_relation` VALUES ('15', '116', '1');
-INSERT INTO `t_sys_relation` VALUES ('16', '117', '1');
-INSERT INTO `t_sys_relation` VALUES ('17', '118', '1');
-INSERT INTO `t_sys_relation` VALUES ('18', '162', '1');
-INSERT INTO `t_sys_relation` VALUES ('19', '163', '1');
-INSERT INTO `t_sys_relation` VALUES ('20', '164', '1');
-INSERT INTO `t_sys_relation` VALUES ('21', '119', '1');
-INSERT INTO `t_sys_relation` VALUES ('22', '120', '1');
-INSERT INTO `t_sys_relation` VALUES ('23', '121', '1');
-INSERT INTO `t_sys_relation` VALUES ('24', '122', '1');
-INSERT INTO `t_sys_relation` VALUES ('25', '150', '1');
-INSERT INTO `t_sys_relation` VALUES ('26', '151', '1');
-INSERT INTO `t_sys_relation` VALUES ('27', '128', '1');
-INSERT INTO `t_sys_relation` VALUES ('28', '134', '1');
-INSERT INTO `t_sys_relation` VALUES ('29', '158', '1');
-INSERT INTO `t_sys_relation` VALUES ('30', '159', '1');
-INSERT INTO `t_sys_relation` VALUES ('31', '130', '1');
-INSERT INTO `t_sys_relation` VALUES ('32', '131', '1');
-INSERT INTO `t_sys_relation` VALUES ('33', '135', '1');
-INSERT INTO `t_sys_relation` VALUES ('34', '136', '1');
-INSERT INTO `t_sys_relation` VALUES ('35', '137', '1');
-INSERT INTO `t_sys_relation` VALUES ('36', '152', '1');
-INSERT INTO `t_sys_relation` VALUES ('37', '153', '1');
-INSERT INTO `t_sys_relation` VALUES ('38', '154', '1');
-INSERT INTO `t_sys_relation` VALUES ('39', '132', '1');
-INSERT INTO `t_sys_relation` VALUES ('40', '138', '1');
-INSERT INTO `t_sys_relation` VALUES ('41', '139', '1');
-INSERT INTO `t_sys_relation` VALUES ('42', '140', '1');
-INSERT INTO `t_sys_relation` VALUES ('43', '155', '1');
-INSERT INTO `t_sys_relation` VALUES ('44', '156', '1');
-INSERT INTO `t_sys_relation` VALUES ('45', '157', '1');
-INSERT INTO `t_sys_relation` VALUES ('46', '133', '1');
-INSERT INTO `t_sys_relation` VALUES ('47', '160', '1');
-INSERT INTO `t_sys_relation` VALUES ('48', '161', '1');
-INSERT INTO `t_sys_relation` VALUES ('49', '141', '1');
-INSERT INTO `t_sys_relation` VALUES ('50', '142', '1');
-INSERT INTO `t_sys_relation` VALUES ('51', '143', '1');
-INSERT INTO `t_sys_relation` VALUES ('52', '144', '1');
-INSERT INTO `t_sys_relation` VALUES ('53', '198', '1');
-INSERT INTO `t_sys_relation` VALUES ('54', '199', '1');
-INSERT INTO `t_sys_relation` VALUES ('55', '200', '1');
-INSERT INTO `t_sys_relation` VALUES ('56', '201', '1');
-INSERT INTO `t_sys_relation` VALUES ('57', '145', '1');
-INSERT INTO `t_sys_relation` VALUES ('58', '148', '1');
-INSERT INTO `t_sys_relation` VALUES ('59', '149', '1');
-INSERT INTO `t_sys_relation` VALUES ('60', '171', '1');
-INSERT INTO `t_sys_relation` VALUES ('61', '172', '1');
-INSERT INTO `t_sys_relation` VALUES ('62', '173', '1');
-INSERT INTO `t_sys_relation` VALUES ('63', '174', '1');
-INSERT INTO `t_sys_relation` VALUES ('64', '175', '1');
-INSERT INTO `t_sys_relation` VALUES ('65', '176', '1');
-INSERT INTO `t_sys_relation` VALUES ('66', '177', '1');
-INSERT INTO `t_sys_relation` VALUES ('67', '178', '1');
-INSERT INTO `t_sys_relation` VALUES ('68', '179', '1');
-INSERT INTO `t_sys_relation` VALUES ('69', '180', '1');
-INSERT INTO `t_sys_relation` VALUES ('70', '181', '1');
-INSERT INTO `t_sys_relation` VALUES ('71', '182', '1');
-INSERT INTO `t_sys_relation` VALUES ('72', '183', '1');
-INSERT INTO `t_sys_relation` VALUES ('73', '184', '1');
-INSERT INTO `t_sys_relation` VALUES ('74', '185', '1');
-INSERT INTO `t_sys_relation` VALUES ('75', '186', '1');
-INSERT INTO `t_sys_relation` VALUES ('76', '187', '1');
-INSERT INTO `t_sys_relation` VALUES ('77', '188', '1');
-INSERT INTO `t_sys_relation` VALUES ('78', '189', '1');
-INSERT INTO `t_sys_relation` VALUES ('79', '195', '1');
-INSERT INTO `t_sys_relation` VALUES ('80', '190', '1');
-INSERT INTO `t_sys_relation` VALUES ('81', '191', '1');
-INSERT INTO `t_sys_relation` VALUES ('82', '192', '1');
-INSERT INTO `t_sys_relation` VALUES ('83', '193', '1');
-INSERT INTO `t_sys_relation` VALUES ('84', '194', '1');
-INSERT INTO `t_sys_relation` VALUES ('85', '196', '1');
-INSERT INTO `t_sys_relation` VALUES ('86', '197', '1');
-INSERT INTO `t_sys_role` VALUES ('1', '1', '0', '超级管理员', '24', 'administrator', '1');
-INSERT INTO `t_sys_role_menu` (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', '0f9ccefe3c37446ab7dd4d8823b2674f', '1');
-INSERT INTO `t_sys_role_menu` (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', 'f34c743c76d1487f8fd0c2469671e417', '2');
-INSERT INTO `t_sys_role_menu` (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', '5c2b4eee186b46b8ac80ce3bf1a31482', '3');
-INSERT INTO `t_sys_role_menu` (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', '7f8a8af316d547beac7d4263476571df', '4');
-INSERT INTO `t_sys_role_menu` (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', '175d06dcdd7d4aeaba7bfb31b9a6adf9', '5');
-INSERT INTO `t_sys_role_menu` (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', 'd83e71c7552a4f1eb0986da5738d5455', '6');
-INSERT INTO `t_sys_role_menu` (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', 'ef31791205dd4ca3b5c23a077feb1bc6', '7');
-INSERT INTO `t_sys_role_menu` (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', 'b372f1d1c9714a808367ce9bbdaf52d5', '8');
-INSERT INTO `t_sys_role_menu` (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', 'f13da3059ec441009c7ad8af3072dfa8', '9');
-INSERT INTO `t_sys_role_menu` (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', '83a127c18bac4e00829e9c9962803838', '10');
-INSERT INTO `t_sys_role_menu` (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', '233de9e289024088b9133e29dd959fca', '11');
-INSERT INTO `t_sys_role_menu` (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', 'bf16dedfc88d45d0858a25a1f2b228ac', '12');
-INSERT INTO `t_sys_role_menu` (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', '32eeb7668dea4887847d15aac95b5df0', '13');
-INSERT INTO `t_sys_role_menu` (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', 'e662fd578ef34423a4b2765290f1981e', '14');
-INSERT INTO `t_sys_role_menu` (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', '6f0262a2c4ab4655b01265f2394c8f2d', '15');
-INSERT INTO `t_sys_role_menu` (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', 'c261eca005b54f37b4226b1833714f10', '16');
-INSERT INTO `t_sys_role_menu` (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', '8f2c142dee3b4714949724c3dfadb540', '17');
-INSERT INTO `t_sys_role_menu` (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', '45181d69e47947ebad4de4b5383cd9cb', '18');
-INSERT INTO `t_sys_role_menu` (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', 'e53092c585504a77b6e2c5b3ec2e32c9', '19');
-INSERT INTO `t_sys_role_menu` (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', '3afbde86044c4d7fa040300e705c73fa', '20');
-INSERT INTO `t_sys_role_menu` (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', '15d567907c074d1a80034d6b77300c8a', '21');
-INSERT INTO `t_sys_role_menu` (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', '0c6199419432471283e07320040d7fed', '22');
-INSERT INTO `t_sys_role_menu` (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', 'f70e928966304fdfbc8b0ae54e0e3d17', '23');
-INSERT INTO `t_sys_role_menu` (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', 'a5a3efcf28154d2f8aba772b211455c3', '24');
-INSERT INTO `t_sys_role_menu` (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', 'e7a12b99d3594562a4cb3f1acd5f4eb7', '25');
-INSERT INTO `t_sys_role_menu` (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', '62e0a6e9ec7d485485f99c1991173e63', '26');
-INSERT INTO `t_sys_role_menu` (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', 'b489392439814f9eb208a676e351afb5', '27');
-INSERT INTO `t_sys_role_menu` (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', '8d88846e6dba4db4920742f32e308be4', '28');
-INSERT INTO `t_sys_role_menu` (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', 'de344dcfa38240f6a656f15ef60af339', '29');
-INSERT INTO `t_sys_role_menu` (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', '28b180e83fbe40d78c909086233cabd2', '30');
-INSERT INTO `t_sys_role_menu` (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', '0a47185d7876405e85e4c203352bccc4', '31');
-INSERT INTO `t_sys_role_menu` (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', 'ad3065cab4db4512967d993ef7c4f5ab', '32');
-INSERT INTO `t_sys_role_menu` (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', '06077b45c1b14755959e4f012314570b', '33');
-INSERT INTO `t_sys_role_menu` (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', 'd1d4d7b46751456d8f840701d1746263', '34');
-INSERT INTO `t_sys_role_menu` (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', '5c6d010b5132479fa58fb88a1aedbd81', '35');
-INSERT INTO `t_sys_role_menu` (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', '230c7a019acf42208bcde7149c04efd2', '36');
-INSERT INTO `t_sys_role_menu` (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', 'af3dd2a994f04bbda53998d8298aeb19', '37');
-INSERT INTO `t_sys_role_menu` (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', '52dcc185684d4920acb0f4a5280f7455', '38');
-INSERT INTO `t_sys_role_menu` (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', '23b643f8963a4eb591fa7395204e5013', '39');
-INSERT INTO `t_sys_role_menu` (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', 'a5402be8e9c948a8872a3ce84ffc3294', '40');
-INSERT INTO `t_sys_role_menu` (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', 'ac6f270034ab42b28a80728d255f32cf', '41');
-INSERT INTO `t_sys_role_menu` (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', 'd86156b43c9b42728979e509aa058ac3', '42');
-INSERT INTO `t_sys_role_menu` (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', 'ae4ec35909ae43d0a9ec7d99d382f0cd', '43');
-INSERT INTO `t_sys_role_menu` (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', '64ce61c4238a4c27880b17f70bec845d', '44');
-INSERT INTO `t_sys_role_menu` (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', 'e9b41d0e3d8d483caccedc02f71c201f', '45');
-INSERT INTO `t_sys_role_menu` (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', 'c75f7a083e0c47129a67630ea493b139', '46');
-INSERT INTO `t_sys_role_menu` (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', 'b0edc6861a494b79b97990dc05f0a524', '47');
-INSERT INTO `t_sys_role_menu` (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', 'e4256d7b0ffc4a02906cf900322b6213', '48');
-INSERT INTO `t_sys_role_menu` (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', 'b19b23b0459a4754bf1fb8cb234450f2', '49');
-INSERT INTO `t_sys_role_menu` (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', '4dc997fef71e4862b9db22de8e99a618', '50');
-INSERT INTO `t_sys_role_menu` (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', '9f20a757a6bc40ddbb650c70debbf660', '51');
-INSERT INTO `t_sys_role_menu` (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', 'f426468abf714b1599729f8c36ebbb0d', '52');
-INSERT INTO `t_sys_role_menu` (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', '1734e586e96941268a4c5248b593cef9', '53');
-INSERT INTO `t_sys_role_menu` (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', '6bb17a41f6394ed0a8a6faf5ff781354', '54');
-INSERT INTO `t_sys_role_menu` (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', '56d0658c5a8848818ac05e8ffa5c0570', '55');
-INSERT INTO `t_sys_role_menu` (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', 'ce709456e867425297955b3c40406d7e', '56');
-INSERT INTO `t_sys_role_menu` (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', '3099f497480c4b1987bce3f3a26c3fb4', '57');
-INSERT INTO `t_sys_role_menu` (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', '4cd8e4e9519e4cff95465194fdcc8d88', '58');
-INSERT INTO `t_sys_role_menu` (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', '234f8ec3c2bc42bf9f6202aecae36fd6', '59');
-INSERT INTO `t_sys_role_menu` (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', 'c3a44b478d3241b899b9c3f4611bc2b6', '60');
-INSERT INTO `t_sys_role_menu` (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', 'fd63a8e389e04ff3a86c3cea53a3b9d5', '61');
-INSERT INTO `t_sys_role_menu` (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', '7c040dfd8db347e5956a3bc1764653dc', '62');
-INSERT INTO `t_sys_role_menu` (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', '17e1ee23ca1443f1bc886c2f5eb7c24b', '63');
-INSERT INTO `t_sys_role_menu` (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', '2275cb125710414e91b617dd7c62f12c', '64');
-INSERT INTO `t_sys_role_menu` (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', '0a972ce655cb4c84809d58668b655900', '65');
-INSERT INTO `t_sys_role_menu` (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', 'fc52d5284b8f4522802383c1ef732242', '66');
-INSERT INTO `t_sys_role_menu` (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', '2cb327ad59b140828fd26eb2a46cb948', '67');
-INSERT INTO `t_sys_role_menu` (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', 'dd965b2c1dfd493fb5efc7e4bcac99d4', '68');
-INSERT INTO `t_sys_role_menu` (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', '30a5e70a1456447ebf90b5546e9bc321', '69');
-INSERT INTO `t_sys_role_menu` (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', '2a63040409094f1e9dc535dd78ce15b7', '70');
-INSERT INTO `t_sys_role_menu` (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', '0706112ff5dc46e388064a99bcdb0561', '71');
-INSERT INTO `t_sys_role_menu` (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', 'e864c78aba63448892cbcb6a3a7f4da7', '72');
-INSERT INTO `t_sys_role_menu` (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', 'ff6cd243a77c4ae98dacf6149c816c75', '73');
-INSERT INTO `t_sys_role_menu` (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', '733d3f35d49f45af99ca9220048583ba', '74');
-INSERT INTO `t_sys_role_menu` (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', 'bcf64d623fdd4519ae345b7a08c071a1', '75');
-INSERT INTO `t_sys_role_menu` (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', '66cc21d7ce104dd6877cbce114c59fb3', '76');
-INSERT INTO `t_sys_role_menu` (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', '309dc29ad3c34408a68df8f867a5c9ff', '77');
-INSERT INTO `t_sys_role_menu` (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', '96554b09a2dd4f82bab7546fa59acd35', '78');
-INSERT INTO `t_sys_role_menu` (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', 'd568f4c2b687404e8aec7b9edcae5767', '79');
-INSERT INTO `t_sys_role_menu` (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', '2fab774f8b6d40cb9d7e187babab2d91', '80');
-INSERT INTO `t_sys_role_menu` (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', '45d958ca78304f25b51f6c71cf66f6d8', '81');
-INSERT INTO `t_sys_role_menu` (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', '44da90bc76a5419a841f4924333f7a66', '82');
-INSERT INTO `t_sys_role_menu` (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', '9a9557177d334c209cf73c3817fe3b63', '83');
-INSERT INTO `t_sys_role_menu` (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', '0a43d291e0c94ad88c8b690009279e34', '84');
-INSERT INTO `t_sys_role_menu` (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', '5244f5c38eb24b918e9ad64d456daa38', '85');
-INSERT INTO `t_sys_role_menu` (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', '6afc5075913d4df4b44a6476080e35a0', '86');
-INSERT INTO `t_sys_role_menu` (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', '1385ae887e5c4b8aa33fbf228be7f907', '87');
-INSERT INTO `t_sys_role_menu` (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', 'e6b6224617b04090a76e46a4b048fb96', '88');
-INSERT INTO `t_sys_role_menu` (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', '3888f05aa4064f788ba7ec51c495ce7c', '89');
-INSERT INTO `t_sys_role_menu` (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', 'cabbe834a7474675b899e8442b5c2604', '90');
-INSERT INTO `t_sys_role_menu` (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', 'a11163584dfe456cbfd6fb2d4b74391b', '91');
-INSERT INTO `t_sys_role_menu` (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', 'c76a84f871d047db955dd1465c845ac1', '92');
-INSERT INTO `t_sys_role_menu` (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', '02e86a61e99746bea34236ea73dd52a5', '93');
-INSERT INTO `t_sys_role_menu` (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', 'd920314e925c451da6d881e7a29743b7', '94');
-INSERT INTO `t_sys_role_menu` (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', 'd1e991ad38a8424daf9f7eb000ee27f4', '95');
-INSERT INTO `t_sys_role_menu` (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', '73a29d3f99224426b5a87c92da122275', '96');
-INSERT INTO `t_sys_role_menu` (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', '6b6de8c720c645a1808e1c3e9ccbfc90', '97');
-INSERT INTO `t_sys_role_menu` (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', 'b2631bbdbf824cc4b74d819c87962c0d', '98');
-INSERT INTO `t_sys_role_menu` (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', '4781372b00bb4d52b429b58e72b80c68', '99');
-INSERT INTO `t_sys_role_menu` (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', 'e461c62a1d5441619cd35612f3b40691', '100');
-INSERT INTO `t_sys_role_menu` (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', 'f6fba69c3b704d79834b8bd2cc753729', '101');
-INSERT INTO `t_sys_role_menu` (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', '50ba60ee650e4c739e6abc3ab71e4960', '102');
-INSERT INTO `t_sys_role_menu` (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', '6075fc0cf0ef441b9d93cc3cab3445bf', '103');
-INSERT INTO `t_sys_role_menu` (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', '33aed9298643424783116e0cf0f7fcbe', '104');
-INSERT INTO `t_sys_role_menu` (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', 'ef9f436c61654ec09efbfa79a40061cf', '105');
-INSERT INTO `t_sys_role_menu` (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', '17500ef3a9e44b4fabb240162a164fcb', '106');
-INSERT INTO `t_sys_role_menu` (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', '3f330d729ca34dc9825c46122be1bfae', '107');
-INSERT INTO `t_sys_role_menu` (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', '9822bafbe3454dfd8e8b974ebc304d03', '108');
-INSERT INTO `t_sys_role_menu` (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', '7db6207d0dab4d6e95a7eee4f2efe875', '109');
-INSERT INTO `t_sys_role_menu` (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', '31ed2243077c44448cce26abfd5ae574', '110');
-INSERT INTO `t_sys_role_menu` (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', '7125a72beee34b21ab3df9bf01b7bce6', '111');
-INSERT INTO `t_sys_role_menu` (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', '68cdbf694f71445c8587a20234d6fe31', '112');
-INSERT INTO `t_sys_role_menu` (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', '077cb6be4c7c41cc8955ee045a4f0286', '113');
-INSERT INTO `t_sys_role_menu` (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', '36e0faf5062b4f6b95d4167cbb1f8fea', '114');
-INSERT INTO `t_sys_role_menu` (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', '3c24111091ad4a70ad2d9cc361311d2f', '115');
-INSERT INTO `t_sys_user` VALUES ('1', null, 'admin', '6ab1f386d715cfb6be85de941d438b02', '8pgby', '管理员', '2017-05-05 00:00:00', '2', 'eniluzt@qq.com', null, '1', '27', '1', '2016-01-29 08:49:53', '25');
-INSERT INTO `t_sys_user` VALUES ('45', null, 'boss', '71887a5ad666a18f709e1d4e693d5a35', '1f7bf', '老板', '2017-12-04 00:00:00', '1', '', '', '1', '24', '1', '2017-12-04 22:24:02', null);
-INSERT INTO `t_sys_user` VALUES ('46', null, 'manager', 'b53cac62e7175637d4beb3b16b2f7915', 'j3cs9', '经理', '2017-12-04 00:00:00', '1', '', '', '1', '24', '1', '2017-12-04 22:24:24', null);
-INSERT INTO `t_sys_user_role` (role_id,user_id,id)  VALUES ('c4de3cf1a62e41378d9f1205293485a3', '43e6c8d6d3134e5aa41ae2a85b87586b', '1');
-INSERT INTO `t_sys_user_unit` (user_id,unit_id,id) VALUES ('43e6c8d6d3134e5aa41ae2a85b87586b', 'cff0e38c05544085b56dee30e97383b4', '1');
+DELETE FROM t_sys_cfg
+INSERT INTO t_sys_cfg (id,cfg_name,cfg_value,cfg_desc) VALUES (1, 'JS_API_TICKET', 'test', '微信JSAPI_TICKET(produt:kgt8ON7yVITDhtdwci0qeYBa_xOxkaEccepDVZel0heq1M9pKgrfFWOlX2MfHEt122psCpElf4V5eePHPouJPg)')
+INSERT INTO t_sys_cfg (id,cfg_name,cfg_value,cfg_desc) VALUES (2, 'ACCESS_TOKEN', 'test', '微信Token')
+
+DELETE FROM t_sys_dept
+INSERT INTO t_sys_dept (id,num,pid,pids,simplename,fullname,tips,version) VALUES (24, 1, 0, '[0],', '总公司', '总公司', '', null)
+INSERT INTO t_sys_dept (id,num,pid,pids,simplename,fullname,tips,version) VALUES (25, 2, 24, '[0],[24],', '开发部', '开发部', '', null)
+INSERT INTO t_sys_dept (id,num,pid,pids,simplename,fullname,tips,version) VALUES (26, 3, 24, '[0],[24],', '运营部', '运营部', '', null)
+INSERT INTO t_sys_dept (id,num,pid,pids,simplename,fullname,tips,version) VALUES (27, 4, 24, '[0],[24],', '战略部', '战略部', '', null)
+
+DELETE FROM t_sys_dict
+INSERT INTO t_sys_dict (id,num,pid,name,tips) VALUES (16, '0', 0, '状态', null)
+INSERT INTO t_sys_dict (id,num,pid,name,tips) VALUES (17, '1', 16, '启用', null)
+INSERT INTO t_sys_dict (id,num,pid,name,tips) VALUES (18, '2', 16, '禁用', null)
+INSERT INTO t_sys_dict (id,num,pid,name,tips) VALUES (29, '0', 0, '性别', null)
+INSERT INTO t_sys_dict (id,num,pid,name,tips) VALUES (30, '1', 29, '男', null)
+INSERT INTO t_sys_dict (id,num,pid,name,tips) VALUES (31, '2', 29, '女', null)
+INSERT INTO t_sys_dict (id,num,pid,name,tips) VALUES (35, '0', 0, '账号状态', null)
+INSERT INTO t_sys_dict (id,num,pid,name,tips) VALUES (36, '1', 35, '启用', null)
+INSERT INTO t_sys_dict (id,num,pid,name,tips) VALUES (37, '2', 35, '冻结', null)
+INSERT INTO t_sys_dict (id,num,pid,name,tips) VALUES (38, '3', 35, '已删除', null)
+INSERT INTO t_sys_dict (id,num,pid,name,tips) VALUES (39, '0', 0, '银行卡类型', null)
+INSERT INTO t_sys_dict (id,num,pid,name,tips) VALUES (40, '0', 39, '借记卡', null)
+INSERT INTO t_sys_dict (id,num,pid,name,tips) VALUES (41, '1', 39, '信用卡', null)
+INSERT INTO t_sys_dict (id,num,pid,name,tips) VALUES (44, '0', 0, '联系人关系', null)
+INSERT INTO t_sys_dict (id,num,pid,name,tips) VALUES (45, '1', 44, '父子', null)
+INSERT INTO t_sys_dict (id,num,pid,name,tips) VALUES (46, '2', 44, '母子', null)
+INSERT INTO t_sys_dict (id,num,pid,name,tips) VALUES (47, '3', 44, '配偶', null)
+INSERT INTO t_sys_dict (id,num,pid,name,tips) VALUES (48, '4', 44, '朋友', null)
+INSERT INTO t_sys_dict (id,num,pid,name,tips) VALUES (49, '5', 44, '子女', null)
+INSERT INTO t_sys_dict (id,num,pid,name,tips) VALUES (50, '6', 44, '兄弟姐妹', null)
+INSERT INTO t_sys_dict (id,num,pid,name,tips) VALUES (53, '0', 0, '证件类型', null)
+INSERT INTO t_sys_dict (id,num,pid,name,tips) VALUES (54, '1', 53, '身份证', null)
+INSERT INTO t_sys_dict (id,num,pid,name,tips) VALUES (55, '2', 53, '护照', null)
+INSERT INTO t_sys_dict (id,num,pid,name,tips) VALUES (56, '0', 0, '学历类型', null)
+INSERT INTO t_sys_dict (id,num,pid,name,tips) VALUES (57, '1', 56, '博士', null)
+INSERT INTO t_sys_dict (id,num,pid,name,tips) VALUES (58, '2', 56, '硕士', null)
+INSERT INTO t_sys_dict (id,num,pid,name,tips) VALUES (59, '3', 56, '本科', null)
+INSERT INTO t_sys_dict (id,num,pid,name,tips) VALUES (60, '4', 56, '专科', null)
+INSERT INTO t_sys_dict (id,num,pid,name,tips) VALUES (61, '5', 56, '高中及以下', null)
+
+DELETE FROM t_sys_login_log
+INSERT INTO t_sys_login_log (id,logname,userid,createtime,succeed,message,ip) VALUES (360, '登录日志', 1, '2018-04-05 21:15:22.000', '成功', null, '0:0:0:0:0:0:0:1')
+INSERT INTO t_sys_login_log (id,logname,userid,createtime,succeed,message,ip) VALUES (361, '退出日志', 1, '2018-04-05 21:17:17.000', '成功', null, '0:0:0:0:0:0:0:1')
+INSERT INTO t_sys_login_log (id,logname,userid,createtime,succeed,message,ip) VALUES (362, '登录日志', 1, '2018-04-05 21:17:23.000', '成功', null, '0:0:0:0:0:0:0:1')
+INSERT INTO t_sys_login_log (id,logname,userid,createtime,succeed,message,ip) VALUES (363, '登录日志', 1, '2018-04-05 21:18:26.000', '成功', null, '0:0:0:0:0:0:0:1')
+INSERT INTO t_sys_login_log (id,logname,userid,createtime,succeed,message,ip) VALUES (364, '退出日志', 1, '2018-04-05 21:18:49.000', '成功', null, '0:0:0:0:0:0:0:1')
+INSERT INTO t_sys_login_log (id,logname,userid,createtime,succeed,message,ip) VALUES (365, '登录日志', 1, '2018-04-05 21:18:50.000', '成功', null, '0:0:0:0:0:0:0:1')
+INSERT INTO t_sys_login_log (id,logname,userid,createtime,succeed,message,ip) VALUES (366, '退出日志', 1, '2018-04-05 21:21:01.000', '成功', null, '0:0:0:0:0:0:0:1')
+INSERT INTO t_sys_login_log (id,logname,userid,createtime,succeed,message,ip) VALUES (367, '登录日志', 1, '2018-04-05 21:21:02.000', '成功', null, '0:0:0:0:0:0:0:1')
+INSERT INTO t_sys_login_log (id,logname,userid,createtime,succeed,message,ip) VALUES (368, '登录日志', 1, '2018-04-05 21:21:53.000', '成功', null, '0:0:0:0:0:0:0:1')
+INSERT INTO t_sys_login_log (id,logname,userid,createtime,succeed,message,ip) VALUES (369, '退出日志', 1, '2018-04-05 21:24:33.000', '成功', null, '0:0:0:0:0:0:0:1')
+INSERT INTO t_sys_login_log (id,logname,userid,createtime,succeed,message,ip) VALUES (370, '登录日志', 1, '2018-04-05 21:25:27.000', '成功', null, '0:0:0:0:0:0:0:1')
+INSERT INTO t_sys_login_log (id,logname,userid,createtime,succeed,message,ip) VALUES (371, '登录日志', 1, '2018-04-05 21:45:23.000', '成功', null, '0:0:0:0:0:0:0:1')
+
+DELETE FROM t_sys_menu
+INSERT INTO t_sys_menu (id,code,pcode,pcodes,name,icon,url,num,levels,ismenu,tips,status,isopen) VALUES (105, 'system', '0', '[0],', '系统管理', 'fa-cog', '#', 4, 1, 1, null, 1, 1)
+INSERT INTO t_sys_menu (id,code,pcode,pcodes,name,icon,url,num,levels,ismenu,tips,status,isopen) VALUES (106, 'mgr', 'system', '[0],[system],', '用户管理', '', '/mgr', 1, 2, 1, null, 1, 0)
+INSERT INTO t_sys_menu (id,code,pcode,pcodes,name,icon,url,num,levels,ismenu,tips,status,isopen) VALUES (107, 'mgr_add', 'mgr', '[0],[system],[mgr],', '添加用户', null, '/mgr/add', 1, 3, 0, null, 1, 0)
+INSERT INTO t_sys_menu (id,code,pcode,pcodes,name,icon,url,num,levels,ismenu,tips,status,isopen) VALUES (108, 'mgr_edit', 'mgr', '[0],[system],[mgr],', '修改用户', null, '/mgr/edit', 2, 3, 0, null, 1, 0)
+INSERT INTO t_sys_menu (id,code,pcode,pcodes,name,icon,url,num,levels,ismenu,tips,status,isopen) VALUES (109, 'mgr_delete', 'mgr', '[0],[system],[mgr],', '删除用户', null, '/mgr/delete', 3, 3, 0, null, 1, 0)
+INSERT INTO t_sys_menu (id,code,pcode,pcodes,name,icon,url,num,levels,ismenu,tips,status,isopen) VALUES (110, 'mgr_reset', 'mgr', '[0],[system],[mgr],', '重置密码', null, '/mgr/reset', 4, 3, 0, null, 1, 0)
+INSERT INTO t_sys_menu (id,code,pcode,pcodes,name,icon,url,num,levels,ismenu,tips,status,isopen) VALUES (111, 'mgr_freeze', 'mgr', '[0],[system],[mgr],', '冻结用户', null, '/mgr/freeze', 5, 3, 0, null, 1, 0)
+INSERT INTO t_sys_menu (id,code,pcode,pcodes,name,icon,url,num,levels,ismenu,tips,status,isopen) VALUES (112, 'mgr_unfreeze', 'mgr', '[0],[system],[mgr],', '解除冻结用户', null, '/mgr/unfreeze', 6, 3, 0, null, 1, 0)
+INSERT INTO t_sys_menu (id,code,pcode,pcodes,name,icon,url,num,levels,ismenu,tips,status,isopen) VALUES (113, 'mgr_setRole', 'mgr', '[0],[system],[mgr],', '分配角色', null, '/mgr/setRole', 7, 3, 0, null, 1, 0)
+INSERT INTO t_sys_menu (id,code,pcode,pcodes,name,icon,url,num,levels,ismenu,tips,status,isopen) VALUES (114, 'role', 'system', '[0],[system],', '角色管理', null, '/role', 2, 2, 1, null, 1, 0)
+INSERT INTO t_sys_menu (id,code,pcode,pcodes,name,icon,url,num,levels,ismenu,tips,status,isopen) VALUES (115, 'role_add', 'role', '[0],[system],[role],', '添加角色', null, '/role/add', 1, 3, 0, null, 1, 0)
+INSERT INTO t_sys_menu (id,code,pcode,pcodes,name,icon,url,num,levels,ismenu,tips,status,isopen) VALUES (116, 'role_edit', 'role', '[0],[system],[role],', '修改角色', null, '/role/edit', 2, 3, 0, null, 1, 0)
+INSERT INTO t_sys_menu (id,code,pcode,pcodes,name,icon,url,num,levels,ismenu,tips,status,isopen) VALUES (117, 'role_remove', 'role', '[0],[system],[role],', '删除角色', null, '/role/remove', 3, 3, 0, null, 1, 0)
+INSERT INTO t_sys_menu (id,code,pcode,pcodes,name,icon,url,num,levels,ismenu,tips,status,isopen) VALUES (118, 'role_setAuthority', 'role', '[0],[system],[role],', '配置权限', null, '/role/setAuthority', 4, 3, 0, null, 1, 0)
+INSERT INTO t_sys_menu (id,code,pcode,pcodes,name,icon,url,num,levels,ismenu,tips,status,isopen) VALUES (119, 'menu', 'system', '[0],[system],', '菜单管理', null, '/menu', 4, 2, 1, null, 1, 0)
+INSERT INTO t_sys_menu (id,code,pcode,pcodes,name,icon,url,num,levels,ismenu,tips,status,isopen) VALUES (120, 'menu_add', 'menu', '[0],[system],[menu],', '添加菜单', null, '/menu/add', 1, 3, 0, null, 1, 0)
+INSERT INTO t_sys_menu (id,code,pcode,pcodes,name,icon,url,num,levels,ismenu,tips,status,isopen) VALUES (121, 'menu_edit', 'menu', '[0],[system],[menu],', '修改菜单', null, '/menu/edit', 2, 3, 0, null, 1, 0)
+INSERT INTO t_sys_menu (id,code,pcode,pcodes,name,icon,url,num,levels,ismenu,tips,status,isopen) VALUES (122, 'menu_remove', 'menu', '[0],[system],[menu],', '删除菜单', null, '/menu/remove', 3, 3, 0, null, 1, 0)
+INSERT INTO t_sys_menu (id,code,pcode,pcodes,name,icon,url,num,levels,ismenu,tips,status,isopen) VALUES (128, 'log', 'system', '[0],[system],', '业务日志', null, '/log', 6, 2, 1, null, 1, 0)
+INSERT INTO t_sys_menu (id,code,pcode,pcodes,name,icon,url,num,levels,ismenu,tips,status,isopen) VALUES (130, 'druid', 'system', '[0],[system],', '监控管理', null, '/druid', 7, 2, 1, null, 1, null)
+INSERT INTO t_sys_menu (id,code,pcode,pcodes,name,icon,url,num,levels,ismenu,tips,status,isopen) VALUES (131, 'dept', 'system', '[0],[system],', '部门管理', null, '/dept', 3, 2, 1, null, 1, null)
+INSERT INTO t_sys_menu (id,code,pcode,pcodes,name,icon,url,num,levels,ismenu,tips,status,isopen) VALUES (132, 'dict', 'system', '[0],[system],', '字典管理', null, '/dict', 4, 2, 1, null, 1, null)
+INSERT INTO t_sys_menu (id,code,pcode,pcodes,name,icon,url,num,levels,ismenu,tips,status,isopen) VALUES (133, 'loginLog', 'system', '[0],[system],', '登录日志', null, '/loginLog', 6, 2, 1, null, 1, null)
+INSERT INTO t_sys_menu (id,code,pcode,pcodes,name,icon,url,num,levels,ismenu,tips,status,isopen) VALUES (134, 'log_clean', 'log', '[0],[system],[log],', '清空日志', null, '/log/delLog', 3, 3, 0, null, 1, null)
+INSERT INTO t_sys_menu (id,code,pcode,pcodes,name,icon,url,num,levels,ismenu,tips,status,isopen) VALUES (135, 'dept_add', 'dept', '[0],[system],[dept],', '添加部门', null, '/dept/add', 1, 3, 0, null, 1, null)
+INSERT INTO t_sys_menu (id,code,pcode,pcodes,name,icon,url,num,levels,ismenu,tips,status,isopen) VALUES (136, 'dept_update', 'dept', '[0],[system],[dept],', '修改部门', null, '/dept/update', 1, 3, 0, null, 1, null)
+INSERT INTO t_sys_menu (id,code,pcode,pcodes,name,icon,url,num,levels,ismenu,tips,status,isopen) VALUES (137, 'dept_delete', 'dept', '[0],[system],[dept],', '删除部门', null, '/dept/delete', 1, 3, 0, null, 1, null)
+INSERT INTO t_sys_menu (id,code,pcode,pcodes,name,icon,url,num,levels,ismenu,tips,status,isopen) VALUES (138, 'dict_add', 'dict', '[0],[system],[dict],', '添加字典', null, '/dict/add', 1, 3, 0, null, 1, null)
+INSERT INTO t_sys_menu (id,code,pcode,pcodes,name,icon,url,num,levels,ismenu,tips,status,isopen) VALUES (139, 'dict_update', 'dict', '[0],[system],[dict],', '修改字典', null, '/dict/update', 1, 3, 0, null, 1, null)
+INSERT INTO t_sys_menu (id,code,pcode,pcodes,name,icon,url,num,levels,ismenu,tips,status,isopen) VALUES (140, 'dict_delete', 'dict', '[0],[system],[dict],', '删除字典', null, '/dict/delete', 1, 3, 0, null, 1, null)
+INSERT INTO t_sys_menu (id,code,pcode,pcodes,name,icon,url,num,levels,ismenu,tips,status,isopen) VALUES (141, 'notice', 'system', '[0],[system],', '通知管理', null, '/notice', 9, 2, 1, null, 1, null)
+INSERT INTO t_sys_menu (id,code,pcode,pcodes,name,icon,url,num,levels,ismenu,tips,status,isopen) VALUES (142, 'notice_add', 'notice', '[0],[system],[notice],', '添加通知', null, '/notice/add', 1, 3, 0, null, 1, null)
+INSERT INTO t_sys_menu (id,code,pcode,pcodes,name,icon,url,num,levels,ismenu,tips,status,isopen) VALUES (143, 'notice_update', 'notice', '[0],[system],[notice],', '修改通知', null, '/notice/update', 2, 3, 0, null, 1, null)
+INSERT INTO t_sys_menu (id,code,pcode,pcodes,name,icon,url,num,levels,ismenu,tips,status,isopen) VALUES (144, 'notice_delete', 'notice', '[0],[system],[notice],', '删除通知', null, '/notice/delete', 3, 3, 0, null, 1, null)
+INSERT INTO t_sys_menu (id,code,pcode,pcodes,name,icon,url,num,levels,ismenu,tips,status,isopen) VALUES (145, 'hello', '0', '[0],', '通知', 'fa-rocket', '/notice/hello', 1, 1, 1, null, 1, null)
+INSERT INTO t_sys_menu (id,code,pcode,pcodes,name,icon,url,num,levels,ismenu,tips,status,isopen) VALUES (148, 'code', '0', '[0],', '代码生成', 'fa-code', '/code', 3, 1, 0, null, 1, null)
+INSERT INTO t_sys_menu (id,code,pcode,pcodes,name,icon,url,num,levels,ismenu,tips,status,isopen) VALUES (149, 'api_mgr', '0', '[0],', '接口文档', 'fa-leaf', '/swagger-ui.html', 2, 1, 1, null, 1, null)
+INSERT INTO t_sys_menu (id,code,pcode,pcodes,name,icon,url,num,levels,ismenu,tips,status,isopen) VALUES (150, 'to_menu_edit', 'menu', '[0],[system],[menu],', '菜单编辑跳转', '', '/menu/menu_edit', 4, 3, 0, null, 1, null)
+INSERT INTO t_sys_menu (id,code,pcode,pcodes,name,icon,url,num,levels,ismenu,tips,status,isopen) VALUES (151, 'menu_list', 'menu', '[0],[system],[menu],', '菜单列表', '', '/menu/list', 5, 3, 0, null, 1, null)
+INSERT INTO t_sys_menu (id,code,pcode,pcodes,name,icon,url,num,levels,ismenu,tips,status,isopen) VALUES (152, 'to_dept_update', 'dept', '[0],[system],[dept],', '修改部门跳转', '', '/dept/dept_update', 4, 3, 0, null, 1, null)
+INSERT INTO t_sys_menu (id,code,pcode,pcodes,name,icon,url,num,levels,ismenu,tips,status,isopen) VALUES (153, 'dept_list', 'dept', '[0],[system],[dept],', '部门列表', '', '/dept/list', 5, 3, 0, null, 1, null)
+INSERT INTO t_sys_menu (id,code,pcode,pcodes,name,icon,url,num,levels,ismenu,tips,status,isopen) VALUES (154, 'dept_detail', 'dept', '[0],[system],[dept],', '部门详情', '', '/dept/detail', 6, 3, 0, null, 1, null)
+INSERT INTO t_sys_menu (id,code,pcode,pcodes,name,icon,url,num,levels,ismenu,tips,status,isopen) VALUES (155, 'to_dict_edit', 'dict', '[0],[system],[dict],', '修改菜单跳转', '', '/dict/dict_edit', 4, 3, 0, null, 1, null)
+INSERT INTO t_sys_menu (id,code,pcode,pcodes,name,icon,url,num,levels,ismenu,tips,status,isopen) VALUES (156, 'dict_list', 'dict', '[0],[system],[dict],', '字典列表', '', '/dict/list', 5, 3, 0, null, 1, null)
+INSERT INTO t_sys_menu (id,code,pcode,pcodes,name,icon,url,num,levels,ismenu,tips,status,isopen) VALUES (157, 'dict_detail', 'dict', '[0],[system],[dict],', '字典详情', '', '/dict/detail', 6, 3, 0, null, 1, null)
+INSERT INTO t_sys_menu (id,code,pcode,pcodes,name,icon,url,num,levels,ismenu,tips,status,isopen) VALUES (158, 'log_list', 'log', '[0],[system],[log],', '日志列表', '', '/log/list', 2, 3, 0, null, 1, null)
+INSERT INTO t_sys_menu (id,code,pcode,pcodes,name,icon,url,num,levels,ismenu,tips,status,isopen) VALUES (159, 'log_detail', 'log', '[0],[system],[log],', '日志详情', '', '/log/detail', 3, 3, 0, null, 1, null)
+INSERT INTO t_sys_menu (id,code,pcode,pcodes,name,icon,url,num,levels,ismenu,tips,status,isopen) VALUES (160, 'del_login_log', 'loginLog', '[0],[system],[loginLog],', '清空登录日志', '', '/loginLog/delLoginLog', 1, 3, 0, null, 1, null)
+INSERT INTO t_sys_menu (id,code,pcode,pcodes,name,icon,url,num,levels,ismenu,tips,status,isopen) VALUES (161, 'login_log_list', 'loginLog', '[0],[system],[loginLog],', '登录日志列表', '', '/loginLog/list', 2, 3, 0, null, 1, null)
+INSERT INTO t_sys_menu (id,code,pcode,pcodes,name,icon,url,num,levels,ismenu,tips,status,isopen) VALUES (162, 'to_role_edit', 'role', '[0],[system],[role],', '修改角色跳转', '', '/role/role_edit', 5, 3, 0, null, 1, null)
+INSERT INTO t_sys_menu (id,code,pcode,pcodes,name,icon,url,num,levels,ismenu,tips,status,isopen) VALUES (163, 'to_role_assign', 'role', '[0],[system],[role],', '角色分配跳转', '', '/role/role_assign', 6, 3, 0, null, 1, null)
+INSERT INTO t_sys_menu (id,code,pcode,pcodes,name,icon,url,num,levels,ismenu,tips,status,isopen) VALUES (164, 'role_list', 'role', '[0],[system],[role],', '角色列表', '', '/role/list', 7, 3, 0, null, 1, null)
+INSERT INTO t_sys_menu (id,code,pcode,pcodes,name,icon,url,num,levels,ismenu,tips,status,isopen) VALUES (165, 'to_assign_role', 'mgr', '[0],[system],[mgr],', '分配角色跳转', '', '/mgr/role_assign', 8, 3, 0, null, 1, null)
+INSERT INTO t_sys_menu (id,code,pcode,pcodes,name,icon,url,num,levels,ismenu,tips,status,isopen) VALUES (166, 'to_user_edit', 'mgr', '[0],[system],[mgr],', '编辑用户跳转', '', '/mgr/user_edit', 9, 3, 0, null, 1, null)
+INSERT INTO t_sys_menu (id,code,pcode,pcodes,name,icon,url,num,levels,ismenu,tips,status,isopen) VALUES (167, 'mgr_list', 'mgr', '[0],[system],[mgr],', '用户列表', '', '/mgr/list', 10, 3, 0, null, 1, null)
+INSERT INTO t_sys_menu (id,code,pcode,pcodes,name,icon,url,num,levels,ismenu,tips,status,isopen) VALUES (168, 'expense', '0', '[0],', '报销管理', 'fa-clone', '#', 5, 1, 1, null, 0, null)
+INSERT INTO t_sys_menu (id,code,pcode,pcodes,name,icon,url,num,levels,ismenu,tips,status,isopen) VALUES (169, 'expense_fill', 'expense', '[0],[expense],', '报销申请', '', '/expense', 1, 2, 1, null, 0, null)
+INSERT INTO t_sys_menu (id,code,pcode,pcodes,name,icon,url,num,levels,ismenu,tips,status,isopen) VALUES (170, 'expense_progress', 'expense', '[0],[expense],', '报销审批', '', '/process', 2, 2, 1, null, 0, null)
+INSERT INTO t_sys_menu (id,code,pcode,pcodes,name,icon,url,num,levels,ismenu,tips,status,isopen) VALUES (199, 'cfg_add', 'cfg', '[0],[system],[cfg],', '添加系统参数', '', '/cfg/add', 1, 3, 0, null, 1, null)
+INSERT INTO t_sys_menu (id,code,pcode,pcodes,name,icon,url,num,levels,ismenu,tips,status,isopen) VALUES (200, 'cfg_update', 'cfg', '[0],[system],[cfg],', '修改系统参数', '', '/cfg/update', 2, 3, 0, null, 1, null)
+INSERT INTO t_sys_menu (id,code,pcode,pcodes,name,icon,url,num,levels,ismenu,tips,status,isopen) VALUES (201, 'cfg_delete', 'cfg', '[0],[system],[cfg],', '删除系统参数', '', '/cfg/delete',3, 3, 0, null, 1, null)
+
+DELETE FROM t_sys_notice
+INSERT INTO t_sys_notice (id,title,type,content,createtime,creater) VALUES (6, '世界', 10, '欢迎使用后台管理系统', '2017-01-11 08:53:20', 1)
+INSERT INTO t_sys_notice (id,title,type,content,createtime,creater) VALUES (8, '你好', null, '你好', '2017-05-10 19:28:57', 1)
+
+DELETE FROM t_sys_relation
+INSERT INTO t_sys_relation (id,menuid,roleid) VALUES (1, 105, 1)
+INSERT INTO t_sys_relation (id,menuid,roleid) VALUES (2, 106, 1)
+INSERT INTO t_sys_relation (id,menuid,roleid) VALUES (3, 107, 1)
+INSERT INTO t_sys_relation (id,menuid,roleid) VALUES (4, 108, 1)
+INSERT INTO t_sys_relation (id,menuid,roleid) VALUES (5, 109, 1)
+INSERT INTO t_sys_relation (id,menuid,roleid) VALUES (6, 110, 1)
+INSERT INTO t_sys_relation (id,menuid,roleid) VALUES (7, 111, 1)
+INSERT INTO t_sys_relation (id,menuid,roleid) VALUES (8, 112, 1)
+INSERT INTO t_sys_relation (id,menuid,roleid) VALUES (9, 113, 1)
+INSERT INTO t_sys_relation (id,menuid,roleid) VALUES (10, 165, 1)
+INSERT INTO t_sys_relation (id,menuid,roleid) VALUES (11, 166, 1)
+INSERT INTO t_sys_relation (id,menuid,roleid) VALUES (12, 167, 1)
+INSERT INTO t_sys_relation (id,menuid,roleid) VALUES (13, 114, 1)
+INSERT INTO t_sys_relation (id,menuid,roleid) VALUES (14, 115, 1)
+INSERT INTO t_sys_relation (id,menuid,roleid) VALUES (15, 116, 1)
+INSERT INTO t_sys_relation (id,menuid,roleid) VALUES (16, 117, 1)
+INSERT INTO t_sys_relation (id,menuid,roleid) VALUES (17, 118, 1)
+INSERT INTO t_sys_relation (id,menuid,roleid) VALUES (18, 162, 1)
+INSERT INTO t_sys_relation (id,menuid,roleid) VALUES (19, 163, 1)
+INSERT INTO t_sys_relation (id,menuid,roleid) VALUES (20, 164, 1)
+INSERT INTO t_sys_relation (id,menuid,roleid) VALUES (21, 119, 1)
+INSERT INTO t_sys_relation (id,menuid,roleid) VALUES (22, 120, 1)
+INSERT INTO t_sys_relation (id,menuid,roleid) VALUES (23, 121, 1)
+INSERT INTO t_sys_relation (id,menuid,roleid) VALUES (24, 122, 1)
+INSERT INTO t_sys_relation (id,menuid,roleid) VALUES (25, 150, 1)
+INSERT INTO t_sys_relation (id,menuid,roleid) VALUES (26, 151, 1)
+INSERT INTO t_sys_relation (id,menuid,roleid) VALUES (27, 128, 1)
+INSERT INTO t_sys_relation (id,menuid,roleid) VALUES (28, 134, 1)
+INSERT INTO t_sys_relation (id,menuid,roleid) VALUES (29, 158, 1)
+INSERT INTO t_sys_relation (id,menuid,roleid) VALUES (30, 159, 1)
+INSERT INTO t_sys_relation (id,menuid,roleid) VALUES (31, 130, 1)
+INSERT INTO t_sys_relation (id,menuid,roleid) VALUES (32, 131, 1)
+INSERT INTO t_sys_relation (id,menuid,roleid) VALUES (33, 135, 1)
+INSERT INTO t_sys_relation (id,menuid,roleid) VALUES (34, 136, 1)
+INSERT INTO t_sys_relation (id,menuid,roleid) VALUES (35, 137, 1)
+INSERT INTO t_sys_relation (id,menuid,roleid) VALUES (36, 152, 1)
+INSERT INTO t_sys_relation (id,menuid,roleid) VALUES (37, 153, 1)
+INSERT INTO t_sys_relation (id,menuid,roleid) VALUES (38, 154, 1)
+INSERT INTO t_sys_relation (id,menuid,roleid) VALUES (39, 132, 1)
+INSERT INTO t_sys_relation (id,menuid,roleid) VALUES (40, 138, 1)
+INSERT INTO t_sys_relation (id,menuid,roleid) VALUES (41, 139, 1)
+INSERT INTO t_sys_relation (id,menuid,roleid) VALUES (42, 140, 1)
+INSERT INTO t_sys_relation (id,menuid,roleid) VALUES (43, 155, 1)
+INSERT INTO t_sys_relation (id,menuid,roleid) VALUES (44, 156, 1)
+INSERT INTO t_sys_relation (id,menuid,roleid) VALUES (45, 157, 1)
+INSERT INTO t_sys_relation (id,menuid,roleid) VALUES (46, 133, 1)
+INSERT INTO t_sys_relation (id,menuid,roleid) VALUES (47, 160, 1)
+INSERT INTO t_sys_relation (id,menuid,roleid) VALUES (48, 161, 1)
+INSERT INTO t_sys_relation (id,menuid,roleid) VALUES (49, 141, 1)
+INSERT INTO t_sys_relation (id,menuid,roleid) VALUES (50, 142, 1)
+INSERT INTO t_sys_relation (id,menuid,roleid) VALUES (51, 143, 1)
+INSERT INTO t_sys_relation (id,menuid,roleid) VALUES (52, 144, 1)
+INSERT INTO t_sys_relation (id,menuid,roleid) VALUES (53, 198, 1)
+INSERT INTO t_sys_relation (id,menuid,roleid) VALUES (54, 199, 1)
+INSERT INTO t_sys_relation (id,menuid,roleid) VALUES (55, 200, 1)
+INSERT INTO t_sys_relation (id,menuid,roleid) VALUES (56, 201, 1)
+INSERT INTO t_sys_relation (id,menuid,roleid) VALUES (57, 145, 1)
+INSERT INTO t_sys_relation (id,menuid,roleid) VALUES (58, 148, 1)
+INSERT INTO t_sys_relation (id,menuid,roleid) VALUES (59, 149, 1)
+INSERT INTO t_sys_relation (id,menuid,roleid) VALUES (60, 171, 1)
+INSERT INTO t_sys_relation (id,menuid,roleid) VALUES (61, 172, 1)
+INSERT INTO t_sys_relation (id,menuid,roleid) VALUES (62, 173, 1)
+INSERT INTO t_sys_relation (id,menuid,roleid) VALUES (63, 174, 1)
+INSERT INTO t_sys_relation (id,menuid,roleid) VALUES (64, 175, 1)
+INSERT INTO t_sys_relation (id,menuid,roleid) VALUES (65, 176, 1)
+INSERT INTO t_sys_relation (id,menuid,roleid) VALUES (66, 177, 1)
+INSERT INTO t_sys_relation (id,menuid,roleid) VALUES (67, 178, 1)
+INSERT INTO t_sys_relation (id,menuid,roleid) VALUES (68, 179, 1)
+INSERT INTO t_sys_relation (id,menuid,roleid) VALUES (69, 180, 1)
+INSERT INTO t_sys_relation (id,menuid,roleid) VALUES (70, 181, 1)
+INSERT INTO t_sys_relation (id,menuid,roleid) VALUES (71, 182, 1)
+INSERT INTO t_sys_relation (id,menuid,roleid) VALUES (72, 183, 1)
+INSERT INTO t_sys_relation (id,menuid,roleid) VALUES (73, 184, 1)
+INSERT INTO t_sys_relation (id,menuid,roleid) VALUES (74, 185, 1)
+INSERT INTO t_sys_relation (id,menuid,roleid) VALUES (75, 186, 1)
+INSERT INTO t_sys_relation (id,menuid,roleid) VALUES (76, 187, 1)
+INSERT INTO t_sys_relation (id,menuid,roleid) VALUES (77, 188, 1)
+INSERT INTO t_sys_relation (id,menuid,roleid) VALUES (78, 189, 1)
+INSERT INTO t_sys_relation (id,menuid,roleid) VALUES (79, 195, 1)
+INSERT INTO t_sys_relation (id,menuid,roleid) VALUES (80, 190, 1)
+INSERT INTO t_sys_relation (id,menuid,roleid) VALUES (81, 191, 1)
+INSERT INTO t_sys_relation (id,menuid,roleid) VALUES (82, 192, 1)
+INSERT INTO t_sys_relation (id,menuid,roleid) VALUES (83, 193, 1)
+INSERT INTO t_sys_relation (id,menuid,roleid) VALUES (84, 194, 1)
+INSERT INTO t_sys_relation (id,menuid,roleid) VALUES (85, 196, 1)
+INSERT INTO t_sys_relation (id,menuid,roleid) VALUES (86, 197, 1)
+
+DELETE FROM t_sys_role
+INSERT INTO t_sys_role (id,num,pid,name,deptid,tips,version) VALUES (1, 1, 0, '超级管理员', 24, 'administrator', 1)
+
+DELETE FROM t_sys_role_menu
+INSERT INTO t_sys_role_menu (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', '0f9ccefe3c37446ab7dd4d8823b2674f', 1)
+INSERT INTO t_sys_role_menu (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', 'f34c743c76d1487f8fd0c2469671e417', 2)
+INSERT INTO t_sys_role_menu (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', '5c2b4eee186b46b8ac80ce3bf1a31482', 3)
+INSERT INTO t_sys_role_menu (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', '7f8a8af316d547beac7d4263476571df', 4)
+INSERT INTO t_sys_role_menu (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', '175d06dcdd7d4aeaba7bfb31b9a6adf9', 5)
+INSERT INTO t_sys_role_menu (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', 'd83e71c7552a4f1eb0986da5738d5455', 6)
+INSERT INTO t_sys_role_menu (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', 'ef31791205dd4ca3b5c23a077feb1bc6', 7)
+INSERT INTO t_sys_role_menu (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', 'b372f1d1c9714a808367ce9bbdaf52d5', 8)
+INSERT INTO t_sys_role_menu (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', 'f13da3059ec441009c7ad8af3072dfa8', 9)
+INSERT INTO t_sys_role_menu (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', '83a127c18bac4e00829e9c9962803838', 10)
+INSERT INTO t_sys_role_menu (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', '233de9e289024088b9133e29dd959fca', 11)
+INSERT INTO t_sys_role_menu (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', 'bf16dedfc88d45d0858a25a1f2b228ac', 12)
+INSERT INTO t_sys_role_menu (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', '32eeb7668dea4887847d15aac95b5df0', 13)
+INSERT INTO t_sys_role_menu (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', 'e662fd578ef34423a4b2765290f1981e', 14)
+INSERT INTO t_sys_role_menu (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', '6f0262a2c4ab4655b01265f2394c8f2d', 15)
+INSERT INTO t_sys_role_menu (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', 'c261eca005b54f37b4226b1833714f10', 16)
+INSERT INTO t_sys_role_menu (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', '8f2c142dee3b4714949724c3dfadb540', 17)
+INSERT INTO t_sys_role_menu (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', '45181d69e47947ebad4de4b5383cd9cb', 18)
+INSERT INTO t_sys_role_menu (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', 'e53092c585504a77b6e2c5b3ec2e32c9', 19)
+INSERT INTO t_sys_role_menu (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', '3afbde86044c4d7fa040300e705c73fa', 20)
+INSERT INTO t_sys_role_menu (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', '15d567907c074d1a80034d6b77300c8a', 21)
+INSERT INTO t_sys_role_menu (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', '0c6199419432471283e07320040d7fed', 22)
+INSERT INTO t_sys_role_menu (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', 'f70e928966304fdfbc8b0ae54e0e3d17', 23)
+INSERT INTO t_sys_role_menu (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', 'a5a3efcf28154d2f8aba772b211455c3', 24)
+INSERT INTO t_sys_role_menu (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', 'e7a12b99d3594562a4cb3f1acd5f4eb7', 25)
+INSERT INTO t_sys_role_menu (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', '62e0a6e9ec7d485485f99c1991173e63', 26)
+INSERT INTO t_sys_role_menu (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', 'b489392439814f9eb208a676e351afb5', 27)
+INSERT INTO t_sys_role_menu (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', '8d88846e6dba4db4920742f32e308be4', 28)
+INSERT INTO t_sys_role_menu (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', 'de344dcfa38240f6a656f15ef60af339', 29)
+INSERT INTO t_sys_role_menu (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', '28b180e83fbe40d78c909086233cabd2', 30)
+INSERT INTO t_sys_role_menu (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', '0a47185d7876405e85e4c203352bccc4', 31)
+INSERT INTO t_sys_role_menu (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', 'ad3065cab4db4512967d993ef7c4f5ab', 32)
+INSERT INTO t_sys_role_menu (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', '06077b45c1b14755959e4f012314570b', 33)
+INSERT INTO t_sys_role_menu (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', 'd1d4d7b46751456d8f840701d1746263', 34)
+INSERT INTO t_sys_role_menu (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', '5c6d010b5132479fa58fb88a1aedbd81', 35)
+INSERT INTO t_sys_role_menu (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', '230c7a019acf42208bcde7149c04efd2', 36)
+INSERT INTO t_sys_role_menu (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', 'af3dd2a994f04bbda53998d8298aeb19', 37)
+INSERT INTO t_sys_role_menu (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', '52dcc185684d4920acb0f4a5280f7455', 38)
+INSERT INTO t_sys_role_menu (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', '23b643f8963a4eb591fa7395204e5013', 39)
+INSERT INTO t_sys_role_menu (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', 'a5402be8e9c948a8872a3ce84ffc3294', 40)
+INSERT INTO t_sys_role_menu (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', 'ac6f270034ab42b28a80728d255f32cf', 41)
+INSERT INTO t_sys_role_menu (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', 'd86156b43c9b42728979e509aa058ac3', 42)
+INSERT INTO t_sys_role_menu (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', 'ae4ec35909ae43d0a9ec7d99d382f0cd', 43)
+INSERT INTO t_sys_role_menu (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', '64ce61c4238a4c27880b17f70bec845d', 44)
+INSERT INTO t_sys_role_menu (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', 'e9b41d0e3d8d483caccedc02f71c201f', 45)
+INSERT INTO t_sys_role_menu (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', 'c75f7a083e0c47129a67630ea493b139', 46)
+INSERT INTO t_sys_role_menu (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', 'b0edc6861a494b79b97990dc05f0a524', 47)
+INSERT INTO t_sys_role_menu (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', 'e4256d7b0ffc4a02906cf900322b6213', 48)
+INSERT INTO t_sys_role_menu (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', 'b19b23b0459a4754bf1fb8cb234450f2', 49)
+INSERT INTO t_sys_role_menu (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', '4dc997fef71e4862b9db22de8e99a618', 50)
+INSERT INTO t_sys_role_menu (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', '9f20a757a6bc40ddbb650c70debbf660', 51)
+INSERT INTO t_sys_role_menu (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', 'f426468abf714b1599729f8c36ebbb0d', 52)
+INSERT INTO t_sys_role_menu (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', '1734e586e96941268a4c5248b593cef9', 53)
+INSERT INTO t_sys_role_menu (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', '6bb17a41f6394ed0a8a6faf5ff781354', 54)
+INSERT INTO t_sys_role_menu (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', '56d0658c5a8848818ac05e8ffa5c0570', 55)
+INSERT INTO t_sys_role_menu (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', 'ce709456e867425297955b3c40406d7e', 56)
+INSERT INTO t_sys_role_menu (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', '3099f497480c4b1987bce3f3a26c3fb4', 57)
+INSERT INTO t_sys_role_menu (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', '4cd8e4e9519e4cff95465194fdcc8d88', 58)
+INSERT INTO t_sys_role_menu (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', '234f8ec3c2bc42bf9f6202aecae36fd6', 59)
+INSERT INTO t_sys_role_menu (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', 'c3a44b478d3241b899b9c3f4611bc2b6', 60)
+INSERT INTO t_sys_role_menu (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', 'fd63a8e389e04ff3a86c3cea53a3b9d5', 61)
+INSERT INTO t_sys_role_menu (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', '7c040dfd8db347e5956a3bc1764653dc', 62)
+INSERT INTO t_sys_role_menu (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', '17e1ee23ca1443f1bc886c2f5eb7c24b', 63)
+INSERT INTO t_sys_role_menu (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', '2275cb125710414e91b617dd7c62f12c', 64)
+INSERT INTO t_sys_role_menu (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', '0a972ce655cb4c84809d58668b655900', 65)
+INSERT INTO t_sys_role_menu (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', 'fc52d5284b8f4522802383c1ef732242', 66)
+INSERT INTO t_sys_role_menu (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', '2cb327ad59b140828fd26eb2a46cb948', 67)
+INSERT INTO t_sys_role_menu (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', 'dd965b2c1dfd493fb5efc7e4bcac99d4', 68)
+INSERT INTO t_sys_role_menu (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', '30a5e70a1456447ebf90b5546e9bc321', 69)
+INSERT INTO t_sys_role_menu (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', '2a63040409094f1e9dc535dd78ce15b7', 70)
+INSERT INTO t_sys_role_menu (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', '0706112ff5dc46e388064a99bcdb0561', 71)
+INSERT INTO t_sys_role_menu (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', 'e864c78aba63448892cbcb6a3a7f4da7', 72)
+INSERT INTO t_sys_role_menu (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', 'ff6cd243a77c4ae98dacf6149c816c75', 73)
+INSERT INTO t_sys_role_menu (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', '733d3f35d49f45af99ca9220048583ba', 74)
+INSERT INTO t_sys_role_menu (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', 'bcf64d623fdd4519ae345b7a08c071a1', 75)
+INSERT INTO t_sys_role_menu (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', '66cc21d7ce104dd6877cbce114c59fb3', 76)
+INSERT INTO t_sys_role_menu (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', '309dc29ad3c34408a68df8f867a5c9ff', 77)
+INSERT INTO t_sys_role_menu (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', '96554b09a2dd4f82bab7546fa59acd35', 78)
+INSERT INTO t_sys_role_menu (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', 'd568f4c2b687404e8aec7b9edcae5767', 79)
+INSERT INTO t_sys_role_menu (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', '2fab774f8b6d40cb9d7e187babab2d91', 80)
+INSERT INTO t_sys_role_menu (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', '45d958ca78304f25b51f6c71cf66f6d8', 81)
+INSERT INTO t_sys_role_menu (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', '44da90bc76a5419a841f4924333f7a66', 82)
+INSERT INTO t_sys_role_menu (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', '9a9557177d334c209cf73c3817fe3b63', 83)
+INSERT INTO t_sys_role_menu (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', '0a43d291e0c94ad88c8b690009279e34', 84)
+INSERT INTO t_sys_role_menu (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', '5244f5c38eb24b918e9ad64d456daa38', 85)
+INSERT INTO t_sys_role_menu (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', '6afc5075913d4df4b44a6476080e35a0', 86)
+INSERT INTO t_sys_role_menu (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', '1385ae887e5c4b8aa33fbf228be7f907', 87)
+INSERT INTO t_sys_role_menu (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', 'e6b6224617b04090a76e46a4b048fb96', 88)
+INSERT INTO t_sys_role_menu (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', '3888f05aa4064f788ba7ec51c495ce7c', 89)
+INSERT INTO t_sys_role_menu (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', 'cabbe834a7474675b899e8442b5c2604', 90)
+INSERT INTO t_sys_role_menu (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', 'a11163584dfe456cbfd6fb2d4b74391b', 91)
+INSERT INTO t_sys_role_menu (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', 'c76a84f871d047db955dd1465c845ac1', 92)
+INSERT INTO t_sys_role_menu (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', '02e86a61e99746bea34236ea73dd52a5', 93)
+INSERT INTO t_sys_role_menu (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', 'd920314e925c451da6d881e7a29743b7', 94)
+INSERT INTO t_sys_role_menu (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', 'd1e991ad38a8424daf9f7eb000ee27f4', 95)
+INSERT INTO t_sys_role_menu (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', '73a29d3f99224426b5a87c92da122275', 96)
+INSERT INTO t_sys_role_menu (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', '6b6de8c720c645a1808e1c3e9ccbfc90', 97)
+INSERT INTO t_sys_role_menu (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', 'b2631bbdbf824cc4b74d819c87962c0d', 98)
+INSERT INTO t_sys_role_menu (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', '4781372b00bb4d52b429b58e72b80c68', 99)
+INSERT INTO t_sys_role_menu (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', 'e461c62a1d5441619cd35612f3b40691', 100)
+INSERT INTO t_sys_role_menu (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', 'f6fba69c3b704d79834b8bd2cc753729', 101)
+INSERT INTO t_sys_role_menu (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', '50ba60ee650e4c739e6abc3ab71e4960', 102)
+INSERT INTO t_sys_role_menu (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', '6075fc0cf0ef441b9d93cc3cab3445bf', 103)
+INSERT INTO t_sys_role_menu (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', '33aed9298643424783116e0cf0f7fcbe', 104)
+INSERT INTO t_sys_role_menu (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', 'ef9f436c61654ec09efbfa79a40061cf', 105)
+INSERT INTO t_sys_role_menu (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', '17500ef3a9e44b4fabb240162a164fcb', 106)
+INSERT INTO t_sys_role_menu (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', '3f330d729ca34dc9825c46122be1bfae', 107)
+INSERT INTO t_sys_role_menu (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', '9822bafbe3454dfd8e8b974ebc304d03', 108)
+INSERT INTO t_sys_role_menu (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', '7db6207d0dab4d6e95a7eee4f2efe875', 109)
+INSERT INTO t_sys_role_menu (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', '31ed2243077c44448cce26abfd5ae574', 110)
+INSERT INTO t_sys_role_menu (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', '7125a72beee34b21ab3df9bf01b7bce6', 111)
+INSERT INTO t_sys_role_menu (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', '68cdbf694f71445c8587a20234d6fe31', 112)
+INSERT INTO t_sys_role_menu (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', '077cb6be4c7c41cc8955ee045a4f0286', 113)
+INSERT INTO t_sys_role_menu (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', '36e0faf5062b4f6b95d4167cbb1f8fea', 114)
+INSERT INTO t_sys_role_menu (role_id,menu_id,id) VALUES ('c4de3cf1a62e41378d9f1205293485a3', '3c24111091ad4a70ad2d9cc361311d2f', 115)
+
+DELETE FROM t_sys_user
+INSERT INTO t_sys_user (id,avatar,account,password,salt,name,birthday,sex,email,phone,roleid,deptid,status,createtime,version) VALUES (1, null, 'admin', '6ab1f386d715cfb6be85de941d438b02', '8pgby', '管理员', '2017-05-05 00:00:00.000', 2, 'eniluzt@qq.com', null, '1', 27, 1, '2016-01-29 08:49:53.000', 25)
+INSERT INTO t_sys_user (id,avatar,account,password,salt,name,birthday,sex,email,phone,roleid,deptid,status,createtime,version) VALUES (45, null, 'boss', '71887a5ad666a18f709e1d4e693d5a35', '1f7bf', '老板', '2017-12-04 00:00:00.000', 1, '', '', '1', 24, 1, '2017-12-04 22:24:02.000', null)
+INSERT INTO t_sys_user (id,avatar,account,password,salt,name,birthday,sex,email,phone,roleid,deptid,status,createtime,version) VALUES (46, null, 'manager', 'b53cac62e7175637d4beb3b16b2f7915', 'j3cs9', '经理', '2017-12-04 00:00:00.000', 1, '', '', '1', 24, 1, '2017-12-04 22:24:24.000', null)
+
+DELETE FROM t_sys_user_role
+INSERT INTO t_sys_user_role (role_id,user_id,id)  VALUES ('c4de3cf1a62e41378d9f1205293485a3', '43e6c8d6d3134e5aa41ae2a85b87586b', 1)
+
+DELETE FROM t_sys_user_unit
+INSERT INTO t_sys_user_unit (user_id,unit_id,id) VALUES ('43e6c8d6d3134e5aa41ae2a85b87586b', 'cff0e38c05544085b56dee30e97383b4', 1)

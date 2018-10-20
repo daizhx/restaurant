@@ -78,8 +78,6 @@ public class Prn_PrintStyle {
 		this.sourceString = sourceString;
 	}
 
-	@Basic
-	@Column(name="SourceString", columnDefinition="TEXT")
 	public String getSourceString() {
 		return sourceString;
 	}

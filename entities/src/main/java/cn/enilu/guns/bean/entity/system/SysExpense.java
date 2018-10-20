@@ -42,7 +42,7 @@ public class SysExpense {
     }
 
     @Basic
-    @Column(name = "desc")
+    @Column(name = "describle")
     public String getDesc() {
         return desc;
     }

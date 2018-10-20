@@ -65,6 +65,10 @@ public class RestaurantServer implements ApplicationRunner{
                 em.getTransaction().begin(); //这个不加会报错
 
                 while ((str = br.readLine()) != null){
+                    //去掉空行，不然会报错
+                    if("".equals(str)){
+                        continue;
+                    }
                     Query query = em.createNativeQuery(str);
                     query.executeUpdate();
                 }

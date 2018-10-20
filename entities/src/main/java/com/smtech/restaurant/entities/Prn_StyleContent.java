@@ -77,8 +77,7 @@ public class Prn_StyleContent {
 		this.printContent = printContent;
 	}
 
-	@Basic
-	@Column(name="PrintContent", columnDefinition="TEXT")
+
 	public String getPrintContent() {
 		return printContent;
 	}
@@ -233,8 +232,6 @@ public class Prn_StyleContent {
 		this.condition = condition;
 	}
 
-	@Basic
-	@Column(name="Condition", columnDefinition="TEXT")
 	public String getCondition() {
 		return condition;
 	}
