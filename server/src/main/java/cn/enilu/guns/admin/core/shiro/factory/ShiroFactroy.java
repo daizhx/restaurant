@@ -16,14 +16,13 @@ import org.apache.shiro.util.ByteSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.DependsOn;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Service
 @DependsOn("springContextHolder")
-@Transactional(readOnly = true)
+//@Transactional(readOnly = true)
 public class ShiroFactroy implements IShiro {
 
     @Autowired

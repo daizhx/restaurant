@@ -6,7 +6,6 @@ import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.PagingAndSortingRepository;
-import org.springframework.transaction.annotation.Transactional;
 
 /**
  * Created  on 2018/3/21 0021.
@@ -16,7 +15,7 @@ import org.springframework.transaction.annotation.Transactional;
 public interface LoginLogRepository extends PagingAndSortingRepository<LoginLog,Integer>
         , JpaRepository<LoginLog,Integer>, JpaSpecificationExecutor<LoginLog> {
     @Modifying
-    @Transactional
+    //@Transactional
     @Query(nativeQuery = true,value = "delete from t_sys_login_log")
     int clear();
 }

@@ -8,8 +8,6 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.PagingAndSortingRepository;
 
-import javax.transaction.Transactional;
-
 /**
  * Created  on 2018/3/21 0021.
  *
@@ -19,7 +17,7 @@ public interface OperationLogRepository extends PagingAndSortingRepository<Opera
         , JpaSpecificationExecutor<OperationLog>
         , JpaRepository<OperationLog,Integer> {
     @Modifying
-    @Transactional
+//    @Transactional
     @Query(nativeQuery = true,value = "delete from t_sys_operation_log")
     int clear();
 }

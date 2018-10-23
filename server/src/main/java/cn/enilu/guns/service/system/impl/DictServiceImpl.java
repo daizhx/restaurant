@@ -7,14 +7,13 @@ import cn.enilu.guns.utils.factory.MutiStrFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.util.List;
 import java.util.Map;
 
 @Service
-@Transactional
+//@Transactional
 public class DictServiceImpl implements DictService {
     private Logger logger = LoggerFactory.getLogger(DictServiceImpl.class);
 

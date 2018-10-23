@@ -23,7 +23,6 @@ import cn.enilu.guns.utils.HttpKit;
 import com.smtech.restaurant.server.SpringContextHolder;
 import org.springframework.context.annotation.DependsOn;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -32,7 +31,7 @@ import javax.servlet.http.HttpServletRequest;
  */
 @Service
 @DependsOn("springContextHolder")
-@Transactional(readOnly = true)
+//@Transactional(readOnly = true)
 public class PermissionCheckFactory implements ICheck {
 
     public static ICheck me() {

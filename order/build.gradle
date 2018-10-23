@@ -14,4 +14,9 @@ dependencies {
     compile project(':gui')
     compile project(':common')
     compile project(':entities')
+
+    compile 'org.hibernate:hibernate-agroal:5.3.7.Final'
+
+    //添加derby依赖包
+    compile files('lib/derby.jar')
 }
