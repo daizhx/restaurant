@@ -1,5 +1,7 @@
 package com.smtech.restaurant.order;
 
+import com.smtech.restaurant.order.ui.DlgOrder;
+import com.smtech.restaurant.order.ui.DlgStart;
 import com.smtech.swing.common.DlgManager;
 import com.smtech.swing.common.dlgs.DlgBase;
 import org.junit.Test;

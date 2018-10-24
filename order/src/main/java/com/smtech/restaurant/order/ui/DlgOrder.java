@@ -1,7 +1,8 @@
-package com.smtech.restaurant.order;
+package com.smtech.restaurant.order.ui;
 
 import com.smtech.restaurant.common.Pager;
 import com.smtech.restaurant.entities.FoodOrderBill;
+import com.smtech.restaurant.order.FoodMenu;
 import com.smtech.swing.common.dlgs.DlgBase;
 import com.smtech.swing.common.layout.GridBagLayoutAdp;
 import com.smtech.swing.common.view.LinearLayout;

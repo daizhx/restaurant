@@ -1,4 +1,4 @@
-package com.smtech.restaurant.order;
+package com.smtech.restaurant.order.ui;
 
 import com.smtech.restaurant.common.ServerDiscover;
 import com.smtech.swing.common.DlgManager;
