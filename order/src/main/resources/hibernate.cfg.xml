@@ -15,10 +15,10 @@
         <!-- Assume test is the database name -->
 
         <property name = "hibernate.connection.url">
-            jdbc:derby:db;create=true
+            jdbc:derby:order_db;create=true
         </property>
 
-        <property name="hbm2ddl.auto">update</property>
+        <property name="hibernate.hbm2ddl.auto">update</property>
 
 
         <!-- List of XML mapping files -->
