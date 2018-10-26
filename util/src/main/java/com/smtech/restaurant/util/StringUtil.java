@@ -12,6 +12,9 @@ public class StringUtil {
         }
         return false;
     }
+    public static boolean isNullStr(String s){
+        return isNull(s);
+    }
     /**
      * 大陆手机号码11位数，匹配格式：前三位固定格式+后8位任意数
      * 此方法中前三位格式有：

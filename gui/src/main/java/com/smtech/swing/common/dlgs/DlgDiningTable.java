@@ -31,7 +31,7 @@ public class DlgDiningTable extends DlgBase {
     }
 
     @Override
-    protected void onCrtContntView(JPanel content) {
+    protected void onCrtContntView(ViewGroup content) {
         contentPanel = content;
         content.setLayout(new GridLayoutEx(10,10,4,4));
     }

@@ -47,11 +47,11 @@ public class RestaurantSystem {
 
         //start serverIDEA,after server started go to home page
         //启动服务成功后，进入登录界面
-        if(startServer()){
+//        if(startServer()){
             showLoginPanel();
-        }else{
-            System.exit(0);
-        }
+//        }else{
+//            System.exit(0);
+//        }
 
         //Schedule a job for the event-dispatching thread:
         //creating and showing this application's GUI.

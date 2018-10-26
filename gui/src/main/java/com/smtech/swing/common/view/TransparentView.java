@@ -1,21 +1,18 @@
 package com.smtech.swing.common.view;
 
-import java.awt.LayoutManager;
-
-import javax.swing.BorderFactory;
-import javax.swing.JPanel;
+import javax.swing.*;
+import java.awt.*;
 
 /**
  * 透明视图
  */
-public class TransparentView extends JPanel {
+public class TransparentView extends ViewGroup {
 
 	public TransparentView() {
 		setOpaque(false);
 	}
 
 	public TransparentView(LayoutManager l) {
-		super(l);
 		setOpaque(false);
 	}
 	

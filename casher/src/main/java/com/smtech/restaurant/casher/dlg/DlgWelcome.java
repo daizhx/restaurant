@@ -14,7 +14,7 @@ public class DlgWelcome extends DlgBase{
     }
 
     @Override
-    protected void onCrtContntView(JPanel p) {
+    protected void onCrtContntView(ViewGroup p) {
         p.setLayout(new BorderLayoutEx());
         p.setBorder(BorderFactory.createEmptyBorder(200,400,200,400));
 //            Image img = ImageIO.read(getClass().getResource("/images/zffs_bg.png"));

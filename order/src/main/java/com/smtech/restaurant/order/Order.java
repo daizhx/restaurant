@@ -1,6 +1,8 @@
 package com.smtech.restaurant.order;
 
 import com.smtech.restaurant.entities.Food;
+import com.smtech.restaurant.order.ui.DlgAuth;
+import com.smtech.swing.common.DlgManager;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -23,8 +25,9 @@ public class Order {
         //TODO 2，开启UDP消息接收服务程序用于接收需要处理的消息
 
         //3，进入主界面
-        Order o = new Order();
-        o.addFoodJpa("aaaa", new Float(1.2));
+        DlgAuth dlgAuth = (DlgAuth) DlgManager.getInstance().getDlg(DlgAuth.class);
+        dlgAuth.display();
+
 
 //
 //        DlgStart dlg = (DlgStart) DlgManager.getInstance().getDlg(DlgStart.class);

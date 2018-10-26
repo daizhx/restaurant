@@ -6,6 +6,7 @@ import com.smtech.swing.common.btns.BtnByDraw;
 import com.smtech.swing.common.btns.ButtonWrapper;
 import com.smtech.swing.common.view.TransparentView;
 import com.smtech.swing.common.util.PanelWraper;
+import com.smtech.swing.common.view.ViewGroup;
 import com.sun.awt.AWTUtilities;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -31,8 +32,8 @@ public class DlgBase extends JDialog{
         setUndecorated(true);
         setDefaultCloseOperation(JDialog.DO_NOTHING_ON_CLOSE);
 
-        JPanel content =  new TransparentView();
-        content.setBackground(Color.WHITE);
+        ViewGroup content =  new ViewGroup();
+//        content.setBackground(Color.WHITE);这里如果设置了背景颜色，子类onCrtContntView方法中无法设置content背景图片
         onCrtContntView(content);
         setContentPane(content);
 
@@ -54,7 +55,7 @@ public class DlgBase extends JDialog{
 
 
     //子类重写构建界面内容,默认黑板
-    protected void onCrtContntView(JPanel content){
+    protected void onCrtContntView(ViewGroup content){
 
     }
 

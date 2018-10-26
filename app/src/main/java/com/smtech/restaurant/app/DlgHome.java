@@ -2,9 +2,7 @@ package com.smtech.restaurant.app;
 
 import com.smtech.swing.common.btns.XButton;
 import com.smtech.swing.common.dlgs.DlgBase;
-import com.smtech.swing.common.layout.BorderLayoutEx;
 import com.smtech.swing.common.layout.GridLayoutEx;
-import com.smtech.swing.common.view.TextView;
 import com.smtech.swing.common.view.ViewGroup;
 
 import javax.swing.*;
@@ -16,7 +14,7 @@ public class DlgHome extends DlgBase {
     }
 
     @Override
-    protected void onCrtContntView(JPanel content) {
+    protected void onCrtContntView(ViewGroup content) {
         content.setLayout(new GridLayoutEx(6,4,10,10));
         content.add(crtMenu("酒楼收银"));
         content.add(crtMenu("开台下单"));

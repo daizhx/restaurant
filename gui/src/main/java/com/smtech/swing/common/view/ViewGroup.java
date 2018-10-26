@@ -100,6 +100,7 @@ public class ViewGroup extends JPanel {
 		}
 	}
 
+
 	public void setBackgroundImage(Image image) {
 		this.backgroundImage = image;
 		setImageDisplayMode(getImageDisplayMode());

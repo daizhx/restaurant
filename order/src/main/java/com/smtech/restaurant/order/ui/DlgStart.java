@@ -5,6 +5,7 @@ import com.smtech.swing.common.DlgManager;
 import com.smtech.swing.common.dlgs.DlgBase;
 import com.smtech.swing.common.dlgs.DlgDiningTable;
 import com.smtech.swing.common.layout.BorderLayoutEx;
+import com.smtech.swing.common.view.ViewGroup;
 
 import javax.swing.*;
 import java.awt.*;
@@ -42,7 +43,7 @@ public class DlgStart extends DlgBase {
     }
 
     @Override
-    protected void onCrtContntView(JPanel content) {
+    protected void onCrtContntView(ViewGroup content) {
         JLabel hint = new JLabel("启动中。。。");
         content.setLayout(new BorderLayoutEx());
         content.setBackground(Color.WHITE);

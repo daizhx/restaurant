@@ -10,7 +10,6 @@ import com.smtech.swing.common.view.PagerListView;
 import com.smtech.swing.common.view.TransparentView;
 import com.smtech.swing.common.view.ViewGroup;
 
-import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 
@@ -29,7 +28,7 @@ public class DlgOrder extends DlgBase {
     }
 
     @Override
-    protected void onCrtContntView(JPanel content) {
+    protected void onCrtContntView(ViewGroup content) {
         GridBagLayoutAdp gla = GridBagLayoutAdp.getInstance();
         gla.add(crtOrderView(),1);
         gla.addWithFixSize(crtFuncBtns(),60);

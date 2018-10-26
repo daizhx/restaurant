@@ -12,7 +12,7 @@ public class GridBagLayoutAdp {
 
 	private static final GridBagLayoutAdp INSTANCE = new GridBagLayoutAdp();
 
-	private GridBagLayoutAdp() {
+	public GridBagLayoutAdp() {
 	}
 
 	public static GridBagLayoutAdp getInstance(){

@@ -65,6 +65,7 @@ public class ImageManager {
 
 	public static String getAbsolutePath(String fileAllName) {
 		String pngPath = String.format("%s%s", RES_PATH, fileAllName);
+		//获取
 		String gifPath = pngPath.toLowerCase().replace(".png", ".gif");
 		if (new File(gifPath).exists()) {
 			return gifPath;
@@ -74,5 +75,4 @@ public class ImageManager {
 
 	private static Map<String, Image> images = new HashMap<String, Image>();
 	private final static String RES_PATH = "./images/";
-	private final static String KEY = "32E41F3611D818C0";
 }
