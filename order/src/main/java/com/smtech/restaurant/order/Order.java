@@ -2,12 +2,13 @@ package com.smtech.restaurant.order;
 
 import com.smtech.restaurant.entities.Food;
 import com.smtech.restaurant.order.ui.DlgAuth;
-import com.smtech.swing.common.DlgManager;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
-import org.hibernate.cfg.Configuration;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -17,23 +18,25 @@ import javax.persistence.Persistence;
 public class Order {
 
     public static SessionFactory sessionFactory1;
-    public static SessionFactory sessionFactory2;
+
+    @Autowired
+    private DlgAuth dlgAuth;
+
 
     public static void main(String[] args) {
+        ApplicationContext context = new ClassPathXmlApplicationContext("beans.xml");
+        DlgAuth dlg = (DlgAuth) context.getBean("dlgAuth");
+        dlg.display();
+
         //1，借助hibernate初始化数据库,更新数据库
-        sessionFactory1 = new Configuration().configure().addAnnotatedClass(Food.class).buildSessionFactory();
+//        sessionFactory1 = new Configuration().configure().addAnnotatedClass(Food.class).buildSessionFactory();
         //TODO 2，开启UDP消息接收服务程序用于接收需要处理的消息
 
         //3，进入主界面
-        DlgAuth dlgAuth = (DlgAuth) DlgManager.getInstance().getDlg(DlgAuth.class);
-        dlgAuth.display();
+//        DlgAuth dlgAuth = (DlgAuth) DlgManager.getInstance().getDlg(DlgAuth.class);
 
-
-//
-//        DlgStart dlg = (DlgStart) DlgManager.getInstance().getDlg(DlgStart.class);
-//        dlg.setSize(500,500);
-//        dlg.setVisible(true);
     }
+
 
     public void addFoodJpa(String name, float price){
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("order");

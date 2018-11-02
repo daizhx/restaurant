@@ -2,167 +2,135 @@ package com.smtech.swing.common.view;
 
 import com.smtech.restaurant.util.StringUtil;
 import com.smtech.swing.common.ImageManager;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 
 /**
- * 封装swing Panel类
- * 扩展功能：
- * 1，设置背景图片
+ * 可设置背景图片的JPanel，提供了三种显示背景图片的方式：居中、平铺和拉伸。 未设置背景图片的情况下，同JPanel。
+ *
+ * 该面板只能设置图片背景，设置背景颜色无效。。。
+ * @author 003
  */
-public class ViewGroup extends JPanel {
-
-    public static final int HORIZONTAL = SwingConstants.HORIZONTAL;
-    public static final int VERTICAL = SwingConstants.VERTICAL;
-
+public class JImagePane extends JPanel {
 	private boolean isDotNinePNG = false;
 
-	/**
-	 */
-	public static final String CENTRE = "Centre";
-
-	/**
-	 */
-	public static final String TILED = "Tiled";
-
-	/**
-	 */
-	public static final String SCALED = "Scaled";
-
-	/**
-	 */
-	public static final String CENTRE_CHOP = "CENTRE_CHOP";
-
-	/**
-	 */
-	public static final String CENTER_INSIDE = "CENTER_INSIDE";
-
-	/**
-     * 背景图片对象
-	 */
-	private Image backgroundImage;
-
-	/**
-     * 绘制背景图片的模式，默认SCALED模式
-	 */
-	private String imageDisplayMode = ViewGroup.SCALED;
-
-	private String bgPath;
-
-	private OnClickListener onClickListener;
-
-	public interface OnClickListener{
-		void onClick(ViewGroup v);
+	public JImagePane(String imagePath) {
+		setBackgroundImage(imagePath, TILED);
+		setOpaque(false);
 	}
 
-	public void setOnClickListener(OnClickListener onClickListener) {
-		this.onClickListener = onClickListener;
+	/**
+	 * 构造一个具有指定背景图片和指定显示模式的JImagePane
+	 * 
+	 * @param image
+	 *            背景图片
+	 * @param modeName
+	 *            背景图片显示模式
+	 */
+	public JImagePane(Image image, String modeName) {
+		super();
+		setBackgroundImage(image);
+		setImageDisplayMode(modeName);
+		setOpaque(false);
 	}
 
-	public ViewGroup() {
-        super();
-        setOpaque(false);
-
-		addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				if(onClickListener != null){
-				    ViewGroup v = (ViewGroup) e.getSource();
-					onClickListener.onClick(v);
-				}
-			}
-		});
-    }
-
-    public ViewGroup(String bgPath,String mode){
-	    this();
-	    setBackgroundImage(bgPath,mode);
-    }
-
-    //注：调用updateUI会重新触发改方法,
-	@Override
-	public void setBackground(Color bg) {
-		super.setBackground(bg);
+	public JImagePane(String imagePath, String modeName) {
+		setBackgroundImage(imagePath, modeName);
+		setOpaque(false);
 	}
 
-	//设置背景色请调用该方法
-	public void setBackgroundColor(Color bg){
-	    setBackground(bg);
-        //这里设置不透明，导致设置图片背景不起作用，如果设置设置透明就可以设置图片背景,但是不能设置背景色
-        setOpaque(true);
-    }
+	public JImagePane() {
+		setOpaque(false);
+	}
 
 	public void setBackgroundImage(String imagePath, String modeName) {
 		Image iamge = ImageManager.getImage(imagePath);
 		this.backgroundImage = iamge;
 		this.bgPath = imagePath;
 		setImageDisplayMode(modeName);
-
-		setBackgroundImage(backgroundImage);
+	}
+	
+	public void setBackgroundImage(Image iamge, String modeName) {
+		this.backgroundImage = iamge;
+		setImageDisplayMode(modeName);
 	}
 
-	public void setBackgroundImagePath(String imagePath) {
+	public void setBackgroundImage(String imagePath) {
 		if (imagePath != null) {
 			this.bgPath = imagePath;
-			this.setBackgroundImage(imagePath,imageDisplayMode);
+			this.setBackgroundImage(imagePath, getImageDisplayMode());
 		}
 	}
 
-	public void setBackgroundImage(String imgPath){
-	    this.setBackgroundImage(imgPath,imageDisplayMode);
-    }
-
-
 	public void setBackgroundImage(Image image) {
-	    setOpaque(false);
 		this.backgroundImage = image;
-
-		//绘制背景图
-        this.validate();
-        this.repaint();
+		setImageDisplayMode(getImageDisplayMode());
 	}
 
 	/**
-	 *
+	 * 获取背景图片
+	 * 
+	 * @return 背景图片
 	 */
 	public Image getBackgroundImage() {
 		return backgroundImage;
 	}
 
-	/**
-	 * 设置绘制背景图片的模式
-	 * @param modeName
-	 */
-	public void setImageDisplayMode(String modeName) {
-		if (!StringUtil.isNull(modeName)) {
-            this.imageDisplayMode = modeName.trim();
-		}
+	public String getBgPath() {
+		return bgPath;
 	}
 
-	public void setIsDotNinePNG(boolean b){
+	/**
+	 * 设置背景图片显示模式
+	 * 
+	 * @param modeName
+	 *            模式名称，取值仅限于ImagePane.TILED ImagePane.SCALED ImagePane.CENTRE
+	 */
+	public void setImageDisplayMode(String modeName) {
+		if (StringUtil.isNullStr(modeName)) {
+			modeName = CENTER_INSIDE;
+		}
+		this.imageDisplayMode = modeName.trim();
+		this.validate();
+		this.repaint();
+	}
+
+	/**
+	 * 获取背景图片显示模式
+	 * 
+	 * @return 显示模式
+	 */
+	public String getImageDisplayMode() {
+		return imageDisplayMode;
+	}
+
+	public void setIsDotNinePNG(boolean b) {
 		isDotNinePNG = b;
 	}
+
 	/**
-	 *
+	 * 绘制组件
+	 * 
 	 * @see javax.swing.JComponent#paintComponent(Graphics)
 	 */
 	@Override
 	protected void paintComponent(Graphics g) {
-
+		super.paintComponent(g);
 		if (backgroundImage == null) {
-			super.paintComponent(g);
+			// 没有设置图片
 			return;
 		}
-		
-		if(isDotNinePNG ){
+
+		if (isDotNinePNG) {
 			String path = ImageManager.getAbsolutePath(bgPath);
-//			InputStream stream = this.getClass().getResourceAsStream("content_bg2.9.png");
+			// InputStream stream =
+			// this.getClass().getResourceAsStream("content_bg2.9.png");
 //			try {
 //				InputStream stream = new FileInputStream(path);
-//				NinePatch mPatch = NinePatch.load(stream, true /* is9Patch*/, false /* convert */);
+//				NinePatch mPatch = NinePatch.load(stream, true /* is9Patch */, false /* convert */);
 //				Graphics2D g2 = (Graphics2D) g;
 //				Rectangle clip = g2.getClipBounds();
 //				mPatch.draw(g2, clip.x, clip.y, clip.width, clip.height);
@@ -173,20 +141,23 @@ public class ViewGroup extends JPanel {
 		}
 
 		if (CENTRE.equalsIgnoreCase(imageDisplayMode)) {
+			// 居中
 			paintComponentCentre(g);
 		} else if (TILED.equalsIgnoreCase(imageDisplayMode)) {
+			// 平铺
 			paintComponentTiled(g);
 		} else if (SCALED.equalsIgnoreCase(imageDisplayMode)) {
+			// 拉伸
 			paintComponentScaled(g);
 		} else if (CENTRE_CHOP.equalsIgnoreCase(imageDisplayMode)) {
 			paintComponentCENTRE_CHOP(g);
 		} else if (CENTER_INSIDE.equalsIgnoreCase(imageDisplayMode)) {
 			paintComponentCENTER_INSIDE(g);
 		}
-		super.paintComponent(g);
 	}
 
 	/**
+	 * 居中
 	 */
 	private void paintComponentCentre(Graphics g) {
 		int width = this.getWidth();
@@ -199,7 +170,8 @@ public class ViewGroup extends JPanel {
 	}
 
 	/**
-	 *
+	 * 平铺
+	 * 
 	 */
 	private void paintComponentTiled(Graphics g) {
 		int width = this.getWidth();
@@ -214,7 +186,7 @@ public class ViewGroup extends JPanel {
 	}
 
 	/**
-	 *
+	 * 拉伸
 	 */
 	private void paintComponentScaled(Graphics g) {
 		int width = this.getWidth();
@@ -223,7 +195,7 @@ public class ViewGroup extends JPanel {
 	}
 
 	/**
-
+	 * 缩放后再拉伸
 	 * 
 	 */
 	private void paintComponentCENTRE_CHOP(Graphics g) {
@@ -231,13 +203,16 @@ public class ViewGroup extends JPanel {
 		int height = this.getHeight();
 		int imageWidth = backgroundImage.getWidth(this);
 		int imageHeight = backgroundImage.getHeight(this);
+		// 伸缩后居中
 		int maxW = 0;
 		int maxH = 0;
-		double d = 0;
+		double d = 0;// 缩放系数
+		// 以宽为缩放标准
 		maxW = Math.max(width, imageWidth);
 		d = Double.valueOf(maxW) / Double.valueOf(imageWidth);
 		maxH = (int) (imageHeight * d);
 		if (maxH < height) {
+			// 以高为缩放标准
 			maxH = Math.max(height, imageHeight);
 			d = Double.valueOf(maxH) / Double.valueOf(imageHeight);
 			maxW = (int) (imageWidth * d);
@@ -251,17 +226,20 @@ public class ViewGroup extends JPanel {
 	}
 
 	/**
-	 *
+	 * 将图片的内容完整居中显示，通过按比例缩小或原来的size使得图片长/宽等于或小于View的长/宽
+	 * 
 	 */
 	private void paintComponentCENTER_INSIDE(Graphics g) {
 		int width = this.getWidth();
 		int height = this.getHeight();
 		int imageWidth = backgroundImage.getWidth(this);
 		int imageHeight = backgroundImage.getHeight(this);
-		int maxW = Math.min(width, imageWidth);
-		double d = Double.valueOf(maxW) / Double.valueOf(imageWidth);
-		int maxH = (int) (imageHeight * d);
+		// 以宽为缩放标准
+		int maxW = Math.min(width, imageWidth);// 缩放后的宽度
+		double d = Double.valueOf(maxW) / Double.valueOf(imageWidth);// 缩放系数
+		int maxH = (int) (imageHeight * d);// 缩放后的高度
 		if (maxH >= height) {
+			// 以高为缩放标准
 			maxH = Math.min(height, imageHeight);
 			d = Double.valueOf(maxH) / Double.valueOf(imageHeight);
 			maxW = (int) (imageWidth * d);
@@ -276,8 +254,43 @@ public class ViewGroup extends JPanel {
 		g2d.drawImage(backgroundImage, 0, 0, width, height, x1, y1, x2, y2, this);
 	}
 
-	public void setPadding(int left,int top ,int right,int bottom){
-		setBorder(BorderFactory.createEmptyBorder(top,left,bottom,right));
-	}
+	/**
+	 * 居中
+	 */
+	public static final String CENTRE = "Centre";
+
+	/**
+	 * 平铺
+	 */
+	public static final String TILED = "Tiled";
+
+	/**
+	 * 拉伸
+	 */
+	public static final String SCALED = "Scaled";
+
+	/**
+	 * 按比例扩大图片的size居中显示，使得图片长(宽)等于或大于View的长(宽)
+	 */
+	public static final String CENTRE_CHOP = "CENTRE_CHOP";
+
+	/**
+	 * 将图片的内容完整居中显示，通过按比例缩小或原来的size使得图片长/宽等于或小于View的长/宽
+	 */
+	public static final String CENTER_INSIDE = "CENTER_INSIDE";
+
+	/**
+	 * 背景图片
+	 */
+	private Image backgroundImage;
+
+	/**
+	 * 背景图片显示模式
+	 */
+	private String imageDisplayMode;
+
+	private String bgPath;
+
+	private static Logger logger = LoggerFactory.getLogger(JImagePane.class);
 
 }

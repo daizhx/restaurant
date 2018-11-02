@@ -1,12 +1,14 @@
-package com.smtech.swing.common.util;
+package com.smtech.restaurant.order.ui;
 
+import com.smtech.restaurant.order.Constants;
 import com.smtech.swing.common.ImageManager;
+import com.smtech.swing.common.util.BorderFactoryEx;
+import com.smtech.swing.common.view.TransparentPanel;
 
 import javax.swing.*;
 import java.awt.*;
 
-//ui层面上的一些公共方法
-public class UIUtil {
+public class UIUtil implements Constants{
 
     /**
      * 固定某控件的大小
@@ -71,5 +73,30 @@ public class UIUtil {
     public static ImageIcon createImageIcon(String filename) {
         String path = "Icon/" + filename;
         return ImageManager.getImgIcon(path);
+    }
+
+    /**
+     * 创建文本框面板，里面有一个LABEL，和一个TF，并将设置其背景色
+     *
+     * @param label
+     * @param tf
+     * @return
+     */
+    public static JPanel createTFPanel(String label, JTextField tf) {
+        JLabel l = new JLabel(label);
+        l.setOpaque(false);
+        l.setFont(fontInLabel);
+        l.setBorder(BorderFactory.createEmptyBorder(0, gapInBorder, 0, gapInBorder));
+        tf.setOpaque(false);
+        tf.setBorder(null);
+        tf.setFont(fontInTextBox);
+
+        TransparentPanel p = new TransparentPanel();
+        p.setBorder(BorderFactoryEx.crtRoundedBorder());
+        p.setLayout(new BoxLayout(p, BoxLayout.LINE_AXIS));
+        fixSize(tf, new Dimension(250, 40));
+        p.add(l);
+        p.add(tf);
+        return p;
     }
 }

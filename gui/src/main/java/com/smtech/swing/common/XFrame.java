@@ -4,7 +4,6 @@ import com.smtech.swing.common.btns.XImageButton;
 import com.smtech.swing.common.util.CommonFunc;
 import com.smtech.swing.common.util.Dragger;
 import com.smtech.swing.common.util.PanelBuilder;
-import com.smtech.swing.common.util.UIUtil;
 import com.smtech.swing.common.view.TransparentView;
 import com.smtech.swing.common.view.ViewGroup;
 
@@ -60,7 +59,7 @@ public class XFrame extends JFrame {
 	}
 
 	public void resetTopPanel() {
-		imgPanel.setBackgroundImage(null);
+
 	}
 
 	public void setPreBounds(Rectangle preBounds) {
@@ -121,7 +120,7 @@ public class XFrame extends JFrame {
 			XImageButton btn = new XImageButton(ac);
 			btn.setImgPath(imgPath);
 			btn.setHoverImgPath(hoverImgPath);
-			UIUtil.fixSize(btn, btnSize);
+//			fixSize(btn, btnSize);
 			pb.add(btn);
 
 			if (ac instanceof Max) {

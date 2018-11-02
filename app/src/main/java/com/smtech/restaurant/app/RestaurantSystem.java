@@ -11,7 +11,6 @@ import com.smtech.swing.common.XFrame;
 import com.smtech.swing.common.layout.BorderLayoutEx;
 import com.smtech.swing.common.layout.GridBagLayoutEx;
 import com.smtech.swing.common.util.PanelBuilder;
-import com.smtech.swing.common.util.UIUtil;
 import com.smtech.swing.common.view.TransparentView;
 import com.smtech.swing.common.view.ViewGroup;
 import org.apache.log4j.PropertyConfigurator;

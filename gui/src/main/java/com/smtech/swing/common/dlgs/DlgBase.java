@@ -4,8 +4,8 @@ import com.smtech.restaurant.common.StackTraceToString;
 import com.smtech.swing.common.Res;
 import com.smtech.swing.common.btns.BtnByDraw;
 import com.smtech.swing.common.btns.ButtonWrapper;
-import com.smtech.swing.common.view.TransparentView;
 import com.smtech.swing.common.util.PanelWraper;
+import com.smtech.swing.common.view.TransparentView;
 import com.smtech.swing.common.view.ViewGroup;
 import com.sun.awt.AWTUtilities;
 import org.slf4j.Logger;
@@ -20,7 +20,7 @@ import java.awt.event.KeyEvent;
 /**
  * 全屏对话框
  */
-public class DlgBase extends JDialog{
+public class DlgBase extends JDialog {
     private final Logger logger = LoggerFactory.getLogger(DlgBase.class);
 
     // 得到显示器屏幕的宽高

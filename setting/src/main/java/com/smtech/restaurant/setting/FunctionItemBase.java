@@ -3,7 +3,6 @@ package com.smtech.restaurant.setting;
 import com.smtech.restaurant.common.StackTraceToString;
 import com.smtech.swing.common.ImageManager;
 import com.smtech.swing.common.util.PanelBuilder;
-import com.smtech.swing.common.util.UIUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

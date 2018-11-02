@@ -7,7 +7,6 @@ import com.smtech.restaurant.common.http.HttpClient;
 import com.smtech.restaurant.entities.ColumnInfo;
 import com.smtech.swing.common.MainFrame;
 import com.smtech.swing.common.util.PanelBuilder;
-import com.smtech.swing.common.util.UIUtil;
 import com.smtech.swing.common.view.CommonTable;
 import com.smtech.swing.common.view.TextFieldEx;
 import com.smtech.swing.common.view.ViewGroup;

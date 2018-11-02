@@ -52,8 +52,12 @@ public class ButtonWrapper extends ComponentWrapper {
 	}
 
 	public void setBackgroundImagePath(String imagePath) {
-		super.setBackgroundImagePath(imagePath);
-		nomalImgPath = imagePath;
+		this.setBackgroundImage(imagePath);
+	}
+
+
+	public void setBackground(String imgPath){
+		setBackgroundImagePath(imgPath);
 	}
 
 	public void setBackgroundImage(String imagePath, String modeName) {
@@ -64,7 +68,7 @@ public class ButtonWrapper extends ComponentWrapper {
 	protected void setPressedBackGroundImage() {
 		String img = pressedImgPath == null ? getDefaultPressedImgPath()
 				: pressedImgPath;
-		super.setBackgroundImage(img, getImageDisplayMode());
+		super.setBackgroundImagePath(img);
 	}
 
 	protected void setPressIconImage() {
@@ -83,19 +87,19 @@ public class ButtonWrapper extends ComponentWrapper {
 	protected void setReleasedBackGroundImage() {
 		String img = releasedImgPath == null ? getDefaultReleasedImgPath()
 				: releasedImgPath;
-		super.setBackgroundImage(img, getImageDisplayMode());
+		super.setBackgroundImage(img);
 	}
 
 	private void setSelectedBackGroundImage() {
 		String img = selectedImgPath == null ? getDefaultSelectedImgPath()
 				: selectedImgPath;
-		super.setBackgroundImage(img, getImageDisplayMode());
+		super.setBackgroundImage(img);
 	}
 
 	private void setDisableBackGroundImage() {
 		String img = disableImgPath == null ? getDefaultDisableImgPath()
 				: disableImgPath;
-		super.setBackgroundImage(img, getImageDisplayMode());
+		super.setBackgroundImage(img);
 	}
 
 	public void setIcon(String iconPath) {
@@ -124,7 +128,7 @@ public class ButtonWrapper extends ComponentWrapper {
 
 	public void setIcon(String iconPath, int w, int h, int gravity) {
 		icon = iconPath;
-		String RES_PATH = "../resources/";
+		String RES_PATH = "./images/";
 		iconPath = RES_PATH + iconPath;
 		ImageIcon img = new ImageIcon(iconPath);
 		img.setImage(img.getImage()

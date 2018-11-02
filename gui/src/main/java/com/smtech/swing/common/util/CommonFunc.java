@@ -4,6 +4,8 @@ import java.awt.*;
 import java.math.BigDecimal;
 
 public class CommonFunc {
+
+
     /**
      * 获取屏幕可用的最大范围除去周边的间隔
      *

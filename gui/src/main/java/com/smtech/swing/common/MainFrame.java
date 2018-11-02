@@ -1,15 +1,9 @@
 package com.smtech.swing.common;
 
-import java.awt.Color;
-
-import javax.swing.JFrame;
+import javax.swing.*;
+import java.awt.*;
 
 public class MainFrame extends JFrame {
-	public static void setInstance(MainFrame instance) {
-		synchronized (lockForInstance) {
-			MainFrame.instance = instance;
-		}
-	}
 
 	public static MainFrame getInstance() {
 		synchronized (lockForInstance) {

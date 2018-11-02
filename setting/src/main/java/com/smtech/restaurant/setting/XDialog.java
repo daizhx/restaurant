@@ -4,7 +4,6 @@ import com.smtech.swing.common.btns.XImageButton;
 import com.smtech.swing.common.dlgs.DlgBase;
 import com.smtech.swing.common.util.Dragger;
 import com.smtech.swing.common.util.PanelBuilder;
-import com.smtech.swing.common.util.UIUtil;
 import com.smtech.swing.common.view.TransparentView;
 import com.smtech.swing.common.view.ViewGroup;
 import com.sun.awt.AWTUtilities;

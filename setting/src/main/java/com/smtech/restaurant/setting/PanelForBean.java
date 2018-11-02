@@ -1,7 +1,6 @@
 package com.smtech.restaurant.setting;
 
 import com.smtech.restaurant.entities.ColumnInfo;
-import com.smtech.swing.common.util.UIUtil;
 import com.smtech.swing.common.view.InputIntWithLabel;
 import com.smtech.swing.common.view.InputStringWithLabel;
 import com.smtech.swing.common.view.InputWithLabel;
