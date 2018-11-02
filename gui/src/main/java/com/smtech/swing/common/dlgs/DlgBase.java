@@ -27,6 +27,10 @@ public class DlgBase extends JDialog {
     public static int screenWidth = Toolkit.getDefaultToolkit().getScreenSize().width;
     public static int screenHeight = Toolkit.getDefaultToolkit().getScreenSize().height;
 
+    public DlgBase(){
+        this(new JFrame());
+    }
+
     public DlgBase(Window owner) {
         super(owner);
         setUndecorated(true);
