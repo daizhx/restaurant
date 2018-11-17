@@ -1,13 +1,10 @@
 package com.smtech.restaurant.entities;
 
-import com.sun.istack.internal.NotNull;
-
 import javax.persistence.Entity;
 
 @Entity
 public class DiningTableType extends BaseColumn {
 
-    @NotNull
     private String name;
 
     //服务费

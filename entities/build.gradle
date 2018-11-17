@@ -24,3 +24,8 @@ dependencies {
     compile("org.hibernate:hibernate-core:5.0.12.Final")
     compile("org.projectlombok:lombok:1.16.20")
 }
+
+
+tasks.withType(JavaCompile){
+    options.encoding = "UTF-8"
+}
