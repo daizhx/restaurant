@@ -1,5 +1,7 @@
 CREATE DATABASE IF NOT EXISTS restaurant DEFAULT CHARSET utf8 COLLATE utf8_general_ci;
 
+USE restaurant;
+
 -- 创建连锁集团实体表
 CREATE TABLE IF NOT EXISTS shop_company(
 	id int NOT NULL AUTO_INCREMENT COMMENT '自增主键',
@@ -11,7 +13,7 @@ CREATE TABLE IF NOT EXISTS shop_company(
 	reg_tel INT UNSIGNED NOT NULL COMMENT '注册手机号',
 
 	PRIMARY KEY (id)
-)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='集团表';
 
 -- 创建店铺实体表
 CREATE TABLE IF NOT EXISTS restaurant(
@@ -25,7 +27,7 @@ CREATE TABLE IF NOT EXISTS restaurant(
 	company_uuid VARCHAR(32) DEFAULT NULL COMMENT '集团uuid',
 
 	PRIMARY KEY (id)
-)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='店铺表';
 
 -- 创建店铺员工表
 CREATE TABLE IF NOT EXISTS shop_staff(
@@ -47,7 +49,7 @@ CREATE TABLE IF NOT EXISTS shop_staff(
 
 	shop_uuid VARCHAR(32) NOT NULL COMMENT '店铺uuid',
   PRIMARY KEY (`id`)
-)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='员工表';
 
 
 -- 创建店铺员工角色表
@@ -79,4 +81,6 @@ CREATE TABLE IF NOT EXISTS `shop_dept` (
 	shop_uuid VARCHAR(32) NOT NULL COMMENT '店铺uuid',
 
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8 COMMENT='部门表';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='部门表';
+
+
