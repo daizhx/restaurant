@@ -27,10 +27,11 @@ public class DlgAuth extends DlgBase implements InitializingBean,Constants {
 
     @Autowired
     public StatusBarMonitor monitor;
+
     private static final int comHigth = 60;
     //for user id input
     private JTextField tfYhzh;
-    //for
+    //input password
     private JPasswordField tfYhmm;
 
     protected SaasKeyBoardPanel keyBoardPanel;
@@ -406,7 +407,7 @@ public class DlgAuth extends DlgBase implements InitializingBean,Constants {
 
         // 创建键盘面板
         keyBoardPanel = new SaasKeyBoardPanel(this);
-//        keyBoardPanel.setOnCommit(new ActionQd());
+        keyBoardPanel.setOnCommit(new ActionQd());
         keyBoardPanel.init();
 
         // 垂直方向放置整体
@@ -527,4 +528,12 @@ public class DlgAuth extends DlgBase implements InitializingBean,Constants {
         //TODO 退出
     }
 
+    private class ActionQd extends AbstractAction {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            String account = tfYhzh.getText();
+            String pwd = new String(tfYhmm.getPassword());
+            System.out.println("input------>"+account+","+pwd);
+        }
+    }
 }

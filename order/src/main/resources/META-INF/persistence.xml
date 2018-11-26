@@ -4,6 +4,7 @@
              version="2.0" xmlns="http://java.sun.com/xml/ns/persistence">
     <persistence-unit name="order" transaction-type="RESOURCE_LOCAL">
         <class>com.smtech.restaurant.entities.Food</class>
+        <class>com.smtech.restaurant.entities.SysUser</class>
         <properties>
             <property name="hibernate.connection.driver_class" value="org.apache.derby.jdbc.EmbeddedDriver" />
             <property name="hibernate.dialect" value="org.hibernate.dialect.DerbyTenSevenDialect"></property>

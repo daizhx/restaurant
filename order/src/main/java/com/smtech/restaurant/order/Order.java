@@ -24,12 +24,16 @@ public class Order {
 
 
     public static void main(String[] args) {
+        //1，借助hibernate初始化数据库,更新数据库
+//        sessionFactory1 = new Configuration().configure().addAnnotatedClass(Food.class).buildSessionFactory();
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("order");
+        EntityManager em = emf.createEntityManager();
+
         ApplicationContext context = new ClassPathXmlApplicationContext("beans.xml");
         DlgAuth dlg = (DlgAuth) context.getBean("dlgAuth");
         dlg.display();
 
-        //1，借助hibernate初始化数据库,更新数据库
-//        sessionFactory1 = new Configuration().configure().addAnnotatedClass(Food.class).buildSessionFactory();
+
         //TODO 2，开启UDP消息接收服务程序用于接收需要处理的消息
 
         //3，进入主界面
