@@ -4,8 +4,7 @@ USE restaurant;
 
 -- 创建连锁集团实体表
 CREATE TABLE IF NOT EXISTS shop_company(
-	id int NOT NULL AUTO_INCREMENT COMMENT '自增主键',
-	uuid VARCHAR(32) NOT NULL,
+  id int NOT NULL AUTO_INCREMENT COMMENT '自增主键',
 	code VARCHAR(32) NOT NULL UNIQUE COMMENT '编号',
 	pwd VARCHAR(32) NOT NULL COMMENT '密码',
 	name VARCHAR(32) NOT NULL COMMENT '名称',
@@ -82,5 +81,16 @@ CREATE TABLE IF NOT EXISTS `shop_dept` (
 
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='部门表';
+
+
+-- 桌台
+CREATE TABLE IF NOT EXISTS dinning_table (
+  id int AUTO_INCREMENT PRIMARY KEY COMMENT '自增主键',
+  shop_id int COMMENT '店铺外键',
+  code int COMMENT '编号',
+  name int COMMENT '名称',
+  bookable TINYINT COMMENT '可预订'
+
+) ENGINE=InnoDB DEFAULT CHARSET=utf8
 
 
