@@ -82,6 +82,22 @@ CREATE TABLE IF NOT EXISTS `shop_dept` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='部门表';
 
+-- 桌台类型
+CREATE TABLE IF NOT EXISTS dinning_table_type (
+  id int AUTO_INCREMENT PRIMARY KEY,
+  shop_id int COMMENT '店铺外键',
+  code int COMMENT '编号',
+  name int COMMENT '名称'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8
+
+
+-- 桌台区域
+CREATE TABLE IF NOT EXISTS dinning_table_area (
+  id int AUTO_INCREMENT PRIMARY KEY,
+  shop_id int COMMENT '店铺外键',
+  code int COMMENT '编号',
+  name int COMMENT '名称'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8
 
 -- 桌台
 CREATE TABLE IF NOT EXISTS dinning_table (
@@ -90,7 +106,15 @@ CREATE TABLE IF NOT EXISTS dinning_table (
   code int COMMENT '编号',
   name int COMMENT '名称',
   bookable TINYINT COMMENT '可预订'
-
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8
+
+CREATE TABLE IF NOT EXISTS bill (
+  id int AUTO_INCREMENT PRIMARY KEY,
+  shop_id int,
+  billID VARCHAR(16) COMMENT '消费单号',
+  cash int COMMENT '金额',
+  crt_time datetime COMMENT '创建时间'
+
+)
 
 
