@@ -28,6 +28,22 @@ CREATE TABLE IF NOT EXISTS restaurant(
 	PRIMARY KEY (id)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='店铺表';
 
+-- 创建店铺部门表
+CREATE TABLE IF NOT EXISTS `shop_dept` (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键id',
+  `num` int(11) DEFAULT NULL COMMENT '排序',
+  `pid` int(11) DEFAULT NULL COMMENT '父部门id',
+  `pids` varchar(255) DEFAULT NULL COMMENT '父级ids',
+  `simplename` varchar(45) DEFAULT NULL COMMENT '简称',
+  `fullname` varchar(255) DEFAULT NULL COMMENT '全称',
+  `tips` varchar(255) DEFAULT NULL COMMENT '提示',
+  `version` int(11) DEFAULT NULL COMMENT '版本（乐观锁保留字段）',
+
+	shop_uuid VARCHAR(32) NOT NULL COMMENT '店铺uuid',
+
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='部门表';
+
 -- 创建店铺员工表
 CREATE TABLE IF NOT EXISTS shop_staff(
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键id',
@@ -66,22 +82,6 @@ CREATE TABLE IF NOT EXISTS shop_staff_role(
   PRIMARY KEY (`id`)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='角色表';
 
--- 创建店铺部门表
-CREATE TABLE IF NOT EXISTS `shop_dept` (
-  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键id',
-  `num` int(11) DEFAULT NULL COMMENT '排序',
-  `pid` int(11) DEFAULT NULL COMMENT '父部门id',
-  `pids` varchar(255) DEFAULT NULL COMMENT '父级ids',
-  `simplename` varchar(45) DEFAULT NULL COMMENT '简称',
-  `fullname` varchar(255) DEFAULT NULL COMMENT '全称',
-  `tips` varchar(255) DEFAULT NULL COMMENT '提示',
-  `version` int(11) DEFAULT NULL COMMENT '版本（乐观锁保留字段）',
-
-	shop_uuid VARCHAR(32) NOT NULL COMMENT '店铺uuid',
-
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='部门表';
-
 -- 桌台类型
 CREATE TABLE IF NOT EXISTS dinning_table_type (
   id int AUTO_INCREMENT PRIMARY KEY,
@@ -108,13 +108,25 @@ CREATE TABLE IF NOT EXISTS dinning_table (
   bookable TINYINT COMMENT '可预订'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8
 
+-- 消费单
 CREATE TABLE IF NOT EXISTS bill (
   id int AUTO_INCREMENT PRIMARY KEY,
   shop_id int,
   billID VARCHAR(16) COMMENT '消费单号',
   cash int COMMENT '金额',
-  crt_time datetime COMMENT '创建时间'
+  crt_time datetime COMMENT '创建时间',
+  pay_time datetime DEFAULT NULL COMMENT '结账时间',
+  update_time TIMESTAMP
+)ENGINE=InnoDB
+
+
+
+-- 会员
+CREATE TABLE IF NOT EXISTS customer(
+	id int AUTO_INCREMENT PRIMARY KEY,
 
 )
+
+
 
 
