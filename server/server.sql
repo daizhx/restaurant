@@ -108,6 +108,23 @@ CREATE TABLE IF NOT EXISTS dinning_table (
   bookable TINYINT COMMENT '可预订'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8
 
+-- 菜品类
+CREATE TABLE IF NOT EXISTS food_type (
+  id int AUTO_INCREMENT PRIMARY KEY COMMENT '自增主键',
+  name VARCHAR(24) NOT NULL,
+
+)ENGINE=InnoDB
+
+-- 菜品
+CREATE TABLE IF NOT EXISTS food (
+  id int AUTO_INCREMENT PRIMARY KEY COMMENT '自增主键',
+  code VARCHAR(6) COMMENT '编码',
+  name VARCHAR(24) NOT NULL,
+  price int,
+  type_id int COMMENT '菜品类别外键',
+
+)
+
 -- 消费单
 CREATE TABLE IF NOT EXISTS bill (
   id int AUTO_INCREMENT PRIMARY KEY,
@@ -119,7 +136,10 @@ CREATE TABLE IF NOT EXISTS bill (
   update_time TIMESTAMP
 )ENGINE=InnoDB
 
-
+-- 消费菜品
+CREATE TABLE IF NOT EXISTS order_food (
+  id int AUTO_INCREMENT PRIMARY KEY,
+)ENGINE=MyISAM
 
 -- 会员
 CREATE TABLE IF NOT EXISTS customer(
