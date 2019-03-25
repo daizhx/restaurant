@@ -88,7 +88,7 @@ CREATE TABLE IF NOT EXISTS dinning_table_type (
   shop_id int COMMENT '店铺外键',
   code int COMMENT '编号',
   name int COMMENT '名称'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
 -- 桌台区域
@@ -97,7 +97,7 @@ CREATE TABLE IF NOT EXISTS dinning_table_area (
   shop_id int COMMENT '店铺外键',
   code int COMMENT '编号',
   name int COMMENT '名称'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- 桌台
 CREATE TABLE IF NOT EXISTS dinning_table (
@@ -106,14 +106,13 @@ CREATE TABLE IF NOT EXISTS dinning_table (
   code int COMMENT '编号',
   name int COMMENT '名称',
   bookable TINYINT COMMENT '可预订'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- 菜品类
 CREATE TABLE IF NOT EXISTS food_type (
   id int AUTO_INCREMENT PRIMARY KEY COMMENT '自增主键',
-  name VARCHAR(24) NOT NULL,
-
-)ENGINE=InnoDB
+  name VARCHAR(24) NOT NULL
+)ENGINE=InnoDB;
 
 -- 菜品
 CREATE TABLE IF NOT EXISTS food (
@@ -121,9 +120,8 @@ CREATE TABLE IF NOT EXISTS food (
   code VARCHAR(6) COMMENT '编码',
   name VARCHAR(24) NOT NULL,
   price int,
-  type_id int COMMENT '菜品类别外键',
-
-)
+  type_id int COMMENT '菜品类别外键'
+);
 
 -- 消费单
 CREATE TABLE IF NOT EXISTS bill (
@@ -134,17 +132,16 @@ CREATE TABLE IF NOT EXISTS bill (
   crt_time datetime COMMENT '创建时间',
   pay_time datetime DEFAULT NULL COMMENT '结账时间',
   update_time TIMESTAMP
-)ENGINE=InnoDB
+)ENGINE=InnoDB;
 
 -- 消费菜品
 CREATE TABLE IF NOT EXISTS order_food (
-  id int AUTO_INCREMENT PRIMARY KEY,
-)ENGINE=MyISAM
+  id int AUTO_INCREMENT PRIMARY KEY
+)ENGINE=MyISAM;
 
 -- 会员
 CREATE TABLE IF NOT EXISTS customer(
-	id int AUTO_INCREMENT PRIMARY KEY,
-
+	id int AUTO_INCREMENT PRIMARY KEY
 )
 
 
