@@ -7,6 +7,5 @@ include 'util'
 include 'order'
 include 'common'
 include 'DinningTables'
-include 'setting'
 include 'app'
 
