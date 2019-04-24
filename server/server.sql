@@ -26,6 +26,8 @@ CREATE TABLE IF NOT EXISTS restaurant(
 	PRIMARY KEY (pid)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='店铺表';
 
+# 店铺基础数据
+
 -- 创建店铺部门表
 CREATE TABLE IF NOT EXISTS `shop_dept` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键id',
@@ -109,7 +111,10 @@ CREATE TABLE IF NOT EXISTS dinning_table (
 -- 菜品类
 CREATE TABLE IF NOT EXISTS food_type (
   id int AUTO_INCREMENT PRIMARY KEY COMMENT '自增主键',
-  name VARCHAR(24) NOT NULL
+  pid int DEFAULT NULL,
+  name VARCHAR(24) NOT NULL,
+
+  FOREIGN KEY (pid) REFERENCES food_type(id)
 )ENGINE=InnoDB;
 
 -- 菜品
@@ -122,7 +127,7 @@ CREATE TABLE IF NOT EXISTS food (
 );
 
 -- 消费单
-CREATE TABLE IF NOT EXISTS bill (
+CREATE TABLE IF NOT EXISTS tb_bill (
   id int AUTO_INCREMENT PRIMARY KEY,
   shop_id int,
   billID VARCHAR(16) COMMENT '消费单号',
@@ -132,15 +137,15 @@ CREATE TABLE IF NOT EXISTS bill (
   update_time TIMESTAMP
 )ENGINE=InnoDB;
 
+
+# 营业相关数据
 -- 消费菜品
-CREATE TABLE IF NOT EXISTS order_food (
+CREATE TABLE IF NOT EXISTS tb_dish (
+
   id int AUTO_INCREMENT PRIMARY KEY
 )ENGINE=MyISAM;
 
--- 会员
-CREATE TABLE IF NOT EXISTS customer(
-	id int AUTO_INCREMENT PRIMARY KEY
-)
+
 
 
 
